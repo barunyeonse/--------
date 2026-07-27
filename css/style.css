@@ -412,6 +412,41 @@ footer a:hover{color:#fff;}
 }
 @media(max-width:680px){ .gallery-strip img{width:170px;height:212px;} }
 
+/* ---------------- 운동 프로그램 안내 (포토 카드 5종) ---------------- */
+.program-photo-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:16px;
+}
+.program-photo-card{
+  position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:3/4;
+  box-shadow:0 10px 26px rgba(9,32,68,.14);transition:transform .25s ease, box-shadow .25s ease;
+}
+.program-photo-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(9,32,68,.22);}
+.program-photo-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;
+}
+.program-photo-card::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:62%;
+  background:linear-gradient(180deg,rgba(9,32,68,0) 0%,rgba(9,32,68,.55) 45%,rgba(9,32,68,.92) 100%);
+}
+.program-photo-card .txt{
+  position:absolute;left:0;right:0;bottom:0;padding:20px 18px;z-index:1;color:#fff;
+}
+.program-photo-card .txt .en{
+  display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#9FC2FF;margin-bottom:6px;
+}
+.program-photo-card .txt .kr{
+  display:block;font-size:18px;font-weight:800;line-height:1.35;
+}
+@media(max-width:960px){
+  .program-photo-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:680px){
+  .program-photo-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .program-photo-card .txt{padding:14px 12px;}
+  .program-photo-card .txt .kr{font-size:15px;}
+}
+
 /* ---------------- 체계적인 시스템(평가도구 탭) ---------------- */
 .eval-disclaimer{text-align:center;color:#C0472C;font-size:13.5px;margin:0 auto 32px;max-width:640px;}
 .eval-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;}
