@@ -79,7 +79,8 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .nav-cat:hover .nc-text b{color:var(--primary);}
 .nav-cat .nc-text small{font-size:11px;color:var(--text-soft);font-weight:500;}
 .nav-cta{display:flex;gap:10px;align-items:center;}
-.nav-tel{font-weight:800;color:var(--primary);font-size:15px;}
+.nav-tel{font-weight:600;color:var(--primary);font-size:13px;line-height:1.6;text-align:right;}
+.nav-tel b{display:block;font-size:16px;font-weight:800;}
 .hamburger{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--navy);}
 
 /* ---------------- 히어로 ---------------- */
@@ -378,31 +379,72 @@ footer a:hover{color:#fff;}
 .section-head-center p{color:var(--text-soft);font-size:16px;margin-top:10px;}
 
 /* ---------------- 바른연세만의 차별점 ---------------- */
-.diff-section{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:96px 0;}
+.diff-section{position:relative;background:#fff;overflow:hidden;padding:96px 0 0;}
 .diff-section .diff-photo{
-  position:absolute;top:0;right:0;bottom:0;width:52%;
-  background-size:cover;background-position:center;opacity:.22;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);
-  mask-image:linear-gradient(90deg,transparent,#000 35%);
+  position:absolute;top:96px;right:0;width:48%;height:520px;
+  background-size:cover;background-position:top center;opacity:.9;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);
+  mask-image:linear-gradient(90deg,transparent,#000 30%);
 }
 .diff-section .wrap{position:relative;z-index:1;}
-.diff-section .content{max-width:620px;}
-.diff-section .eyebrow-blue{color:#7FB0FF;font-weight:800;font-size:22px;margin-bottom:16px;display:block;}
-.diff-section h2{color:#fff;font-size:clamp(20px,2.6vw,28px);line-height:1.5;margin-bottom:18px;}
-.diff-section p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.8;}
+.diff-section .content{max-width:620px;padding-bottom:64px;}
+.diff-section .eyebrow-blue{color:var(--primary);font-weight:800;font-size:22px;margin-bottom:16px;display:block;}
+.diff-section h2{color:var(--text);font-size:clamp(24px,2.8vw,32px);line-height:1.4;margin-bottom:18px;font-weight:800;}
+.diff-section p{color:var(--text-soft);font-size:16px;line-height:1.8;}
+.diff-cards{
+  position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  padding-bottom:80px;
+}
+.diff-card{
+  background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border:1px solid var(--border);
+  border-radius:16px;padding:36px 28px;text-align:center;box-shadow:0 12px 28px rgba(9,32,68,.08);
+}
+.diff-ico{
+  width:56px;height:56px;border-radius:50%;background:var(--primary-light);
+  display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 18px;
+}
+.diff-card h3{font-size:17px;font-weight:800;margin-bottom:10px;}
+.diff-card p{color:var(--text-soft);font-size:14.5px;line-height:1.7;}
+@media(max-width:960px){
+  .diff-section .diff-photo{display:none;}
+  .diff-cards{grid-template-columns:1fr;}
+}
 
 /* ---------------- 바른연세 비전 ---------------- */
 .vision-section{background:var(--primary-light);padding:96px 0;text-align:center;}
 .vision-section .eyebrow-blue{color:var(--primary);font-weight:800;font-size:22px;margin-bottom:18px;display:block;}
+.vision-section h2{font-size:clamp(22px,2.8vw,30px);line-height:1.5;margin-bottom:16px;}
 .vision-section p.vision-desc{color:var(--text-soft);font-size:17px;max-width:600px;margin:0 auto 48px;}
-.vision-badge{
-  width:220px;height:220px;border-radius:50%;margin:0 auto;
-  background:linear-gradient(160deg,var(--primary) 0%, var(--primary-dark) 100%);
-  color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  box-shadow:0 20px 40px rgba(11,62,135,.28);
+.vision-circles{
+  display:flex;justify-content:center;align-items:center;max-width:900px;margin:0 auto;
 }
-.vision-badge b{font-size:26px;margin-bottom:8px;}
-.vision-badge span{font-size:13.5px;padding:0 30px;text-align:center;line-height:1.5;}
+.vc{
+  width:230px;height:230px;border-radius:50%;margin-left:-40px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  color:#fff;background-size:cover;background-position:center;position:relative;
+  box-shadow:0 12px 30px rgba(9,32,68,.16);
+}
+.vc:first-child{margin-left:0;}
+.vc.solid.vc-1{background:linear-gradient(160deg,var(--primary-dark) 0%, var(--primary) 100%);z-index:4;}
+.vc.solid.vc-2{background:linear-gradient(160deg,var(--primary) 0%, #4B8CE8 100%);z-index:2;}
+.vc.photo{z-index:3;}
+.vc.photo::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(9,32,68,.42);}
+.vc.photo:nth-of-type(2){z-index:3;}
+.vc b{position:relative;font-size:23px;margin-bottom:8px;z-index:1;}
+.vc span{position:relative;font-size:13.5px;padding:0 34px;line-height:1.5;z-index:1;}
+@media(max-width:860px){
+  .vision-circles{flex-wrap:wrap;gap:16px;}
+  .vc{width:150px;height:150px;margin-left:0 !important;}
+  .vc b{font-size:17px;}
+  .vc span{font-size:11.5px;padding:0 18px;}
+}
+
+/* ---------------- 섹션 링크(더보기) ---------------- */
+.section-link{
+  display:inline-flex;align-items:center;gap:4px;margin-top:18px;font-weight:700;
+  color:var(--text);font-size:15px;
+}
+.section-link span{color:var(--primary);font-size:18px;}
 
 /* ---------------- 사진 갤러리 스트립 ---------------- */
 .gallery-strip{display:flex;gap:14px;overflow-x:auto;padding:8px 24px 24px;scroll-snap-type:x mandatory;}
@@ -427,17 +469,36 @@ footer a:hover{color:#fff;}
 .program-photo-card::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:62%;
   background:linear-gradient(180deg,rgba(9,32,68,0) 0%,rgba(9,32,68,.55) 45%,rgba(9,32,68,.92) 100%);
+  transition:height .3s ease, background .3s ease;
+}
+.program-photo-card:hover::after{
+  height:100%;
+  background:linear-gradient(180deg,rgba(9,25,53,.55) 0%,rgba(9,25,53,.72) 40%,rgba(9,25,53,.94) 100%);
 }
 .program-photo-card .txt{
   position:absolute;left:0;right:0;bottom:0;padding:20px 18px;z-index:1;color:#fff;
+  transition:transform .3s ease;
 }
 .program-photo-card .txt .en{
   display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:#9FC2FF;margin-bottom:6px;
+  color:#9FC2FF;margin-bottom:6px;transition:opacity .25s ease;
 }
 .program-photo-card .txt .kr{
   display:block;font-size:18px;font-weight:800;line-height:1.35;
 }
+.program-photo-card .txt .detail{
+  list-style:none;margin:12px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .3s ease, opacity .3s ease;
+}
+.program-photo-card .txt .detail li{
+  font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.88);
+  padding-left:12px;position:relative;
+}
+.program-photo-card .txt .detail li::before{
+  content:"·";position:absolute;left:0;color:#9FC2FF;
+}
+.program-photo-card:hover .txt .en{opacity:0;height:0;margin:0;}
+.program-photo-card:hover .txt .detail{max-height:220px;opacity:1;}
 @media(max-width:960px){
   .program-photo-grid{grid-template-columns:repeat(3,1fr);}
 }
@@ -445,6 +506,7 @@ footer a:hover{color:#fff;}
   .program-photo-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
   .program-photo-card .txt{padding:14px 12px;}
   .program-photo-card .txt .kr{font-size:15px;}
+  .program-photo-card .txt .detail{display:none;}
 }
 
 /* ---------------- 체계적인 시스템(평가도구 탭) ---------------- */
@@ -471,10 +533,28 @@ footer a:hover{color:#fff;}
 @media(max-width:680px){ .eval-grid{grid-template-columns:1fr;} }
 
 /* ---------------- 블로그 티저 ---------------- */
-.blog-teaser{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 0;text-align:center;}
-.blog-teaser img{height:40px;margin:0 auto 18px;}
-.blog-teaser p{color:var(--text-soft);font-size:16px;margin-bottom:22px;}
-.blog-teaser .blog-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.blog-teaser{background:var(--white);padding:80px 0;}
+.bt-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:40px;}
+.bt-head img{height:32px;margin-top:4px;}
+.bt-head h2{font-size:26px;font-weight:800;margin-bottom:8px;}
+.bt-head p{color:var(--text-soft);font-size:15px;margin-bottom:10px;}
+.blog-strip{display:flex;gap:16px;overflow-x:auto;padding:0 24px 8px;scroll-snap-type:x mandatory;}
+.blog-card{
+  flex:0 0 auto;width:300px;height:220px;border-radius:16px;padding:26px;
+  display:flex;flex-direction:column;justify-content:flex-end;color:#fff;scroll-snap-align:start;
+  box-shadow:0 12px 26px rgba(9,32,68,.18);
+}
+.blog-card .bc-kr{font-size:19px;font-weight:800;line-height:1.4;margin-bottom:10px;}
+.blog-card .bc-sub{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.6;}
+.blog-card.bc-1{background:linear-gradient(155deg,#123F94 0%, #0B3E87 60%, #082C61 100%);}
+.blog-card.bc-2{background:linear-gradient(155deg,#1D5FD1 0%, #123F94 60%, #082C61 100%);}
+.blog-card.bc-3{background:linear-gradient(155deg,#0B3E87 0%, #1E3350 60%, #061B36 100%);}
+.blog-card.bc-4{background:linear-gradient(155deg,#1E3350 0%, #082C61 60%, #051526 100%);}
+@media(max-width:680px){
+  .bt-head{flex-direction:column;}
+  .blog-card{width:240px;height:190px;padding:20px;}
+  .blog-card .bc-kr{font-size:16px;}
+}
 
 /* ---------------- 푸터 소셜 버튼 ---------------- */
 .footer-social{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
