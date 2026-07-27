@@ -58,7 +58,9 @@ p.section-desc{color:var(--text-soft);font-size:17px;max-width:640px;}
 header{
   position:sticky;top:0;z-index:100;background:rgba(251,250,247,.92);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+  transition:background .25s ease, border-color .25s ease;
 }
+.logo-white{display:none;}
 .nav{display:flex;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px;}
 .logo{font-size:20px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:8px;}
 .logo img{height:64px;width:auto;display:block;}
@@ -476,3 +478,33 @@ footer a:hover{color:#fff;}
 @media(max-width:960px){ .mega-backdrop{display:none !important;} }
 
 .fl-top{background:var(--navy) !important;font-size:18px !important;}
+
+/* ---------------- 투명 히어로 헤더 (홈페이지 전용) ---------------- */
+body.transparent-hero header{
+  position:fixed;top:0;left:0;right:0;width:100%;
+  background:transparent;border-bottom-color:transparent;backdrop-filter:none;
+}
+body.transparent-hero header .logo-color{display:none;}
+body.transparent-hero header .logo-white{display:block;}
+body.transparent-hero header .nav-menu>a{color:#fff;}
+body.transparent-hero header .nav-menu>a:hover{color:#fff;border-bottom-color:#fff;}
+body.transparent-hero header .nav-tel{color:#fff;}
+body.transparent-hero header .hamburger{color:#fff;}
+body.transparent-hero header .btn-outline{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.4);}
+body.transparent-hero header.scrolled{
+  background:rgba(251,250,247,.92);border-bottom-color:var(--border);backdrop-filter:blur(8px);
+}
+body.transparent-hero header.scrolled .logo-color{display:block;}
+body.transparent-hero header.scrolled .logo-white{display:none;}
+body.transparent-hero header.scrolled .nav-menu>a{color:var(--text);}
+body.transparent-hero header.scrolled .nav-menu>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
+body.transparent-hero header.scrolled .nav-tel{color:var(--primary);}
+body.transparent-hero header.scrolled .hamburger{color:var(--navy);}
+body.transparent-hero .hero-carousel{margin-top:0;}
+@media(max-width:680px){
+  body.transparent-hero header{position:sticky;background:rgba(251,250,247,.92);border-bottom-color:var(--border);backdrop-filter:blur(8px);}
+  body.transparent-hero header .logo-color{display:block;}
+  body.transparent-hero header .logo-white{display:none;}
+  body.transparent-hero header .nav-tel{color:var(--primary);}
+  body.transparent-hero header .hamburger{color:var(--navy);}
+}
