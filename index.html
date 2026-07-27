@@ -138,30 +138,57 @@
 </header>
 
 <!-- ============================================================
-     4) 히어로 — 첫 화면. 가장 중요한 한 줄 문구가 들어갑니다.
+     4) 히어로 캐러셀 — 첫 화면. 실제 활동 사진 3장이 순환합니다.
      ============================================================ -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="hero-badge">🇰🇷 <b>대한민국 최초</b> AI 방문재활운동센터</span>
-      <h1>정밀평가부터<br><em>AI 맞춤 운동 처방</em>까지,<br>집에서 받는 전문 재활운동</h1>
-      <p>국제표준 평가도구로 정밀 진단한 후, AI 분석을 토대로 설계된 맞춤형 운동을 국가면허 전문가가 직접 방문하여 시행합니다.<br>뇌졸중·파킨슨·인공관절 수술 후 재활에 특화되어 있습니다.</p>
-      <div class="hero-actions">
-        <a href="/contact" class="btn btn-primary">무료 정밀평가 신청하기</a>
-        <a href="tel:01081853100" class="btn btn-outline">📞 전화 상담하기</a>
-      </div>
-      <div class="hero-stats">
-        <div><b>100%</b><span>전문가 국가면허 보유</span></div>
-        <div><b>10년+</b><span>평균 임상경력</span></div>
-        <div><b>1회 무료</b><span>첫 정밀평가</span></div>
+<section class="hero-carousel" id="heroCarousel">
+  <div class="hc-slide active">
+    <img src="/assets/hero/slide1.jpg" alt="바른연세 방문 건강·재활 운동센터 대표 최현준">
+    <div class="wrap">
+      <div class="hc-text">
+        <span class="hc-badge">🇰🇷 <b>대한민국 최초</b> AI 방문재활운동센터</span>
+        <h1>실력으로 증명하는<br>바른연세 방문 건강·재활 운동센터</h1>
+        <p>AI 기술력을 기반으로, 가정에서도 편안하게 받는 전문 방문 재활운동을 제공해 드리고 있습니다.</p>
+        <div class="hc-actions">
+          <a href="/contact" class="btn btn-primary">무료 정밀평가 신청하기</a>
+          <a href="tel:01081853100" class="btn btn-outline" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.4);">📞 전화 상담하기</a>
+        </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="/assets/hero-photo.jpg" alt="바른연세 방문 건강·재활 운동센터 대표 최현준">
-      <div class="tag">
-        <b>이런 분들이 찾아주세요</b>
-        병원·재활병원 퇴원 직후 홈트레이닝이 필요한 분, 거동이 불편해 센터 방문이 어려운 분, 파킨슨·뇌졸중·인공관절 수술 후 꾸준한 관리가 필요한 분
+  </div>
+  <div class="hc-slide">
+    <img src="/assets/hero/slide2.jpg" alt="바른연세 방문 건강·재활 운동센터 지역사회 방문 프로그램">
+    <div class="wrap">
+      <div class="hc-text">
+        <span class="hc-badge">국제표준 평가도구 × <b>AI 맞춤 운동처방</b></span>
+        <h1>정밀평가부터<br>AI 맞춤 운동 처방까지</h1>
+        <p>6MWT·TUG·MMT·ROM·Barthel Index로 정밀 진단한 뒤, AI 분석을 바탕으로 국가면허 전문가가 직접 방문해 운동을 진행합니다.</p>
+        <div class="hc-actions">
+          <a href="/programs" class="btn btn-primary">재활프로그램 살펴보기</a>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="hc-slide">
+    <img src="/assets/hero/slide3.jpg" alt="바른연세 방문 건강·재활 운동센터 방문 재활 현장">
+    <div class="wrap">
+      <div class="hc-text">
+        <span class="hc-badge">뇌졸중 · 파킨슨 · <b>인공관절 수술 후</b> 재활 특화</span>
+        <h1>몸이 불편해 센터에<br>오시기 어려운 분들께</h1>
+        <p>거동이 불편해 외출이 어려운 분, 퇴원 직후 홈트레이닝이 필요한 분께 저희가 먼저 찾아갑니다.</p>
+        <div class="hc-actions">
+          <a href="/about" class="btn btn-primary">센터소개 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hc-meta">
+    <button class="hc-nav hc-prev" onclick="hcMove(-1)" aria-label="이전 슬라이드">‹</button>
+    <span class="hc-count" id="hcCount">01 / 03</span>
+    <button class="hc-nav hc-next" onclick="hcMove(1)" aria-label="다음 슬라이드">›</button>
+    <div class="hc-dots" id="hcDots">
+      <button class="active" onclick="hcGo(0)"></button>
+      <button onclick="hcGo(1)"></button>
+      <button onclick="hcGo(2)"></button>
     </div>
   </div>
 </section>
@@ -179,7 +206,102 @@
 </div>
 
 <!-- ============================================================
-     4-1) 문제-해결 — 보호자·환자가 겪는 어려움과 바른연세의 해결책
+     4-1) 운동 프로그램 안내 (센터드 헤더 + 4종 카드)
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="eyebrow-blue">운동 프로그램 안내</span>
+      <p>진단명과 회복 단계에 맞춰, 4가지 전문분야로 나눈 방문형 맞춤 운동 프로그램입니다.</p>
+    </div>
+    <div class="grid-4">
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>신경계 재활</h3>
+          <p>뇌졸중 · 파킨슨 · 외상성 뇌손상 · 척수질환</p>
+          <a href="/programs/neurological">자세히 보기 →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>근골격계 재활</h3>
+          <p>인공관절 · 디스크 · 스포츠 손상</p>
+          <a href="/programs/musculoskeletal">자세히 보기 →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>소아 재활</h3>
+          <p>뇌성마비 · 발달지연</p>
+          <a href="/programs/pediatric">자세히 보기 →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>기타질환 재활</h3>
+          <p>희귀질환 · 암재활</p>
+          <a href="/programs/other">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4-2) 바른연세만의 차별점
+     ============================================================ -->
+<section class="diff-section">
+  <div class="diff-photo" style="background-image:url('/assets/kim-cheonghun.jpg');"></div>
+  <div class="wrap">
+    <div class="content">
+      <span class="eyebrow-blue">바른연세만의 차별점</span>
+      <h2>동일한 진단명이라도, 몸이 회복하는 방식은 사람마다 다르게 나타납니다.</h2>
+      <p>바른연세는 정해진 매뉴얼을 그대로 적용하기보다, 6MWT·TUG·MMT·ROM·Barthel Index 등 국제표준 평가도구로 확인한 몸의 신호를 바탕으로 각자에게 맞는 회복의 방향을 찾아갑니다. 평가 데이터는 AI가 1차로 분석하고, 국가면허 전문가가 검토·보완해 최종 프로그램을 설계합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4-3) 바른연세 비전
+     ============================================================ -->
+<section class="vision-section">
+  <div class="wrap">
+    <span class="eyebrow-blue">바른연세 비전</span>
+    <p class="vision-desc">퇴원 이후의 공백을 채우고, 병원과 가정을 잇는 건강·재활 파트너가 되고자 합니다.</p>
+    <div class="vision-badge">
+      <b>Care</b>
+      <span>정성으로 함께하는<br>방문 재활 서비스</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4-4) 사진 갤러리 — 실제 방문 재활 현장
+     ============================================================ -->
+<section class="section" style="padding-bottom:40px;">
+  <div class="wrap" style="padding:0;">
+    <div class="section-head-center" style="padding:0 24px;">
+      <h2 class="section-title">방문 재활 현장</h2>
+      <p>바른연세 전문가들이 실제로 방문해 함께한 순간들입니다.</p>
+    </div>
+  </div>
+  <div class="gallery-strip">
+    <img src="/assets/gallery/gallery1.jpg" alt="바른연세 방문재활 현장 — 1:1 도수 치료">
+    <img src="/assets/gallery/gallery2.jpg" alt="바른연세 방문재활 현장 — 저항밴드 운동">
+    <img src="/assets/gallery/gallery3.jpg" alt="바른연세 방문재활 현장 — 지역사회 방문 프로그램">
+    <img src="/assets/gallery/gallery4.jpg" alt="바른연세 방문재활 현장 — 지역사회 방문 프로그램">
+    <img src="/assets/gallery/gallery5.jpg" alt="바른연세 방문재활 현장 — 스트레칭 지도">
+    <img src="/assets/gallery/gallery6.jpg" alt="바른연세 방문재활 현장 — 운동 지도">
+    <img src="/assets/gallery/gallery7.jpg" alt="바른연세 방문재활 현장 — 커뮤니티 프로그램">
+  </div>
+</section>
+
+<!-- ============================================================
+     4-5) 문제-해결 — 보호자·환자가 겪는 어려움과 바른연세의 해결책
      ============================================================ -->
 <section class="section">
   <div class="wrap">
@@ -293,45 +415,96 @@
 </section>
 
 <!-- ============================================================
-     8) 재활 프로그램 4종
+     8) 체계적인 시스템 — 국제표준 평가도구 탭
      ============================================================ -->
 <section class="section section-alt">
   <div class="wrap">
-    <span class="eyebrow">PROGRAMS</span>
-    <h2 class="section-title">전문분야별 방문재활 프로그램</h2>
-    <p class="section-desc">진단명과 회복 단계에 맞춰 4가지 분야로 세분화된 프로그램을 제공합니다.</p>
-    <div class="grid-4">
-      <div class="program-card">
-        <div class="top"></div>
-        <div class="body">
-          <h3>신경계 재활</h3>
-          <p>뇌졸중 · 파킨슨 · 외상성 뇌손상 · 척수질환</p>
-          <a href="/programs/neurological">자세히 보기 →</a>
-        </div>
+    <div class="section-head-center">
+      <span class="eyebrow-blue">체계적인 시스템</span>
+      <p>국제표준 평가도구와 국가면허 전문가의 경험이 만나, 안전하고 정확한 바른연세만의 평가로 진행합니다.</p>
+    </div>
+    <p class="eval-disclaimer">※ 바른연세는 의료기관이 아니므로, 모든 평가 지표는 운동 지도 목적의 참고 자료로만 활용됩니다.</p>
+
+    <div class="eval-tabs">
+      <button class="eval-tab-btn active" onclick="evalShow('func', this)">기능평가</button>
+      <button class="eval-tab-btn" onclick="evalShow('strength', this)">근력평가</button>
+      <button class="eval-tab-btn" onclick="evalShow('rom', this)">관절가동범위평가</button>
+      <button class="eval-tab-btn" onclick="evalShow('adl', this)">일상생활평가</button>
+    </div>
+
+    <div id="eval-func" class="eval-grid">
+      <div class="eval-card">
+        <div class="eval-top"><h3>6MWT</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">6분 보행검사</div>
+        <div class="eval-en">6-Minute Walk Test</div>
+        <p class="eval-desc">심폐지구력 및 전반적 보행 능력 평가</p>
+        <div class="eval-box normal"><b>정상 범위</b>건강 성인 400~700m, 60~69세 540~600m 수준</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>400m 이상: 지역사회 보행 가능 수준 / 300m 미만: 예후 불량 시사</div>
       </div>
-      <div class="program-card">
-        <div class="top"></div>
-        <div class="body">
-          <h3>근골격계 재활</h3>
-          <p>인공관절 · 디스크 · 스포츠 손상</p>
-          <a href="/programs/musculoskeletal">자세히 보기 →</a>
-        </div>
+      <div class="eval-card">
+        <div class="eval-top"><h3>TUG</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">일어나 걷기 검사</div>
+        <div class="eval-en">Timed Up and Go Test</div>
+        <p class="eval-desc">기능적 이동성 · 균형 · 낙상 위험 평가</p>
+        <div class="eval-box normal"><b>정상 범위</b>60~89세 기준 8~11초 이내</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>12초 이상: 낙상 위험 증가 및 이동성 저하 주의</div>
       </div>
-      <div class="program-card">
-        <div class="top"></div>
-        <div class="body">
-          <h3>소아 재활</h3>
-          <p>뇌성마비 · 발달지연</p>
-          <a href="/programs/pediatric">자세히 보기 →</a>
-        </div>
+    </div>
+
+    <div id="eval-strength" class="eval-grid" style="display:none;">
+      <div class="eval-card">
+        <div class="eval-top"><h3>MMT</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">도수근력검사</div>
+        <div class="eval-en">Manual Muscle Testing</div>
+        <p class="eval-desc">주요 근육군의 근력을 0~5등급으로 평가</p>
+        <div class="eval-box normal"><b>정상 범위</b>5등급(정상): 중력·저항에 대해 완전한 가동 가능</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>3등급 이하: 중력을 이기지 못하는 근력 저하로 낙상·이동 제한 위험</div>
       </div>
-      <div class="program-card">
-        <div class="top"></div>
-        <div class="body">
-          <h3>기타질환 재활</h3>
-          <p>희귀질환 · 암재활</p>
-          <a href="/programs/other">자세히 보기 →</a>
-        </div>
+      <div class="eval-card">
+        <div class="eval-top"><h3>기립·보행 근력</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">하지 근력 기능평가</div>
+        <div class="eval-en">Functional Strength</div>
+        <p class="eval-desc">앉았다 일어서기 등 일상 동작 기반 하지 근력 평가</p>
+        <div class="eval-box normal"><b>정상 범위</b>보조 없이 반복 동작 수행 가능 여부로 확인</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>보조 필요 시: 하지 근력 저하 및 낙상 위험 평가 필요</div>
+      </div>
+    </div>
+
+    <div id="eval-rom" class="eval-grid" style="display:none;">
+      <div class="eval-card">
+        <div class="eval-top"><h3>ROM</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">관절가동범위검사</div>
+        <div class="eval-en">Range of Motion</div>
+        <p class="eval-desc">주요 관절의 굽힘·폄 등 가동범위를 각도로 측정</p>
+        <div class="eval-box normal"><b>정상 범위</b>관절별 정상 각도 대비 측정 (예: 무릎 굴곡 0~135도)</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>정상범위 대비 제한 시 계단·좌식 등 일상동작에 어려움 예상</div>
+      </div>
+      <div class="eval-card">
+        <div class="eval-top"><h3>통증·부종</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">통증·부종 평가</div>
+        <div class="eval-en">Pain &amp; Swelling</div>
+        <p class="eval-desc">수술·손상 부위의 통증 강도와 부종 정도 확인</p>
+        <div class="eval-box normal"><b>정상 범위</b>통증 자가보고 척도(NRS) 및 둘레 측정으로 확인</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>통증·부종이 심한 경우 강도 조절 및 병행 관리 필요</div>
+      </div>
+    </div>
+
+    <div id="eval-adl" class="eval-grid" style="display:none;">
+      <div class="eval-card">
+        <div class="eval-top"><h3>Barthel Index</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">일상생활동작지수</div>
+        <div class="eval-en">Barthel Index</div>
+        <p class="eval-desc">식사·이동·배변 등 10개 항목의 일상생활 자립도 평가(100점 만점)</p>
+        <div class="eval-box normal"><b>정상 범위</b>90점 이상: 자립적 일상생활 가능</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>60점 미만: 상당한 도움이 필요한 상태로 집중 재활 필요</div>
+      </div>
+      <div class="eval-card">
+        <div class="eval-top"><h3>FIM</h3><div class="eval-badge">✓</div></div>
+        <div class="eval-kr">기능적 독립성 측정</div>
+        <div class="eval-en">Functional Independence Measure</div>
+        <p class="eval-desc">운동·인지 영역을 포함한 종합적 기능적 독립성 평가</p>
+        <div class="eval-box normal"><b>정상 범위</b>항목별 7단계(완전 자립~완전 의존)로 세분 평가</div>
+        <div class="eval-box meaning"><b>임상적 의미</b>낮은 단계일수록 보호자·전문가의 도움 비중이 커짐</div>
       </div>
     </div>
   </div>
@@ -389,6 +562,20 @@
       <h3>후기를 모으고 있습니다</h3>
       <p>2026년 3월 개소한 바른연세는 지금 첫 고객님들의 후기를 정성껏 모으는 중입니다. 검증되지 않은 후기 대신, 실제 이용 후기만 순차적으로 공개할 예정입니다.</p>
       <a href="/contact" class="btn btn-primary">가장 먼저 후기를 남겨주실 분, 상담 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11-1) 블로그 티저
+     ============================================================ -->
+<section class="blog-teaser">
+  <div class="wrap">
+    <img src="/assets/icon.png" alt="바른연세 로고 아이콘">
+    <p>블로그에서 자세한 건강 및 질환정보들을 확인해 보세요.</p>
+    <div class="blog-links">
+      <a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener" class="btn btn-outline">네이버 블로그 1 →</a>
+      <a href="https://blog.naver.com/barun260301" target="_blank" rel="noopener" class="btn btn-outline">네이버 블로그 2 →</a>
     </div>
   </div>
 </section>
@@ -492,7 +679,13 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 바른연세 방문 건강·재활 운동센터. All rights reserved.</span>
-      <span>비의료 건강관리 서비스이며 의료행위를 대체하지 않습니다.</span>
+      <span style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        비의료 건강관리 서비스이며 의료행위를 대체하지 않습니다.
+        <span class="footer-social">
+          <a href="https://pf.kakao.com/_xlMpzX" target="_blank" rel="noopener">💬 카카오톡</a>
+          <a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener">📝 블로그</a>
+        </span>
+      </span>
     </div>
   </div>
 </footer>
@@ -505,6 +698,34 @@
   <a href="https://pf.kakao.com/_xlMpzX" class="fl-chat" title="카카오톡 상담" target="_blank" rel="noopener">💬</a>
   <a href="/contact" class="fl-apply" title="무료 상담 신청">📋</a>
 </div>
+
+<script>
+/* 히어로 캐러셀 */
+(function(){
+  var slides = document.querySelectorAll('#heroCarousel .hc-slide');
+  var dots = document.querySelectorAll('#hcDots button');
+  var countEl = document.getElementById('hcCount');
+  var idx = 0, timer;
+  function render(){
+    slides.forEach(function(s,i){ s.classList.toggle('active', i===idx); });
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+    if(countEl){ countEl.textContent = String(idx+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0'); }
+  }
+  window.hcGo = function(i){ idx = i; render(); resetTimer(); };
+  window.hcMove = function(delta){ idx = (idx + delta + slides.length) % slides.length; render(); resetTimer(); };
+  function resetTimer(){ clearInterval(timer); timer = setInterval(function(){ window.hcMove(1); }, 6000); }
+  if(slides.length){ render(); resetTimer(); }
+})();
+
+/* 체계적인 시스템 — 평가도구 탭 */
+function evalShow(key, btn){
+  document.querySelectorAll('.eval-grid').forEach(function(g){ g.style.display = 'none'; });
+  var target = document.getElementById('eval-' + key);
+  if(target){ target.style.display = 'grid'; }
+  document.querySelectorAll('.eval-tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  if(btn){ btn.classList.add('active'); }
+}
+</script>
 
 </body>
 </html>

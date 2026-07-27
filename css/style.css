@@ -315,3 +315,119 @@ footer a:hover{color:#fff;}
 .review-card .rv-text{font-size:14.5px;color:var(--text);margin-bottom:12px;line-height:1.6;}
 .review-card .rv-meta{font-size:12.5px;color:var(--text-soft);display:flex;justify-content:space-between;}
 .review-card .rv-sample-badge{position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;color:#B3462C;background:#FFF0EA;padding:3px 9px;border-radius:999px;}
+
+/* ============================================================
+   아임웹 참고 리디자인(2026-07-27) — 히어로 캐러셀 / 비전 / 차별점 /
+   갤러리 / 체계적인 시스템 / 블로그 티저
+   ============================================================ */
+
+/* ---------------- 히어로 캐러셀(풀블리드) ---------------- */
+.hero-carousel{position:relative;height:min(78vh,680px);min-height:460px;overflow:hidden;background:var(--navy);}
+.hc-slide{
+  position:absolute;inset:0;opacity:0;transition:opacity .8s ease;
+  display:flex;align-items:flex-end;
+}
+.hc-slide.active{opacity:1;z-index:1;}
+.hc-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hc-slide::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(9,32,68,.72) 0%,rgba(9,32,68,.42) 45%,rgba(9,32,68,.12) 75%);
+}
+.hc-text{position:relative;z-index:2;color:#fff;padding:0 0 76px;max-width:640px;}
+.hc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);color:#fff;font-weight:800;font-size:13.5px;padding:8px 15px;border-radius:999px;margin-bottom:18px;}
+.hc-badge b{color:#7FB0FF;}
+.hc-text h1{color:#fff;font-size:clamp(26px,3.8vw,42px);letter-spacing:-.5px;margin-bottom:16px;}
+.hc-text p{color:rgba(255,255,255,.88);font-size:16.5px;max-width:520px;margin-bottom:26px;}
+.hc-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.hc-nav{position:relative;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);color:#fff;border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;}
+.hc-nav:hover{background:rgba(255,255,255,.3);}
+.hc-meta{position:absolute;z-index:3;left:24px;bottom:24px;display:flex;align-items:center;gap:14px;}
+.hc-count{color:#fff;font-weight:800;font-size:14px;letter-spacing:1px;}
+.hc-dots{display:flex;gap:6px;}
+.hc-dots button{width:26px;height:3px;border-radius:2px;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
+.hc-dots button.active{background:#fff;}
+@media(max-width:680px){
+  .hero-carousel{height:560px;}
+  .hc-slide::before{background:linear-gradient(180deg,rgba(9,32,68,.15) 0%,rgba(9,32,68,.82) 78%);}
+  .hc-text{padding-bottom:64px;max-width:100%;}
+}
+
+/* ---------------- 운동 프로그램 안내(센터드 헤더) ---------------- */
+.section-head-center{text-align:center;max-width:640px;margin:0 auto 44px;}
+.section-head-center .eyebrow-blue{
+  display:inline-block;color:var(--primary);font-weight:800;font-size:22px;margin-bottom:14px;
+}
+.section-head-center h2{font-size:clamp(22px,2.8vw,30px);}
+.section-head-center p{color:var(--text-soft);font-size:16px;margin-top:10px;}
+
+/* ---------------- 바른연세만의 차별점 ---------------- */
+.diff-section{position:relative;background:var(--navy);color:#fff;overflow:hidden;padding:96px 0;}
+.diff-section .diff-photo{
+  position:absolute;top:0;right:0;bottom:0;width:52%;
+  background-size:cover;background-position:center;opacity:.22;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);
+  mask-image:linear-gradient(90deg,transparent,#000 35%);
+}
+.diff-section .wrap{position:relative;z-index:1;}
+.diff-section .content{max-width:620px;}
+.diff-section .eyebrow-blue{color:#7FB0FF;font-weight:800;font-size:22px;margin-bottom:16px;display:block;}
+.diff-section h2{color:#fff;font-size:clamp(20px,2.6vw,28px);line-height:1.5;margin-bottom:18px;}
+.diff-section p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.8;}
+
+/* ---------------- 바른연세 비전 ---------------- */
+.vision-section{background:var(--primary-light);padding:96px 0;text-align:center;}
+.vision-section .eyebrow-blue{color:var(--primary);font-weight:800;font-size:22px;margin-bottom:18px;display:block;}
+.vision-section p.vision-desc{color:var(--text-soft);font-size:17px;max-width:600px;margin:0 auto 48px;}
+.vision-badge{
+  width:220px;height:220px;border-radius:50%;margin:0 auto;
+  background:linear-gradient(160deg,var(--primary) 0%, var(--primary-dark) 100%);
+  color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 20px 40px rgba(11,62,135,.28);
+}
+.vision-badge b{font-size:26px;margin-bottom:8px;}
+.vision-badge span{font-size:13.5px;padding:0 30px;text-align:center;line-height:1.5;}
+
+/* ---------------- 사진 갤러리 스트립 ---------------- */
+.gallery-strip{display:flex;gap:14px;overflow-x:auto;padding:8px 24px 24px;scroll-snap-type:x mandatory;}
+.gallery-strip img{
+  flex:0 0 auto;width:220px;height:275px;object-fit:cover;border-radius:14px;scroll-snap-align:start;
+  box-shadow:var(--shadow);
+}
+@media(max-width:680px){ .gallery-strip img{width:170px;height:212px;} }
+
+/* ---------------- 체계적인 시스템(평가도구 탭) ---------------- */
+.eval-disclaimer{text-align:center;color:#C0472C;font-size:13.5px;margin:0 auto 32px;max-width:640px;}
+.eval-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;}
+.eval-tab-btn{
+  padding:11px 20px;border-radius:999px;border:2px solid var(--border);background:#fff;
+  font-weight:700;font-size:14.5px;cursor:pointer;color:var(--text-soft);
+}
+.eval-tab-btn.active{border-color:var(--primary);color:#fff;background:var(--primary);}
+.eval-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.eval-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
+.eval-card .eval-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.eval-card h3{font-size:21px;}
+.eval-card .eval-badge{width:34px;height:34px;border-radius:10px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;}
+.eval-card .eval-kr{font-weight:700;color:var(--navy);margin-bottom:2px;}
+.eval-card .eval-en{color:var(--text-soft);font-size:13px;margin-bottom:10px;}
+.eval-card .eval-desc{color:var(--text-soft);font-size:14.5px;margin-bottom:16px;}
+.eval-box{border-radius:10px;padding:14px 16px;margin-bottom:10px;font-size:14px;}
+.eval-box b{display:block;font-size:12.5px;color:var(--navy);margin-bottom:4px;}
+.eval-box.normal{background:#F8F9FA;color:var(--text-soft);}
+.eval-box.meaning{background:var(--primary-light);color:var(--primary-dark);}
+.eval-box.meaning b{color:var(--primary);}
+@media(max-width:680px){ .eval-grid{grid-template-columns:1fr;} }
+
+/* ---------------- 블로그 티저 ---------------- */
+.blog-teaser{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 0;text-align:center;}
+.blog-teaser img{height:40px;margin:0 auto 18px;}
+.blog-teaser p{color:var(--text-soft);font-size:16px;margin-bottom:22px;}
+.blog-teaser .blog-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ---------------- 푸터 소셜 버튼 ---------------- */
+.footer-social{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.footer-social a{
+  display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:#fff;
+  padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.16);
+}
+.footer-social a:hover{background:rgba(255,255,255,.16);}
