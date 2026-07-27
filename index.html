@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<!--
+  ============================================================
+  바른연세 방문 건강·재활 운동센터 — 메인페이지 (index.html)
+  ============================================================
+  이 파일 하나에 HTML(글자/구조) + CSS(디자인) + JS(동작)가
+  모두 들어있습니다. 초보자도 아래 "구역(SECTION)" 주석만 보고
+  원하는 부분을 찾아 글자를 바꿀 수 있도록 정리했습니다.
+
+  ▶ 글자만 바꾸고 싶다면: 숫자가 붙은 주석(예: 1번, 2번...)
+    바로 아래 문장을 찾아서 따옴표(" ") 밖의 한글만 수정하세요.
+  ▶ 색상을 바꾸고 싶다면: <style> 태그 안 맨 위 ":root" 부분의
+    --primary, --accent 값(#으로 시작하는 코드)만 바꾸면 전체
+    사이트 색이 한번에 바뀝니다.
+  ▶ [ ] 대괄호로 표시된 부분은 실제 정보(주소·전화번호 등)로
+    반드시 교체해야 하는 자리표시자입니다.
+  ============================================================
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 어르신 고객이 많은 서비스이므로 화면 확대를 막지 않습니다 (user-scalable=no 사용 금지) -->
+
+<!-- 1) 브라우저 탭 제목 -->
+<title>바른연세 방문재활 운동센터 | 대한민국 최초 AI 방문재활운동센터</title>
+
+<!-- 2) 검색결과에 노출되는 설명글 (60자 내외 권장) -->
+<meta name="description" content="AI 맞춤 운동처방과 국제표준 평가도구로 설계하는 방문 재활운동. 뇌졸중·파킨슨·인공관절 등 전문분야, 서울·인천·경기 전역 방문. 첫 정밀평가 무료.">
+
+<meta name="keywords" content="방문재활운동, 방문PT, 뇌졸중재활, 파킨슨재활, 인공관절재활, 강남 방문재활, 서초 방문재활, 반포 방문재활, 청담 방문재활, 압구정 방문재활, 대치 방문재활, 도곡 방문재활, 잠실 방문재활, 송파 방문재활, 목동 방문재활, 여의도 방문재활, 마포 방문재활, 김포 방문재활, 청라 방문재활, 일산 방문재활, 송도 방문재활, AI 재활운동센터">
+
+<!-- 3) 실제 배포 주소로 반드시 교체 (지금은 barunrehab.com 예정 주소를 임시로 넣어둠) -->
+<link rel="canonical" href="https://barunrehab.com/">
+
+<!-- 카카오톡·문자 등으로 링크 공유될 때 보이는 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="바른연세 방문 건강·재활 운동센터">
+<meta property="og:title" content="바른연세 방문재활 운동센터 | 대한민국 최초 AI 방문재활운동센터">
+<meta property="og:description" content="AI 맞춤 운동처방과 국제표준 평가도구로 설계하는 방문 재활운동. 첫 정밀평가 무료 상담.">
+<meta property="og:url" content="https://barunrehab.com/">
+<meta property="og:image" content="https://barunrehab.com/assets/logo-color.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- 구글 서치콘솔 소유확인 코드: 기존 사이트에 2개가 중복 등록되어 있었음 → 실사용 1개만 남기고 교체 -->
+<meta name="google-site-verification" content="[실사용 코드 1개만 입력]">
+
+<!--
+  ============================================================
+  구조화 데이터(JSON-LD) — AI 검색(GEO)·구글 리치결과용
+  실제 주소/전화/영업시간이 정해지면 아래 값을 반드시 채워주세요.
+  ============================================================
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "바른연세 방문 건강·재활 운동센터",
+  "alternateName": "바른연세",
+  "url": "https://barunrehab.com/",
+  "description": "AI 맞춤 운동처방, AI 상담 챗봇, AI 맞춤 홈케어를 도입한 대한민국 최초 AI 방문재활운동센터. 뇌졸중·파킨슨·인공관절 등 전문 방문재활 프로그램 제공.",
+  "areaServed": ["서울특별시", "인천광역시", "경기도"],
+  "priceRange": "₩₩",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "서울특별시 강남구 선릉로 704 (청담동) 청담빌딩 12층 1270-3호",
+    "addressLocality": "강남구",
+    "addressRegion": "서울특별시",
+    "addressCountry": "KR"
+  },
+  "telephone": "010-8185-3100",
+  "medicalSpecialty": ["PhysicalTherapy"],
+  "sameAs": [
+    "https://blog.naver.com/barun8185",
+    "https://blog.naver.com/barun260301"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "방문재활운동은 건강보험이 적용되나요?",
+      "acceptedAnswer": { "@type": "Answer", "text": "바른연세의 방문재활운동은 의료행위가 아닌 비의료 건강관리 서비스로, 건강보험이 적용되지 않는 전액 자비 부담 프로그램입니다. 대신 병원 재활치료와 병행하며 일상에서 꾸준히 운동을 이어갈 수 있도록 설계되어 있습니다." }
+    },
+    {
+      "@type": "Question",
+      "name": "방문 가능한 지역은 어디까지인가요?",
+      "acceptedAnswer": { "@type": "Answer", "text": "서울·인천·경기 전역을 기준으로 상담드리며, 실제 방문 가능 여부와 출장비 발생 여부는 신청지역에 따라 안내드립니다. 강남·서초·잠실·송파·목동·여의도·일산·송도 등 수도권 대부분 지역에서 방문 상담이 가능합니다." }
+    },
+    {
+      "@type": "Question",
+      "name": "첫 방문 때 무엇을 하나요?",
+      "acceptedAnswer": { "@type": "Answer", "text": "1회차는 6분보행검사(6MWT), 균형·보행검사(TUG), 도수근력검사(MMT), 관절가동범위(ROM), 일상생활동작지수(Barthel Index) 등 국제표준 평가도구로 정밀평가를 진행합니다. 이 평가는 무료이며, 평가 결과를 바탕으로 AI가 1차 맞춤 운동안을 제시하고 전문가가 최종 프로그램을 설계합니다." }
+    },
+    {
+      "@type": "Question",
+      "name": "AI 시스템은 실제로 어떻게 사용되나요?",
+      "acceptedAnswer": { "@type": "Answer", "text": "정밀평가 데이터를 AI가 분석해 맞춤 운동처방 초안을 제시하고, 전문가가 이를 검토·보완합니다. 또한 논문·임상 가이드라인 등 근거자료를 바탕으로 한 AI 건강정보 상담이 문의 초기 응대와 프로그램 매칭을 돕고, AI 맞춤 홈케어 콘텐츠가 방문이 없는 날에도 보호자와 환자가 따라할 수 있는 운동 가이드를 제공합니다. AI 상담은 의학적 진단·치료를 대체하지 않는 참고용 정보이며, 응급·중대 증상은 병원 진료를 권장합니다." }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     헤더 / 상단 메뉴
+     ============================================================ -->
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo"><img src="/assets/icon.png" alt="바른연세 방문 건강·재활 운동센터 로고">바른<span>연세</span></a>
+    <nav class="nav-menu">
+      <a href="/about">센터소개</a>
+      <a href="/programs">재활프로그램</a>
+      <a href="/guide">홈케어가이드</a>
+      <a href="/reviews">고객후기</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-tel">📞 010-8185-3100</span>
+      <a href="/contact" class="btn btn-primary">무료 상담 신청</a>
+    </div>
+    <button class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('show')">☰</button>
+  </div>
+</header>
+
+<!-- ============================================================
+     4) 히어로 — 첫 화면. 가장 중요한 한 줄 문구가 들어갑니다.
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-badge">🇰🇷 <b>대한민국 최초</b> AI 방문재활운동센터</span>
+      <h1>정밀평가부터 <em>AI 맞춤 운동처방</em>까지,<br>집에서 받는 전문 재활운동</h1>
+      <p>국제표준 평가도구로 정밀하게 진단하고, AI가 분석한 맞춤 운동을 국가면허 전문가가 직접 방문해 실행합니다. 뇌졸중·파킨슨·인공관절 재활 전문.</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">무료 정밀평가 신청하기</a>
+        <a href="tel:01081853100" class="btn btn-outline">📞 전화 상담하기</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>100%</b><span>전문가 국가면허 보유</span></div>
+        <div><b>10년+</b><span>평균 임상경력</span></div>
+        <div><b>1회 무료</b><span>첫 정밀평가</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="tag">
+        <b>이런 분들이 찾아주세요</b>
+        병원·재활병원 퇴원 직후 홈트레이닝이 필요한 분, 거동이 불편해 센터 방문이 어려운 분, 파킨슨·뇌졸중·인공관절 수술 후 꾸준한 관리가 필요한 분
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     신뢰 배지 바
+     ============================================================ -->
+<div class="trustbar">
+  <div class="wrap">
+    <div class="item"><span class="ico">🎓</span> 물리·작업치료사 100% 국가면허</div>
+    <div class="item"><span class="ico">🏥</span> 서울대·세브란스·서울아산 등 출신 전문가</div>
+    <div class="item"><span class="ico">📐</span> 6MWT·TUG·MMT·Barthel 국제표준 평가</div>
+    <div class="item"><span class="ico">🤖</span> AI 맞춤 운동처방 시스템</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     4-1) 문제-해결 — 보호자·환자가 겪는 어려움과 바른연세의 해결책
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">PROBLEM &amp; SOLUTION</span>
+    <h2 class="section-title">이런 어려움, 바른연세가 해결합니다</h2>
+    <p class="section-desc">방문재활을 알아보시는 분들이 가장 많이 겪는 고민입니다.</p>
+    <div class="ps-grid">
+      <div class="ps-card">
+        <div class="ps-problem">😟 <b>"감으로 운동시켜서, 좋아지고 있는지 모르겠어요."</b></div>
+        <div class="ps-arrow">↓</div>
+        <div class="ps-solution">6MWT·TUG·MMT·ROM·Barthel Index 등 국제표준 평가도구로 수치화해 확인합니다.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-problem">😟 <b>"어떤 운동이 맞는지 저희끼리는 판단하기 막막해요."</b></div>
+        <div class="ps-arrow">↓</div>
+        <div class="ps-solution">정밀평가 데이터를 AI가 분석해 1차 운동안을 제시하고, 전문가가 검토·보완합니다.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-problem">😟 <b>"몸이 불편해서 병원·센터까지 가는 것 자체가 일이에요."</b></div>
+        <div class="ps-arrow">↓</div>
+        <div class="ps-solution">서울·인천·경기 전역, 전문가가 직접 집으로 방문합니다.</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-problem">😟 <b>"멀리 사는 자녀라 부모님 회복 상황을 확인하기 어려워요."</b></div>
+        <div class="ps-arrow">↓</div>
+        <div class="ps-solution">매달 사후관리로 회복 추이를 재평가하고 공유해드립니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5) AI 시스템 소개 — 사용자가 선택한 3가지 핵심 AI 기능
+     ============================================================ -->
+<section class="section ai-section">
+  <div class="wrap">
+    <span class="eyebrow">AI SYSTEM</span>
+    <h2 class="section-title">바른연세가 새롭게 선보이는<br>AI 방문재활 시스템</h2>
+    <p class="section-desc">평가부터 회복까지, 사람의 전문성에 AI의 정밀함을 더했습니다. 대한민국 방문재활 업계 최초로 도입합니다.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">1</div>
+        <h3>AI 맞춤 운동처방</h3>
+        <p>6MWT·TUG·MMT·ROM·Barthel Index 등 정밀평가 데이터를 AI가 분석해 1차 맞춤 운동안을 제시하고, 담당 전문가가 검토·보완해 최종 프로그램을 설계합니다.</p>
+        <span class="status">단계적 도입중</span>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <h3>AI 근거기반 건강정보 상담</h3>
+        <p>논문·임상 가이드라인 등 근거자료를 바탕으로 운동·재활과 관련된 질문에 답변하고, 상황에 맞는 프로그램과 전문가를 연결합니다. 의학적 진단·치료가 아닌 참고용 정보이며, 응급·중대 증상은 병원 진료로 안내합니다.</p>
+        <span class="status">단계적 도입중</span>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <h3>AI 맞춤 홈케어</h3>
+        <p>방문이 없는 날에도 환자 상태에 맞춰 AI가 구성한 홈케어 가이드를 제공해, 보호자와 환자가 안전하게 따라할 수 있는 운동을 이어가도록 돕습니다.</p>
+        <span class="status">단계적 도입중</span>
+      </div>
+    </div>
+    <p style="margin-top:28px;font-size:13.5px;color:#9FB2C2;">
+      ※ 바른연세의 AI 시스템은 비의료 건강관리 서비스 내 참고용 정보와 운동 설계 보조 도구입니다. 의학적 진단·치료를 대체하지 않으며, 응급 상황이나 중대한 증상은 반드시 의료기관 진료를 받으시길 권장합니다.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     6) 대표 인사말
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="wrap ceo">
+    <div class="ceo-photo">대표 사진 자리<br>[대표님 사진 삽입]</div>
+    <div>
+      <span class="eyebrow">CEO MESSAGE</span>
+      <blockquote>"삼일절은 국민 모두가 함께 일어나 잃어버린 희망을 되찾아낸 회복의 역사라고 생각합니다. 바른연세 또한 누군가의 건강한 일상을 다시 되찾아드리는 희망의 출발점이 되고 싶었습니다."</blockquote>
+      <p>바른연세 방문 건강·재활 운동센터는 대표 최현준이 인천 동구 민들레국수집 봉사활동에서 얻은 마음을 바탕으로, 2026년 3월 1일 삼일절에 문을 열었습니다. 몸이 불편해 센터에 오시기 어려운 분들에게 저희가 먼저 찾아가겠다는 다짐이 지금의 바른연세를 만들었습니다.</p>
+      <p>학술자문위원 김청훈 이학박사(연세대 학·석·박사)가 개발한 리포멕스(ReformEx) 평가·운동 설계 체계를 바탕으로, 국가면허를 보유한 전문가들이 근거 있는 방문재활을 제공합니다.</p>
+      <div class="sign">바른연세 방문 건강·재활 운동센터 대표 최현준 드림</div>
+      <a href="/about" class="btn btn-outline" style="margin-top:22px;">대표 인사말 전체보기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7) 전문가 소개 미리보기
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">EXPERTS</span>
+    <h2 class="section-title">근거 있는 재활, 검증된 전문가</h2>
+    <p class="section-desc">물리치료사·작업치료사·건강운동관리사·운동발달재활사가 함께합니다. 전원 국가면허 보유, 평균 10년 이상 임상경력.</p>
+
+    <div class="expert-lead">
+      <div class="avatar"></div>
+      <div>
+        <div class="role">학술자문위원 · 리포멕스(ReformEx) 개발자</div>
+        <h3>김청훈 이학박사</h3>
+        <ul>
+          <li>연세대학교 학사·석사·박사</li>
+          <li>한국건강운동연구지도협회 협회장</li>
+          <li>연세대학교 미래교육원 책임강사</li>
+          <li>TV 출연 다수, 저서 4권</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="origin-hospitals">
+      성인 전문가 출신 병원 — <b>서울대병원 · 세브란스병원 · 서울삼성병원 · 서울아산병원 · 서울성모병원</b><br>
+      소아 전문가 출신 병원 — <b>서울재활병원 · 보바스 어린이병원 · 푸르메재단 넥슨어린이재활병원</b>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8) 재활 프로그램 4종
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="wrap">
+    <span class="eyebrow">PROGRAMS</span>
+    <h2 class="section-title">전문분야별 방문재활 프로그램</h2>
+    <p class="section-desc">진단명과 회복 단계에 맞춰 4가지 분야로 세분화된 프로그램을 제공합니다.</p>
+    <div class="grid-4">
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>신경계 재활</h3>
+          <p>뇌졸중 · 파킨슨 · 외상성 뇌손상 · 척수질환</p>
+          <a href="/programs/neurological">자세히 보기 →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>근골격계 재활</h3>
+          <p>인공관절 · 디스크 · 스포츠 손상</p>
+          <a href="/programs/musculoskeletal">자세히 보기 →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>소아 재활</h3>
+          <p>뇌성마비 · 발달지연</p>
+          <a href="/programs/pediatric">자세히 보기 →</a>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="top"></div>
+        <div class="body">
+          <h3>기타질환 재활</h3>
+          <p>희귀질환 · 암재활</p>
+          <a href="/programs/other">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9) 이용 프로세스
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2 class="section-title">이용 프로세스</h2>
+    <p class="section-desc">상담부터 월간 사후관리까지, 5단계로 진행됩니다.</p>
+    <div class="process">
+      <div class="step"><div class="circle">1</div><h4>상담</h4><p>전화·온라인으로<br>현재 상태 상담</p></div>
+      <div class="step"><div class="circle">2</div><h4>전문가 배정</h4><p>질환·지역에 맞는<br>전문가 매칭</p></div>
+      <div class="step"><div class="circle">3</div><h4>정밀평가</h4><p>국제표준 평가도구로<br>1회 무료 평가</p></div>
+      <div class="step"><div class="circle">4</div><h4>운동설계</h4><p>AI 분석 + 전문가 검토로<br>맞춤 프로그램 설계</p></div>
+      <div class="step"><div class="circle">5</div><h4>월간 사후관리</h4><p>회복 추이를 확인하고<br>프로그램 조정</p></div>
+    </div>
+    <div class="process-note">운동 스케줄은 주 5회 · 주 3회 · 주 2회 중 선택할 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10) 왜 바른연세인가 (차별화)
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="wrap">
+    <span class="eyebrow">WHY 바른연세</span>
+    <h2 class="section-title">왜 바른연세여야 할까요</h2>
+    <p class="section-desc">전문성 · 신뢰성 · 신속성 · 편의성 · 책임감, 5가지 기준으로 확인해보세요.</p>
+    <div class="compare">
+      <div class="compare-row"><div class="label">전문성</div><div class="value">물리치료사·작업치료사 등 전원 <b>국가면허</b> 보유, 대형병원 임상경력 <b>평균 10년 이상</b>. 김청훈 이학박사가 학술자문</div></div>
+      <div class="compare-row"><div class="label">신뢰성</div><div class="value">감(感)이 아닌 <b>6MWT·TUG·MMT·ROM·Barthel Index</b> 등 국제표준 평가도구로 시작, AI 분석 결과를 전문가가 검토·보완</div></div>
+      <div class="compare-row"><div class="label">신속성</div><div class="value">상담 접수 후 질환·지역에 맞는 <b>전문가를 배정</b>해 정밀평가부터 신속히 시작합니다</div></div>
+      <div class="compare-row"><div class="label">편의성</div><div class="value">서울·인천·경기 전역 방문, 방문이 없는 날에도 <b>AI 맞춤 홈케어</b> 가이드로 공백 없이 관리</div></div>
+      <div class="compare-row"><div class="label">책임감</div><div class="value">매달 <b>사후관리</b>로 회복 추이를 공유하고, 검증되지 않은 후기를 꾸미지 않는 <b>정직한 후기 공개 방침</b>을 지킵니다</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11) 고객후기 — 아직 실제 후기가 없으므로 허위 후기를 넣지 않고
+     정직하게 "준비중"으로 안내합니다. 실제 후기가 모이면 이 블록을
+     후기 카드 grid로 교체하세요.
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">REVIEWS</span>
+    <h2 class="section-title">고객후기</h2>
+    <p class="section-desc">실제 이용 후기를 정직하게 모으고 있습니다.</p>
+    <div class="review-empty">
+      <div class="ico">📝</div>
+      <h3>후기를 모으고 있습니다</h3>
+      <p>2026년 3월 개소한 바른연세는 지금 첫 고객님들의 후기를 정성껏 모으는 중입니다. 검증되지 않은 후기 대신, 실제 이용 후기만 순차적으로 공개할 예정입니다.</p>
+      <a href="/contact" class="btn btn-primary">가장 먼저 후기를 남겨주실 분, 상담 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12) FAQ 미리보기
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="wrap">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="section-title center">자주 묻는 질문</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">방문재활운동은 건강보험이 적용되나요? <span class="plus">+</span></div>
+        <div class="faq-a"><p>바른연세의 방문재활운동은 의료행위가 아닌 비의료 건강관리 서비스로, 건강보험이 적용되지 않는 전액 자비 부담 프로그램입니다. 병원 재활치료와 병행해 일상에서 꾸준히 운동을 이어갈 수 있도록 설계되어 있습니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">방문 가능한 지역은 어디까지인가요? <span class="plus">+</span></div>
+        <div class="faq-a"><p>서울·인천·경기 전역을 기준으로 상담드리며, 실제 방문 가능 여부와 출장비 발생 여부는 신청지역에 따라 안내드립니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">첫 방문 때 무엇을 하나요? <span class="plus">+</span></div>
+        <div class="faq-a"><p>국제표준 평가도구로 정밀평가를 진행합니다(1회 무료). 평가 결과를 바탕으로 AI가 1차 맞춤 운동안을 제시하고 전문가가 최종 프로그램을 설계합니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">AI 시스템은 실제로 어떻게 사용되나요? <span class="plus">+</span></div>
+        <div class="faq-a"><p>정밀평가 데이터를 AI가 분석해 맞춤 운동처방 초안을 제시하고, 논문·임상 가이드라인 등 근거자료를 바탕으로 한 AI 건강정보 상담이 문의 응대와 프로그램 매칭을 돕습니다. 방문이 없는 날에는 AI 맞춤 홈케어 콘텐츠로 운동 가이드를 제공합니다. AI 상담은 의학적 진단·치료가 아닌 참고용 정보이며, 응급·중대 증상은 반드시 병원 진료를 받으시길 권장합니다.</p></div>
+      </div>
+    </div>
+    <div class="center" style="margin-top:28px;"><a href="/faq" class="btn btn-outline">전체 FAQ 보기 →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13) 상담 신청 CTA
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="cta-section">
+      <div>
+        <h2 class="section-title">지금, 무료 정밀평가를 신청하세요</h2>
+        <p>상담 → 전문가 배정 → 정밀평가까지, 신청 후 빠르게 안내드립니다.</p>
+        <ul class="cta-list">
+          <li>✔ 첫 정밀평가 무료</li>
+          <li>✔ 개인상담 / 기관·시설 제휴 문의 모두 가능</li>
+          <li>✔ 서울·인천·경기 전역 상담 가능</li>
+        </ul>
+      </div>
+      <form class="form-box" onsubmit="alert('상담 신청이 접수되었습니다. 곧 연락드리겠습니다.'); return false;">
+        <div class="row">
+          <label>구분</label>
+          <select><option>개인 상담</option><option>기관·시설 제휴 문의</option></select>
+        </div>
+        <div class="row"><label>이름</label><input type="text" placeholder="이름을 입력해주세요" required></div>
+        <div class="row"><label>연락처</label><input type="tel" placeholder="010-0000-0000" required></div>
+        <div class="row"><label>거주 지역</label><input type="text" placeholder="예: 서울 강남구"></div>
+        <div class="row"><label>문의 내용</label><textarea rows="3" placeholder="현재 상태, 궁금하신 점을 적어주세요"></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">무료 상담 신청하기</button>
+        <div class="form-note">※ 지금은 임시 접수창입니다. Supabase 연동 후 실제 데이터가 저장됩니다.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     14) 푸터
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>바른연세 방문 건강·재활 운동센터</h4>
+        <p>대표 최현준 | 사업자등록번호 405-10-64886<br>
+        주소 서울특별시 강남구 선릉로 704 (청담동) 청담빌딩 12층 1270-3호<br>
+        대표전화 010-8185-3100<br>
+        이메일 barun260301@naver.com</p>
+      </div>
+      <div>
+        <h4>바로가기</h4>
+        <ul>
+          <li><a href="/about">센터소개</a></li>
+          <li><a href="/programs">재활프로그램</a></li>
+          <li><a href="/guide">홈케어가이드</a></li>
+          <li><a href="/reviews">고객후기</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>고객지원</h4>
+        <ul>
+          <li><a href="/faq">자주 묻는 질문</a></li>
+          <li><a href="/contact">상담·문의</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>블로그</h4>
+        <ul>
+          <li><a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener">네이버 블로그 1</a></li>
+          <li><a href="https://blog.naver.com/barun260301" target="_blank" rel="noopener">네이버 블로그 2</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 바른연세 방문 건강·재활 운동센터. All rights reserved.</span>
+      <span>비의료 건강관리 서비스이며 의료행위를 대체하지 않습니다.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     플로팅 버튼 (전화 / 카카오톡)
+     ============================================================ -->
+<div class="floating">
+  <a href="tel:01081853100" class="fl-call" title="전화 상담">📞</a>
+  <a href="#" class="fl-chat" title="카카오톡 상담">💬</a>
+</div>
+
+</body>
+</html>

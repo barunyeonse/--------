@@ -1,0 +1,46 @@
+# 바른연세 방문 건강·재활 운동센터 — robots.txt
+# GEO 진단 리포트(엑스온, 2026.7.27) STEP1 권장사항 반영:
+# ChatGPT·Claude·Gemini·Perplexity 등 AI 크롤러를 전부 허용해
+# AI가 학습·검색·인용할 수 있도록 개방합니다.
+
+User-agent: *
+Allow: /
+
+# --- 생성형 AI 학습/크롤러 (명시적 허용) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://barunrehab.com/sitemap.xml
