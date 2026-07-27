@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  바른연세 방문 건강·재활 운동센터 — 재활프로그램 허브 페이지 (/programs)
+  바른연세 방문 건강·재활 운동센터 — 바른연세 스토리 허브 페이지 (/story)
   이 파일도 index.html과 같은 방식(HTML+공용 CSS)으로 되어 있습니다.
   글자 수정은 아래 본문의 한글만 바꾸면 됩니다.
+
+  ※ 이 페이지는 새로운 상단메뉴 구조(센터소개 / 운동 프로그램 /
+    바른연세 스토리 / 고객센터)에 맞춰 새로 만들어진 페이지입니다.
+    센터 소식·인터뷰 등 실제 콘텐츠는 아직 없어 자리표시(준비중)로
+    두었고, 대표 인사말·홈케어가이드·고객후기·블로그 등 이미 있는
+    콘텐츠로 연결하는 허브 역할을 합니다. 실제 소식이 준비되면 이
+    페이지의 카드를 채워 넣으면 됩니다.
   ============================================================
 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>재활프로그램 전체 안내 | 바른연세 방문재활 운동센터</title>
-<meta name="description" content="신경계·근골격계·소아·기타질환 4개 분야 방문재활 프로그램. 국제표준 평가도구와 AI 맞춤 운동처방으로 설계합니다.">
-<link rel="canonical" href="https://barunrehab.com/programs">
+<title>바른연세 스토리 | 바른연세 방문재활 운동센터</title>
+<meta name="description" content="바른연세 방문 건강·재활 운동센터의 설립 이야기, 지역사회와 함께한 활동, 홈케어가이드, 고객후기를 한곳에서 만나보세요.">
+<link rel="canonical" href="https://barunrehab.com/story">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="바른연세 방문 건강·재활 운동센터">
-<meta property="og:title" content="재활프로그램 전체 안내 | 바른연세 방문재활 운동센터">
-<meta property="og:description" content="신경계·근골격계·소아·기타질환 4개 분야 방문재활 프로그램. 국제표준 평가도구와 AI 맞춤 운동처방으로 설계합니다.">
-<meta property="og:url" content="https://barunrehab.com/programs">
+<meta property="og:title" content="바른연세 스토리 | 바른연세 방문재활 운동센터">
+<meta property="og:description" content="바른연세 방문 건강·재활 운동센터의 설립 이야기, 지역사회와 함께한 활동, 홈케어가이드, 고객후기를 한곳에서 만나보세요.">
+<meta property="og:url" content="https://barunrehab.com/story">
 <meta property="og:image" content="https://barunrehab.com/assets/logo-color.png">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
@@ -31,24 +38,11 @@
 <style>
 .qab{background:var(--primary-light);border-left:4px solid var(--primary);border-radius:10px;padding:20px 24px;margin:0 0 32px;font-size:15.5px;color:var(--primary-dark);}
 .qab b{color:var(--navy);}
-.meta-date{color:var(--text-soft);font-size:13px;margin-bottom:20px;}
-.article-body h2{font-size:22px;margin:36px 0 12px;}
-.article-body h3{font-size:17px;margin:22px 0 8px;color:var(--navy);}
-.article-body p{color:var(--text-soft);margin-bottom:12px;}
-.article-body ul,.article-body ol{margin:0 0 16px 20px;color:var(--text-soft);}
-.article-body li{margin-bottom:6px;}
-.article-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;}
-.article-body th,.article-body td{border:1px solid var(--border);padding:10px 12px;text-align:left;}
-.article-body th{background:#F5F3EC;color:var(--navy);}
-.faq-cat{font-size:20px;color:var(--navy);margin:44px 0 4px;padding-bottom:8px;border-bottom:2px solid var(--border);}
-.faq-cat:first-of-type{margin-top:0;}
-.tabs{display:flex;gap:8px;margin-bottom:24px;}
-.tab-btn{padding:12px 20px;border-radius:10px;border:2px solid var(--border);background:#fff;font-weight:700;cursor:pointer;color:var(--text-soft);}
-.tab-btn.active{border-color:var(--primary);color:var(--primary);background:var(--primary-light);}
-.guide-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
+.guide-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
 .guide-card .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:3px 10px;border-radius:999px;margin-bottom:10px;}
 .guide-card h3{font-size:17px;margin-bottom:8px;}
-.guide-card p{color:var(--text-soft);font-size:14px;}
+.guide-card p{color:var(--text-soft);font-size:14px;flex:1;}
+.story-blog{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
 </style>
 </head>
 <body>
@@ -94,7 +88,8 @@
       </div>
     </nav>
     <div class="nav-cta">
-      <span class="nav-tel">📞 상담 문의<br><b>010-8185-3100</b></span>
+      <span class="nav-tel">📞 010-8185-3100</span>
+      <a href="/contact" class="btn btn-primary">무료 상담 신청</a>
     </div>
     <button class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('show')">☰</button>
   </div>
@@ -112,42 +107,53 @@
 
 <section class="hero" style="padding:56px 0 40px;">
   <div class="wrap">
-    <span class="eyebrow">PROGRAMS</span>
-    <h1 style="font-size:clamp(26px,3.6vw,38px);">재활프로그램</h1>
-    <div class="qab"><b>바른연세 재활프로그램이란,</b> 진단명과 회복 단계에 맞춰 신경계·근골격계·소아·기타질환 4개 분야로 나눈 방문형 맞춤 운동 프로그램이다. 모든 프로그램은 6MWT·TUG·MMT·ROM·Barthel Index 등 국제표준 평가도구로 정밀평가한 뒤 AI와 전문가가 함께 설계한다.</div>
+    <span class="eyebrow">STORY</span>
+    <h1 style="font-size:clamp(26px,3.6vw,38px);">바른연세 스토리</h1>
+    <div class="qab"><b>바른연세 스토리란,</b> 대표 최현준의 설립 이야기부터 지역사회와 함께한 활동, 홈케어가이드, 고객님들의 이야기까지 바른연세를 둘러싼 소식을 한곳에 모아 전해드리는 공간이다.</div>
   </div>
 </section>
 <section class="section">
   <div class="wrap">
-    <div class="grid-5">
-      <div class="program-card"><div class="top"></div><div class="body">
-        <h3>바른연세 케어</h3><p>노인 · 성인 · 성장기 · 운동선수</p>
-        <a href="/programs/care">자세히 보기 →</a>
-      </div></div>
-      <div class="program-card"><div class="top"></div><div class="body">
-        <h3>신경계 운동</h3><p>뇌졸중 · 파킨슨 · 외상성 뇌손상 · 척수질환</p>
-        <a href="/programs/neurological">자세히 보기 →</a>
-      </div></div>
-      <div class="program-card"><div class="top"></div><div class="body">
-        <h3>근골격계 운동</h3><p>인공관절 · 디스크 · 스포츠 손상</p>
-        <a href="/programs/musculoskeletal">자세히 보기 →</a>
-      </div></div>
-      <div class="program-card"><div class="top"></div><div class="body">
-        <h3>소아 운동</h3><p>뇌성마비 · 발달지연</p>
-        <a href="/programs/pediatric">자세히 보기 →</a>
-      </div></div>
-      <div class="program-card"><div class="top"></div><div class="body">
-        <h3>기타 질환 운동</h3><p>희귀질환 · 암재활</p>
-        <a href="/programs/other">자세히 보기 →</a>
-      </div></div>
+    <div class="grid-3">
+      <div class="guide-card">
+        <span class="tag">대표 인사말</span>
+        <h3>2026년 3월 1일, 삼일절에 시작된 바른연세</h3>
+        <p>봉사활동에서 얻은 마음가짐이 방문 건강·재활 운동센터로 이어지기까지, 대표 최현준의 이야기를 만나보세요.</p>
+        <a href="/about#ceo-message" class="btn btn-outline" style="margin-top:14px;">자세히 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">지역사회</span>
+        <h3>실버타운·대학·경로당과 함께 걸어온 길</h3>
+        <p>실버타운형 아파트, 대학 스포츠재활학과, 경로당, 청년센터 등과 함께해온 바른연세의 협업 활동을 소개합니다.</p>
+        <a href="/about" class="btn btn-outline" style="margin-top:14px;">자세히 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">홈케어가이드</span>
+        <h3>방문이 없는 날에도 함께하는 홈케어가이드</h3>
+        <p>낙상예방 체크리스트, 첫 상담 준비가이드 등 가정에서 바로 활용할 수 있는 실용 정보입니다.</p>
+        <a href="/guide" class="btn btn-outline" style="margin-top:14px;">전체 가이드 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">고객 후기</span>
+        <h3>바른연세와 함께한 회복의 순간들</h3>
+        <p>실제 이용 고객·보호자분들이 남겨주신 솔직한 후기를 확인해보세요.</p>
+        <a href="/reviews" class="btn btn-outline" style="margin-top:14px;">후기 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">블로그</span>
+        <h3>네이버 블로그에서 더 자세한 소식을 만나보세요</h3>
+        <p>센터 소식과 운동 정보를 네이버 블로그에서도 연재하고 있습니다.</p>
+        <div class="story-blog">
+          <a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener" class="btn btn-outline">블로그 1 →</a>
+          <a href="https://blog.naver.com/barun260301" target="_blank" rel="noopener" class="btn btn-outline">블로그 2 →</a>
+        </div>
+      </div>
+      <div class="guide-card">
+        <span class="tag">준비중</span>
+        <h3>새로운 센터 소식을 준비하고 있습니다</h3>
+        <p>인터뷰, 현장 스토리 등 다양한 콘텐츠가 순차적으로 공개될 예정입니다.</p>
+      </div>
     </div>
-  </div>
-</section>
-<section class="section section-alt">
-  <div class="wrap center">
-    <h2 class="section-title">어떤 프로그램이 맞을지 모르겠다면</h2>
-    <p class="section-desc center">전화 상담으로 상태를 말씀해주시면 적합한 프로그램을 안내해드립니다.</p>
-    <a href="/contact" class="btn btn-primary" style="margin-top:20px;">무료 상담 신청하기</a>
   </div>
 </section>
 
@@ -204,10 +210,5 @@
   <a href="/contact" class="fl-apply" title="무료 상담 신청">📋</a>
   <a href="#top" class="fl-top" title="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆</a>
 </div>
-<script>
-document.querySelectorAll('.faq-item .faq-q').forEach(function(el){
-  el.addEventListener('click', function(){ el.parentElement.classList.toggle('open'); });
-});
-</script>
 </body>
 </html>

@@ -57,38 +57,39 @@
     <a href="/" class="logo"><img src="/assets/logo-header.png" alt="바른연세 방문 건강·재활 운동센터 로고"></a>
     <nav class="nav-menu">
       <a href="/about">센터소개</a>
-      <a href="/programs">재활프로그램</a>
-      <a href="/guide">홈케어가이드</a>
-      <a href="/reviews">고객후기</a>
-      <a href="/faq">FAQ</a>
+      <a href="/programs">운동 프로그램</a>
+      <a href="/story">바른연세 스토리</a>
+      <a href="/contact">고객센터</a>
       <div class="mega-panel">
         <div class="mega-col">
           <span class="mega-title">센터소개</span>
           <span class="mega-sub">바른연세를 소개합니다</span>
-          <a href="/about">센터소개 · 대표인사말 · 전문가소개</a>
+          <a href="/about">센터소개</a>
+          <a href="/about#ceo-message">대표 인사말</a>
+          <a href="/about#experts">전문가 소개</a>
+          <a href="/about#guide-info">이용안내</a>
         </div>
         <div class="mega-col">
-          <span class="mega-title">재활프로그램</span>
+          <span class="mega-title">운동 프로그램</span>
           <span class="mega-sub">서울·인천·경기 전역 방문</span>
-          <a href="/programs">전체 프로그램</a>
-          <a href="/programs/neurological">신경계 재활</a>
-          <a href="/programs/musculoskeletal">근골격계 재활</a>
-          <a href="/programs/pediatric">소아 재활</a>
-          <a href="/programs/other">기타질환 재활</a>
+          <a href="/programs/care">바른연세 케어</a>
+          <a href="/programs/neurological">신경계 운동</a>
+          <a href="/programs/musculoskeletal">근골격계 운동</a>
+          <a href="/programs/pediatric">소아 운동</a>
+          <a href="/programs/other">기타질환 운동</a>
         </div>
         <div class="mega-col">
-          <span class="mega-title">홈케어가이드</span>
-          <span class="mega-sub">방문이 없는 날에도 함께</span>
-          <a href="/guide">전체 가이드</a>
-          <a href="/guide/fall-prevention-checklist">낙상예방 체크리스트</a>
-          <a href="/guide/first-visit-checklist">첫 상담 준비가이드</a>
+          <span class="mega-title">바른연세 스토리</span>
+          <span class="mega-sub">센터 소식과 이용자 이야기</span>
+          <a href="/story">바른연세 스토리</a>
+          <a href="/guide">홈케어 가이드</a>
+          <a href="/reviews">고객 후기</a>
         </div>
         <div class="mega-col">
           <span class="mega-title">고객센터</span>
-          <span class="mega-sub">상담부터 후기까지</span>
-          <a href="/reviews">고객후기</a>
-          <a href="/faq">자주 묻는 질문</a>
-          <a href="/contact">상담·문의</a>
+          <span class="mega-sub">상담부터 문의까지</span>
+          <a href="/contact">무료상담</a>
+          <a href="/contact#org">비즈니스 문의</a>
         </div>
       </div>
     </nav>
@@ -120,8 +121,8 @@
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="tabs">
-      <button class="tab-btn active" onclick="showTab('personal')">개인 상담</button>
-      <button class="tab-btn" onclick="showTab('org')">기관·시설 제휴 문의</button>
+      <button class="tab-btn active" onclick="showTab('personal', this)">개인 상담</button>
+      <button class="tab-btn" onclick="showTab('org', this)">기관·시설 제휴 문의</button>
     </div>
 
     <div id="tab-personal">
@@ -176,12 +177,18 @@
   </div>
 </section>
 <script>
-function showTab(name){
+function showTab(name, btn){
   document.getElementById('tab-personal').style.display = name==='personal' ? '' : 'none';
   document.getElementById('tab-org').style.display = name==='org' ? '' : 'none';
   document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-  event.target.classList.add('active');
+  var idx = name==='org' ? 1 : 0;
+  var target = btn || document.querySelectorAll('.tab-btn')[idx];
+  if(target){ target.classList.add('active'); }
 }
+/* 메뉴에서 '비즈니스 문의'(/contact#org)로 들어오면 기관·시설 제휴 탭을 자동으로 엽니다 */
+(function(){
+  if(window.location.hash === '#org'){ showTab('org'); }
+})();
 </script>
 
 <footer>

@@ -54,6 +54,9 @@ p.section-desc{color:var(--text-soft);font-size:17px;max-width:640px;}
 .btn-outline:hover{border-color:var(--primary);color:var(--primary);}
 .btn-block{width:100%;}
 
+/* 앵커 이동 시 고정 헤더에 가려지지 않도록 여백 확보 */
+#ceo-message,#experts,#guide-info{scroll-margin-top:96px;}
+
 /* ---------------- 헤더 / 네비게이션 ---------------- */
 header{
   position:sticky;top:0;z-index:100;background:rgba(251,250,247,.92);
@@ -344,7 +347,7 @@ footer a:hover{color:#fff;}
 .hero-carousel{position:relative;height:100vh;height:100dvh;min-height:560px;overflow:hidden;background:var(--navy);}
 .hc-slide{
   position:absolute;inset:0;opacity:0;transition:opacity .8s ease;
-  display:flex;align-items:flex-end;
+  display:flex;align-items:center;
 }
 .hc-slide.active{opacity:1;z-index:1;}
 .hc-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
@@ -352,11 +355,11 @@ footer a:hover{color:#fff;}
   content:'';position:absolute;inset:0;z-index:1;
   background:linear-gradient(90deg,rgba(9,32,68,.72) 0%,rgba(9,32,68,.42) 45%,rgba(9,32,68,.12) 75%);
 }
-.hc-text{position:relative;z-index:2;color:#fff;padding:0 0 76px;max-width:640px;}
+.hc-text{position:relative;z-index:2;color:#fff;max-width:640px;}
 .hc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);color:#fff;font-weight:800;font-size:13.5px;padding:8px 15px;border-radius:999px;margin-bottom:18px;}
 .hc-badge b{color:#7FB0FF;}
-.hc-text h1{color:#fff;font-size:clamp(26px,3.8vw,42px);letter-spacing:-.5px;margin-bottom:16px;}
-.hc-text p{color:rgba(255,255,255,.88);font-size:16.5px;max-width:520px;margin-bottom:26px;}
+.hc-text h1{color:#fff;font-size:clamp(24px,3.4vw,38px);letter-spacing:-.5px;margin-bottom:16px;}
+.hc-text p{color:rgba(255,255,255,.88);font-size:16.5px;max-width:520px;margin-bottom:0;}
 .hc-actions{display:flex;gap:12px;flex-wrap:wrap;}
 .hc-nav{position:relative;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);color:#fff;border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;}
 .hc-nav:hover{background:rgba(255,255,255,.3);}
@@ -368,7 +371,7 @@ footer a:hover{color:#fff;}
 @media(max-width:680px){
   .hero-carousel{height:100vh;height:100dvh;min-height:520px;}
   .hc-slide::before{background:linear-gradient(180deg,rgba(9,32,68,.15) 0%,rgba(9,32,68,.82) 78%);}
-  .hc-text{padding-bottom:64px;max-width:100%;}
+  .hc-text{max-width:100%;}
 }
 
 /* ---------------- 운동 프로그램 안내(센터드 헤더) ---------------- */
