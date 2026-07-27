@@ -59,10 +59,11 @@ header{
   position:sticky;top:0;z-index:100;background:rgba(251,250,247,.92);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px;}
 .logo{font-size:20px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:8px;}
-.logo img{height:36px;width:auto;display:block;}
+.logo img{height:64px;width:auto;display:block;}
 .logo span{color:var(--primary);}
+@media (max-width:600px){.logo img{height:48px;}}
 footer h4.f-logo{display:flex;align-items:center;gap:8px;}
 footer h4.f-logo img{height:28px;width:auto;display:block;}
 .nav-menu{display:flex;gap:32px;align-items:center;}
