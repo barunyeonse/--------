@@ -124,8 +124,8 @@
     <a href="/" class="logo"><img src="/assets/logo-header.png" alt="바른연세 방문 건강·재활 운동센터 로고"></a>
     <nav class="nav-menu">
       <a href="/about">센터소개</a>
-      <a href="/programs">재활프로그램</a>
-      <a href="/guide">홈케어가이드</a>
+      <a href="/programs" class="nav-cat"><span class="nc-icon">🏃</span><span class="nc-text"><b>재활프로그램</b><small>전국 방문 가능</small></span></a>
+      <a href="/guide" class="nav-cat"><span class="nc-icon">🏠</span><span class="nc-text"><b>홈케어가이드</b><small>방문 없는 날에도</small></span></a>
       <a href="/reviews">고객후기</a>
       <a href="/faq">FAQ</a>
       <div class="mega-panel">
@@ -166,6 +166,16 @@
     <button class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('show')">☰</button>
   </div>
 </header>
+<div class="mega-backdrop"></div>
+<script>
+(function(){
+  var backdrop = document.querySelector('.mega-backdrop');
+  var navMenu = document.querySelector('.nav-menu');
+  if(!backdrop || !navMenu) return;
+  navMenu.addEventListener('mouseenter', function(){ backdrop.classList.add('mega-open'); });
+  navMenu.addEventListener('mouseleave', function(){ backdrop.classList.remove('mega-open'); });
+})();
+</script>
 
 <section class="hero" style="padding:56px 0 40px;">
   <div class="wrap">
