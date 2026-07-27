@@ -2,12 +2,12 @@
    0. 기본 색상·글꼴 설정 — 여기 값만 바꾸면 전체 색이 바뀝니다
    ============================================================ */
 :root{
-  --primary:#0F6E5C;        /* 메인 컬러(초록빛 청록 — 회복·신뢰) */
-  --primary-dark:#0A4F42;
-  --primary-light:#E5F3EF;
-  --navy:#123456;           /* 보조 컬러(신뢰감 있는 남색) */
-  --accent:#FF7A3D;         /* 버튼·강조용 주황 */
-  --accent-dark:#E85F22;
+  --primary:#1D5FD1;        /* 메인 컬러(신뢰감 있는 블루 — 바른연세 브랜드 컬러) */
+  --primary-dark:#123F94;
+  --primary-light:#EAF2FF;
+  --navy:#1E3350;           /* 보조 컬러(짙은 남색 — 헤더 텍스트·푸터) */
+  --accent:#0B3E87;         /* 버튼·강조용 진한 블루 */
+  --accent-dark:#082C61;
   --text:#1C2733;
   --text-soft:#54606B;
   --bg:#FBFAF7;
@@ -48,7 +48,7 @@ p.section-desc{color:var(--text-soft);font-size:17px;max-width:640px;}
   cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;
 }
 .btn:hover{transform:translateY(-2px);}
-.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 20px rgba(255,122,61,.28);}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 20px rgba(11,62,135,.28);}
 .btn-primary:hover{background:var(--accent-dark);}
 .btn-outline{background:#fff;color:var(--navy);border:2px solid var(--border);}
 .btn-outline:hover{border-color:var(--primary);color:var(--primary);}
@@ -77,7 +77,7 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .hero{
   padding:72px 0 64px;
   background:
-    radial-gradient(1000px 500px at 85% -10%, rgba(15,110,92,.10), transparent),
+    radial-gradient(1000px 500px at 85% -10%, rgba(29,95,209,.10), transparent),
     linear-gradient(180deg,#FFFFFF 0%, var(--bg) 100%);
 }
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
@@ -95,17 +95,17 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .hero-stats b{display:block;font-size:24px;color:var(--navy);}
 .hero-stats span{font-size:13px;color:var(--text-soft);}
 .hero-visual{
-  background:url('/assets/hero-photo.jpg') center/cover no-repeat;
   border-radius:24px;min-height:420px;position:relative;overflow:hidden;
   display:flex;align-items:flex-end;padding:28px;color:#fff;box-shadow:var(--shadow);
 }
+.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block;}
 .hero-visual::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(15,110,92,.12) 0%,rgba(11,45,38,.75) 100%);
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,62,135,.14) 0%,rgba(9,32,68,.78) 100%);
 }
 .hero-visual .tag{
-  position:relative;z-index:1;
-  background:rgba(15,110,92,.55);backdrop-filter:blur(6px);border-radius:14px;padding:18px 20px;
+  position:relative;z-index:2;
+  background:rgba(11,62,135,.55);backdrop-filter:blur(6px);border-radius:14px;padding:18px 20px;
   font-size:14px;line-height:1.6;
 }
 .hero-visual .tag b{display:block;font-size:16px;margin-bottom:4px;}
@@ -131,7 +131,7 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .card p{color:var(--text-soft);font-size:15px;}
 .card .status{
   display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;
-  background:#FFF3E9;color:var(--accent-dark);padding:4px 10px;border-radius:999px;
+  background:var(--primary-light);color:var(--accent-dark);padding:4px 10px;border-radius:999px;
 }
 
 /* ---------------- AI 시스템 섹션 ---------------- */
@@ -191,7 +191,7 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .program-card a{color:var(--primary);font-weight:700;font-size:14.5px;}
 .program-card:nth-child(2) .top{background:#2E86AB;}
 .program-card:nth-child(3) .top{background:#7B6BD1;}
-.program-card:nth-child(4) .top{background:var(--accent);}
+.program-card:nth-child(4) .top{background:#E8A33D;}
 
 /* ---------------- 이용 프로세스 ---------------- */
 .process{display:flex;gap:0;margin-top:48px;counter-reset:step;flex-wrap:wrap;}
@@ -266,13 +266,17 @@ footer a:hover{color:#fff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,.5);}
 
 /* ---------------- 플로팅 버튼 ---------------- */
-.floating{position:fixed;right:22px;bottom:22px;display:flex;flex-direction:column;gap:10px;z-index:90;}
+.floating{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:90;}
 .floating a{
-  width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:24px;box-shadow:0 8px 20px rgba(0,0,0,.18);color:#fff;
+  width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:22px;box-shadow:0 8px 20px rgba(9,32,68,.28);color:#fff;background:var(--accent);
+  transition:transform .15s ease, background .15s ease;
 }
-.fl-call{background:var(--accent);}
-.fl-chat{background:#FFE300;color:#391B1B;}
+.floating a:hover{transform:scale(1.08);background:var(--primary);}
+@media(max-width:680px){
+  .floating{right:14px;top:auto;bottom:18px;transform:none;}
+  .floating a{width:48px;height:48px;font-size:20px;}
+}
 
 /* ---------------- 반응형 ---------------- */
 @media(max-width:960px){
