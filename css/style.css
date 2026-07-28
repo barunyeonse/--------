@@ -280,16 +280,18 @@ footer a:hover{color:#fff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,.5);}
 
 /* ---------------- 플로팅 버튼 ---------------- */
-.floating{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:90;}
+.floating{position:fixed;right:22px;top:120px;display:flex;flex-direction:column;gap:10px;z-index:190;}
 .floating a{
-  width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:22px;box-shadow:0 8px 20px rgba(9,32,68,.28);color:#fff;background:var(--accent);
+  width:52px;height:52px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:20px;line-height:1;box-shadow:0 8px 20px rgba(9,32,68,.28);color:#fff;background:var(--accent);
   transition:transform .15s ease, background .15s ease;
 }
+.floating a .fl-label{font-size:9px;font-weight:700;letter-spacing:.02em;margin-top:2px;}
 .floating a:hover{transform:scale(1.08);background:var(--primary);}
 @media(max-width:680px){
-  .floating{right:14px;top:auto;bottom:18px;transform:none;}
-  .floating a{width:48px;height:48px;font-size:20px;}
+  .floating{right:12px;top:auto;bottom:18px;gap:8px;}
+  .floating a{width:46px;height:46px;font-size:18px;}
+  .floating a .fl-label{font-size:8px;}
 }
 
 /* ---------------- 반응형 ---------------- */
@@ -609,8 +611,6 @@ footer a:hover{color:#fff;}
 }
 .mega-backdrop.mega-open{opacity:1;visibility:visible;}
 @media(max-width:960px){ .mega-backdrop{display:none !important;} }
-
-.fl-top{background:var(--navy) !important;font-size:18px !important;}
 
 /* ---------------- 투명 히어로 헤더 (홈페이지 전용) ---------------- */
 body.transparent-hero header{
