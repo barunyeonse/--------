@@ -199,47 +199,42 @@
 </script>
 
 <!-- ============================================================
-     4) 히어로 캐러셀 — 첫 화면. 실제 활동 사진 3장이 순환합니다.
+     4) 히어로 캐러셀 — 실제 barunrehab.com 코드 구조를 그대로 이식
      ============================================================ -->
-<section class="hero-carousel" id="heroCarousel">
-  <div class="hc-slide active">
-    <img src="/assets/hero/slide1.jpg" alt="바른연세 방문 건강·재활 운동센터 대표 최현준">
-    <div class="wrap">
-      <div class="hc-text">
-        <h1>실력으로 증명하는<br>바른연세 방문 건강·재활 운동센터</h1>
-        <p>AI 기술력을 기반으로 의료의 한계를 넘어,<br>가정에서도 편안하게 받는 전문 운동 서비스를 제공해 드리고 있습니다.</p>
+<div class="custom-hero-slider" id="heroCarousel">
+  <div class="hero-slides">
+    <div class="hero-item active" style="background-image:url('/assets/hero/slide1.jpg');">
+      <div class="hero-text-box">
+        <p class="main-title">실력으로 증명하는<br>바른연세 방문 건강 · 재활 운동센터</p>
+        <p class="sub-title">AI 기술력을 기반으로 의료의 한계를 넘어,<br>가정에서도 편안하게 받는 전문 운동 서비스를 제공해 드리고 있습니다.</p>
+      </div>
+    </div>
+    <div class="hero-item" style="background-image:url('/assets/hero/slide2.jpg');">
+      <div class="hero-text-box">
+        <p class="main-title">의료기관 출신 운동 전문가들과<br>연세대학교 이학박사의 집약된 전문성</p>
+        <p class="sub-title">임상경험이 풍부한 바른연세 전문가들과<br>연세대학교 이학박사의 30년 경험이 더해진<br>숙련된 운동 시스템으로 여러분을 찾아 뵙겠습니다.</p>
+        <br><br>
+        <p class="sub-title">물리치료사 · 작업치료사 · 건강운동관리사 · 운동발달재활사 전문 인력이 함께합니다.</p>
+      </div>
+    </div>
+    <div class="hero-item" style="background-image:url('/assets/hero/slide3.jpg');">
+      <div class="hero-text-box">
+        <p class="main-title">가족과 같은 따듯한 손길로,<br>바른연세만의 시스템으로 일상 속 회복을</p>
+        <p class="sub-title">나의 부모, 아이와 같은 따뜻한 마음을 담아<br>1:1 맞춤형 운동 시스템으로 일상 속 회복을 돕겠습니다.</p>
       </div>
     </div>
   </div>
-  <div class="hc-slide">
-    <img src="/assets/hero/slide3.jpg" alt="바른연세 방문 건강·재활 운동센터 방문 재활 현장">
-    <div class="wrap">
-      <div class="hc-text">
-        <h1>의료기관 출신 운동 전문가들과<br>연세대학교 이학박사의 집약된 전문성</h1>
-        <p>임상경험이 풍부한 바른연세 전문가들과 연세대학교 이학박사의 30년 경험이 더해진 숙련된 운동 시스템으로 여러분을 찾아뵙겠습니다.<br>물리치료사·작업치료사·건강운동관리사·운동발달재활사 전문 인력이 함께합니다.</p>
+  <div class="hero-nav-center">
+    <div class="nav-wrapper">
+      <div class="nav-controls">
+        <span class="nav-arrow" onclick="movePrev()">&lt;</span>
+        <div class="page-count"><span id="now-idx">01</span> / <span class="total-idx">03</span></div>
+        <span class="nav-arrow" onclick="moveNext()">&gt;</span>
       </div>
+      <div class="progress-track"><div id="active-bar"></div></div>
     </div>
   </div>
-  <div class="hc-slide">
-    <img src="/assets/hero/slide2.jpg" alt="바른연세 방문 건강·재활 운동센터 지역사회 방문 프로그램">
-    <div class="wrap">
-      <div class="hc-text">
-        <h1>가족과 같은 따듯한 손길로,<br>바른연세만의 시스템으로 일상 속 회복을</h1>
-        <p>나의 부모, 아이와 같은 따뜻한 마음을 담아<br>1:1 맞춤형 운동 시스템으로 일상 속 회복을 돕겠습니다.</p>
-      </div>
-    </div>
-  </div>
-  <div class="hc-meta">
-    <button class="hc-nav hc-prev" onclick="hcMove(-1)" aria-label="이전 슬라이드">‹</button>
-    <span class="hc-count" id="hcCount">01 / 03</span>
-    <button class="hc-nav hc-next" onclick="hcMove(1)" aria-label="다음 슬라이드">›</button>
-    <div class="hc-dots" id="hcDots">
-      <button class="active" onclick="hcGo(0)"></button>
-      <button onclick="hcGo(1)"></button>
-      <button onclick="hcGo(2)"></button>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- ============================================================
      신뢰 배지 바
@@ -731,21 +726,53 @@
 </div>
 
 <script>
-/* 히어로 캐러셀 */
+/* 히어로 캐러셀 — 실제 barunrehab.com 코드와 동일한 동작(진행바+스크롤 축소) */
 (function(){
-  var slides = document.querySelectorAll('#heroCarousel .hc-slide');
-  var dots = document.querySelectorAll('#hcDots button');
-  var countEl = document.getElementById('hcCount');
-  var idx = 0, timer;
-  function render(){
-    slides.forEach(function(s,i){ s.classList.toggle('active', i===idx); });
-    dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
-    if(countEl){ countEl.textContent = String(idx+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0'); }
+  var items = document.querySelectorAll('#heroCarousel .hero-item');
+  var nowIdxTxt = document.getElementById('now-idx');
+  var activeBar = document.getElementById('active-bar');
+  var heroSlider = document.getElementById('heroCarousel');
+  if(!items.length) return;
+
+  var current = 0;
+  var slideTime = 5000;
+  var slideInterval;
+
+  function updateSlider(){
+    items.forEach(function(item){ item.classList.remove('active'); });
+    items[current].classList.add('active');
+    if(nowIdxTxt){ nowIdxTxt.textContent = String(current+1).padStart(2,'0'); }
+    resetAndStartBar();
   }
-  window.hcGo = function(i){ idx = i; render(); resetTimer(); };
-  window.hcMove = function(delta){ idx = (idx + delta + slides.length) % slides.length; render(); resetTimer(); };
-  function resetTimer(){ clearInterval(timer); timer = setInterval(function(){ window.hcMove(1); }, 6000); }
-  if(slides.length){ render(); resetTimer(); }
+  function resetAndStartBar(){
+    if(!activeBar) return;
+    activeBar.style.transition = 'none';
+    activeBar.style.width = '0%';
+    void activeBar.offsetWidth;
+    activeBar.style.transition = 'width ' + slideTime + 'ms linear';
+    activeBar.style.width = '100%';
+  }
+  window.moveNext = function(){
+    current = (current + 1) % items.length;
+    updateSlider();
+    resetInterval();
+  };
+  window.movePrev = function(){
+    current = (current - 1 + items.length) % items.length;
+    updateSlider();
+    resetInterval();
+  };
+  function resetInterval(){
+    clearInterval(slideInterval);
+    slideInterval = setInterval(window.moveNext, slideTime);
+  }
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 100){ heroSlider.classList.add('scrolled'); }
+    else{ heroSlider.classList.remove('scrolled'); }
+  });
+
+  updateSlider();
+  resetInterval();
 })();
 
 /* 체계적인 시스템 — 평가도구 탭 */

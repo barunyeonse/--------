@@ -347,35 +347,43 @@ footer a:hover{color:#fff;}
    갤러리 / 체계적인 시스템 / 블로그 티저
    ============================================================ */
 
-/* ---------------- 히어로 캐러셀(풀블리드) ---------------- */
-.hero-carousel{position:relative;height:100vh;height:100dvh;min-height:560px;overflow:hidden;background:var(--navy);}
-.hc-slide{
-  position:absolute;inset:0;opacity:0;transition:opacity .8s ease;
-  display:flex;align-items:center;
+/* ---------------- 히어로 캐러셀 — 실제 barunrehab.com 코드 그대로 이식 ---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+.custom-hero-slider{
+  position:relative;width:100%;height:100vh;height:100dvh;min-height:560px;
+  background-color:#000;overflow:hidden;margin-top:-1px;
+  transition:all .4s ease-in-out;z-index:1;
 }
-.hc-slide.active{opacity:1;z-index:1;}
-.hc-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
-.hc-slide::before{
-  content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(90deg,rgba(9,32,68,.72) 0%,rgba(9,32,68,.42) 45%,rgba(9,32,68,.12) 75%);
+.custom-hero-slider.scrolled{transform:scale(.95);border-radius:0 0 80px 80px;}
+.hero-slides,.hero-item{position:absolute;top:0;left:0;width:100%;height:100%;}
+.hero-item{
+  background-size:cover;background-position:center;opacity:0;
+  transition:opacity 1.2s ease-in-out;
+  display:flex;align-items:center;justify-content:left;
 }
-.hc-text{position:relative;z-index:2;color:#fff;max-width:1040px;}
-.hc-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);color:#fff;font-weight:800;font-size:13.5px;padding:8px 15px;border-radius:999px;margin-bottom:18px;}
-.hc-badge b{color:#7FB0FF;}
-.hc-text h1{color:#fff;font-weight:700;font-size:clamp(26px,5vw,64px);line-height:1.3;letter-spacing:-.5px;margin-bottom:16px;}
-.hc-text p{color:#EAEAEA;font-weight:500;font-size:clamp(15px,1.9vw,24px);line-height:1.6;max-width:900px;margin-bottom:0;}
-.hc-actions{display:flex;gap:12px;flex-wrap:wrap;}
-.hc-nav{position:relative;z-index:3;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);color:#fff;border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;}
-.hc-nav:hover{background:rgba(255,255,255,.3);}
-.hc-meta{position:absolute;z-index:3;left:24px;bottom:24px;display:flex;align-items:center;gap:14px;}
-.hc-count{color:#fff;font-weight:800;font-size:14px;letter-spacing:1px;}
-.hc-dots{display:flex;gap:6px;}
-.hc-dots button{width:26px;height:3px;border-radius:2px;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;}
-.hc-dots button.active{background:#fff;}
-@media(max-width:680px){
-  .hero-carousel{height:100vh;height:100dvh;min-height:520px;}
-  .hc-slide::before{background:linear-gradient(180deg,rgba(9,32,68,.15) 0%,rgba(9,32,68,.82) 78%);}
-  .hc-text{max-width:100%;}
+.hero-item.active{opacity:1;z-index:1;}
+.hero-item::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(0,0,0,.5),transparent);
+  z-index:1;
+}
+.hero-item .hero-text-box{position:relative;left:8%;text-align:left;width:84%;max-width:1400px;z-index:2;}
+.custom-hero-slider .main-title{color:#fff;font-size:clamp(36px,6vw,64px);font-weight:700;line-height:1.3;margin-bottom:28px;letter-spacing:-.02em;}
+.custom-hero-slider .sub-title{color:#EAEAEA;font-size:clamp(18px,2.2vw,24px);font-weight:500;line-height:1.6;}
+.hero-nav-center{position:absolute;bottom:clamp(50px,10vh,100px);left:50%;transform:translateX(-50%);z-index:10;width:auto;}
+.hero-nav-center .nav-wrapper{display:flex;align-items:center;justify-content:center;gap:clamp(40px,6vw,80px);}
+.hero-nav-center .nav-controls{display:flex;align-items:center;gap:30px;color:#fff;}
+.hero-nav-center .nav-arrow{cursor:pointer;font-size:28px;opacity:.6;transition:.3s;user-select:none;font-family:serif;}
+.hero-nav-center .nav-arrow:hover{opacity:1;transform:scale(1.3);}
+.hero-nav-center .page-count{font-size:20px;font-weight:600;min-width:80px;text-align:center;font-family:'Montserrat',sans-serif;letter-spacing:2px;}
+.hero-nav-center .progress-track{width:clamp(180px,25vw,350px);height:3px;background:rgba(255,255,255,.2);}
+.hero-nav-center #active-bar{width:0%;height:100%;background:#fff;}
+@media(max-width:768px){
+  .hero-nav-center .nav-wrapper{gap:30px;}
+  .hero-nav-center .nav-controls{gap:15px;}
+  .hero-nav-center .progress-track{width:120px;}
+  .custom-hero-slider .main-title{margin-bottom:15px;}
 }
 
 /* ---------------- 운동 프로그램 안내(센터드 헤더) ---------------- */
@@ -645,7 +653,7 @@ body.transparent-hero header.scrolled .ni-label{color:var(--navy);}
 body.transparent-hero header.scrolled .ni-sub{color:var(--primary);}
 body.transparent-hero header.scrolled .nav-tel{color:var(--primary);}
 body.transparent-hero header.scrolled .hamburger{color:var(--navy);}
-body.transparent-hero .hero-carousel{margin-top:0;}
+body.transparent-hero .custom-hero-slider{margin-top:0;}
 @media(max-width:680px){
   body.transparent-hero header{position:sticky;background:rgba(251,250,247,.92);border-bottom-color:var(--border);backdrop-filter:blur(8px);}
   body.transparent-hero header .logo-color{display:block;}
