@@ -604,7 +604,7 @@ footer a:hover{color:#fff;}
 }
 
 .mega-backdrop{
-  position:fixed;left:0;right:0;top:85px;bottom:0;background:rgba(9,32,68,.42);
+  position:fixed;left:0;right:0;top:85px;bottom:0;background:rgba(9,32,68,.08);
   z-index:150;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease;
 }
 .mega-backdrop.mega-open{opacity:1;visibility:visible;}
