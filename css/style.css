@@ -193,6 +193,17 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .expert-lead ul li{position:relative;padding-left:18px;color:var(--text-soft);font-size:15px;margin-bottom:6px;}
 .expert-lead ul li::before{content:"·";position:absolute;left:0;color:var(--primary);font-weight:900;}
 .origin-hospitals{margin-top:36px;text-align:center;color:var(--text-soft);font-size:14px;}
+.expert-more{margin-top:18px;border-top:1px solid var(--border);padding-top:14px;}
+.expert-more summary{cursor:pointer;font-weight:700;color:var(--primary);font-size:14px;list-style:none;}
+.expert-more summary::-webkit-details-marker{display:none;}
+.expert-more summary::after{content:" ▾";}
+.expert-more[open] summary::after{content:" ▴";}
+.expert-more-body{margin-top:14px;}
+.expert-more-body h4{font-size:14px;color:var(--navy);margin:16px 0 6px;}
+.expert-more-body h4:first-child{margin-top:0;}
+.expert-more-body ul{margin:0;padding:0;list-style:none;}
+.expert-more-body ul li{position:relative;padding-left:14px;color:var(--text-soft);font-size:13.5px;margin-bottom:5px;line-height:1.5;}
+.expert-more-body ul li::before{content:"-";position:absolute;left:0;color:var(--text-soft);}
 .origin-hospitals b{color:var(--navy);}
 
 /* ---------------- 프로그램 카드 ---------------- */
@@ -280,6 +291,9 @@ footer h4{color:#fff;font-size:14.5px;margin-bottom:14px;}
 footer li{margin-bottom:8px;}
 footer a:hover{color:#fff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,.5);}
+.footer-legal{display:flex;align-items:center;gap:8px;}
+.footer-legal a{text-decoration:none;}
+.footer-legal a:hover{text-decoration:underline;}
 
 /* ---------------- 플로팅 버튼 ---------------- */
 .floating{position:fixed;right:22px;top:120px;display:flex;flex-direction:column;gap:10px;z-index:190;}
