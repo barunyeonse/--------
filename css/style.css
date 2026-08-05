@@ -204,6 +204,13 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .expert-more-body ul{margin:0;padding:0;list-style:none;}
 .expert-more-body ul li{position:relative;padding-left:14px;color:var(--text-soft);font-size:13.5px;margin-bottom:5px;line-height:1.5;}
 .expert-more-body ul li::before{content:"-";position:absolute;left:0;color:var(--text-soft);}
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;}
+.expertise-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);}
+.expertise-card h4{font-size:14px;color:var(--primary);margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--primary-light);}
+.expertise-card ul{margin:0;padding:0;list-style:none;}
+.expertise-card ul li{position:relative;padding-left:14px;color:var(--text-soft);font-size:13.5px;margin-bottom:6px;line-height:1.5;}
+.expertise-card ul li::before{content:"-";position:absolute;left:0;color:var(--primary);}
+@media(max-width:900px){ .expertise-grid{grid-template-columns:1fr;} }
 .origin-hospitals b{color:var(--navy);}
 
 /* ---------------- 프로그램 카드 ---------------- */
@@ -439,6 +446,19 @@ footer a:hover{color:#fff;}
   .diff-section .diff-photo{display:none;}
   .diff-cards{grid-template-columns:1fr;}
 }
+
+/* ---------------- 숫자로 보는 바른연세 (성과·신뢰 지표) ---------------- */
+.stats-section{background:#fff;padding:16px 0 96px;}
+.stats-section .stats-head{text-align:center;margin-bottom:36px;}
+.stats-section .eyebrow-blue{color:var(--primary);font-weight:800;font-size:20px;margin-bottom:12px;display:block;}
+.stats-section h2{font-size:clamp(20px,2.4vw,26px);color:var(--text);font-weight:800;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.stat-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:36px 24px;text-align:center;box-shadow:var(--shadow);}
+.stat-card b{display:block;font-size:44px;font-weight:800;color:var(--primary);line-height:1;margin-bottom:14px;}
+.stat-card b span{font-size:22px;font-weight:700;margin-left:2px;}
+.stat-card p{color:var(--text-soft);font-size:14.5px;line-height:1.6;}
+.stat-card .stat-note{font-size:12.5px;color:#8993A1;}
+@media(max-width:900px){.stats-grid{grid-template-columns:1fr;}}
 
 /* ---------------- 바른연세 비전 ---------------- */
 .vision-section{background:var(--primary-light);padding:96px 0;text-align:center;}
