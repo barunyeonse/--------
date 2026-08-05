@@ -150,10 +150,10 @@
           <div class="mega-col">
             <span class="mega-title">운동 프로그램</span>
             <a href="/programs/care">바른연세 케어</a>
-            <a href="/programs/neurological">신경계 운동</a>
-            <a href="/programs/musculoskeletal">근골격계 운동</a>
-            <a href="/programs/pediatric">소아 운동</a>
-            <a href="/programs/other">기타질환 운동</a>
+            <a href="/programs/neurological">신경계 재활</a>
+            <a href="/programs/musculoskeletal">근골격계 재활</a>
+            <a href="/programs/pediatric">소아 재활</a>
+            <a href="/programs/other">기타 질환 재활</a>
           </div>
           <div class="mega-col">
             <span class="mega-title">바른연세 스토리</span>
@@ -263,9 +263,9 @@
         </span>
       </a>
       <a href="/programs/neurological" class="program-photo-card">
-        <img src="/assets/programs/neuro.jpg" alt="신경계 운동">
+        <img src="/assets/programs/neuro.jpg" alt="신경계 재활">
         <span class="txt">
-          <span class="en">Neurological</span><span class="kr">신경계 운동</span>
+          <span class="en">Neurological</span><span class="kr">신경계 재활</span>
           <ul class="detail">
             <li>뇌졸중(뇌출혈, 뇌경색)</li>
             <li>파킨슨 등 퇴행성 질환</li>
@@ -276,9 +276,9 @@
         </span>
       </a>
       <a href="/programs/musculoskeletal" class="program-photo-card">
-        <img src="/assets/programs/musculo.jpg" alt="근골격계 운동">
+        <img src="/assets/programs/musculo.jpg" alt="근골격계 재활">
         <span class="txt">
-          <span class="en">Musculoskeletal</span><span class="kr">근골격계 운동</span>
+          <span class="en">Musculoskeletal</span><span class="kr">근골격계 재활</span>
           <ul class="detail">
             <li>근골격계 각종질환 (목, 어깨, 허리, 무릎 등)</li>
             <li>수술 전/후 관리 (인공관절, 디스크 등)</li>
@@ -287,9 +287,9 @@
         </span>
       </a>
       <a href="/programs/pediatric" class="program-photo-card">
-        <img src="/assets/programs/pediatric.jpg" alt="소아 운동">
+        <img src="/assets/programs/pediatric.jpg" alt="소아 재활">
         <span class="txt">
-          <span class="en">Pediatric</span><span class="kr">소아 운동</span>
+          <span class="en">Pediatric</span><span class="kr">소아 재활</span>
           <ul class="detail">
             <li>뇌성마비</li>
             <li>조산 / 사경</li>
@@ -300,9 +300,9 @@
         </span>
       </a>
       <a href="/programs/other" class="program-photo-card">
-        <img src="/assets/programs/other.jpg" alt="기타 질환 운동">
+        <img src="/assets/programs/other.jpg" alt="기타 질환 재활">
         <span class="txt">
-          <span class="en">Other Diseases</span><span class="kr">기타 질환 운동</span>
+          <span class="en">Other Diseases</span><span class="kr">기타 질환 재활</span>
           <ul class="detail">
             <li>노인성 질환</li>
             <li>각종 희귀 질환</li>
@@ -359,15 +359,15 @@
     </div>
     <div class="stats-grid">
       <div class="stat-card">
-        <b>1,000<span>회+</span></b>
+        <b><span class="stat-num" data-target="1000">0</span><span>회+</span></b>
         <p>대표 최현준의 누적 운동지도 경험<br><span class="stat-note">방문재활·기관 프로그램 운영·봉사활동 포함</span></p>
       </div>
       <div class="stat-card">
-        <b>10<span>년+</span></b>
+        <b><span class="stat-num" data-target="10">0</span><span>년+</span></b>
         <p>물리치료사·작업치료사·건강운동관리사<br><span class="stat-note">협력 전문 인력 평균 경력</span></p>
       </div>
       <div class="stat-card">
-        <b>30<span>년+</span></b>
+        <b><span class="stat-num" data-target="30">0</span><span>년+</span></b>
         <p>학술자문위원 김청훈 이학박사<br><span class="stat-note">스포츠재활 연구·임상 경력</span></p>
       </div>
     </div>
@@ -807,6 +807,43 @@
 
   updateSlider();
   resetInterval();
+})();
+
+/* 숫자로 보는 바른연세 — 스크롤 시 카운트업 애니메이션 */
+(function(){
+  var nums = document.querySelectorAll('.stat-num');
+  var section = document.querySelector('.stats-section');
+  if(!nums.length || !section) return;
+  var animated = false;
+  function animate(){
+    if(animated) return;
+    animated = true;
+    nums.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      var duration = 1200;
+      var startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(target * eased);
+        el.textContent = current.toLocaleString('ko-KR');
+        if(progress < 1){ requestAnimationFrame(step); }
+        else { el.textContent = target.toLocaleString('ko-KR'); }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ animate(); observer.disconnect(); }
+      });
+    }, {threshold:0.3});
+    observer.observe(section);
+  } else {
+    animate();
+  }
 })();
 
 /* 체계적인 시스템 — 평가도구 탭 */
