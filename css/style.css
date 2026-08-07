@@ -135,6 +135,7 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .trustbar .item .ico{font-size:20px;}
 
 /* ---------------- 카드 그리드 공통 ---------------- */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:44px;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
 .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:44px;}
@@ -353,7 +354,7 @@ footer a:hover{color:#fff;}
   .nav-menu.show a:last-of-type{border-bottom:none;}
   .hamburger{display:block;}
   .section{padding:60px 0;}
-  .grid-3,.grid-4,.grid-5{grid-template-columns:1fr;}
+  .grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;}
   .trustbar .item{min-width:100%;}
   .step:not(:last-child)::after{display:none;}
   .compare-row{grid-template-columns:1fr;}
