@@ -136,6 +136,10 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 
 /* ---------------- 카드 그리드 공통 ---------------- */
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:44px;}
+.grid-2>*{min-width:0;}
+/* .center 유틸리티가 margin:auto로 grid item을 내용 너비만큼 축소시켜
+   두 가격 박스 크기가 달라 보이던 문제 수정 (2026-08-08) */
+.grid-2 .card{width:100%;margin-left:0;margin-right:0;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
 .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:44px;}
@@ -439,7 +443,7 @@ footer a:hover{color:#fff;}
 .why-section .eyebrow-blue{color:var(--primary);font-weight:800;font-size:22px;margin-bottom:16px;display:block;}
 .why-section h2{color:var(--text);font-size:clamp(24px,2.8vw,32px);line-height:1.4;margin-bottom:18px;font-weight:800;}
 .why-section p{color:var(--text-soft);font-size:16px;line-height:1.8;}
-.diff-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:64px;}
+.diff-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .diff-card{
   background:var(--bg);border:1px solid var(--border);
   border-radius:16px;padding:36px 28px;text-align:center;box-shadow:0 8px 20px rgba(9,32,68,.06);
@@ -453,7 +457,7 @@ footer a:hover{color:#fff;}
 
 .stats-head{text-align:center;margin-bottom:36px;}
 
-.advisor-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:stretch;}
+.advisor-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:stretch;margin-bottom:64px;}
 .advisor-photo-card{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);min-height:340px;}
 .advisor-photo-card img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
 .advisor-badge{
@@ -473,11 +477,6 @@ footer a:hover{color:#fff;}
   .advisor-photo-card{min-height:280px;}
 }
 
-/* ---------------- 숫자로 보는 바른연세 (성과·신뢰 지표) ---------------- */
-.stats-section{background:#fff;padding:16px 0 96px;}
-.stats-section .stats-head{text-align:center;margin-bottom:36px;}
-.stats-section .eyebrow-blue{color:var(--primary);font-weight:800;font-size:20px;margin-bottom:12px;display:block;}
-.stats-section h2{font-size:clamp(20px,2.4vw,26px);color:var(--text);font-weight:800;}
 
 /* ---------------- 바른연세 비전 ---------------- */
 .vision-section{background:var(--primary-light);padding:96px 0;text-align:center;}
@@ -516,12 +515,7 @@ footer a:hover{color:#fff;}
 .section-link span{color:var(--primary);font-size:18px;}
 
 /* ---------------- 사진 갤러리 스트립 ---------------- */
-.gallery-strip{display:flex;gap:14px;overflow-x:auto;padding:8px 24px 24px;scroll-snap-type:x mandatory;}
-.gallery-strip img{
-  flex:0 0 auto;width:220px;height:275px;object-fit:cover;border-radius:14px;scroll-snap-align:start;
-  box-shadow:var(--shadow);
-}
-@media(max-width:680px){ .gallery-strip img{width:170px;height:212px;} }
+
 
 /* ---------------- 운동 프로그램 안내 (포토 카드 5종) ---------------- */
 .program-photo-grid{
@@ -1023,6 +1017,31 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .home-review-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px;}
 @media(max-width:960px){.home-review-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:640px){.home-review-grid{grid-template-columns:1fr;}}
+
+/* 고객 후기 — 현장 사진(위) + 후기 텍스트(아래) 통합 카드 (2026-08-08) */
+.review-photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px;}
+.review-photo-grid>*{min-width:0;}
+.review-photo-card{
+  background:var(--white);border:1px solid var(--border);border-radius:18px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;height:100%;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.review-photo-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(18,52,86,.14);}
+.review-photo-card .rvp-img{aspect-ratio:4/3;overflow:hidden;}
+.review-photo-card .rvp-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+.review-photo-card:hover .rvp-img img{transform:scale(1.06);}
+.review-photo-card .rvp-body{padding:20px;display:flex;flex-direction:column;flex:1;}
+.review-photo-card .rvp-cat{
+  display:inline-block;font-size:11.5px;font-weight:700;color:var(--primary);background:var(--primary-light);
+  padding:3px 10px;border-radius:999px;margin-bottom:10px;align-self:flex-start;
+}
+.review-photo-card .rvp-text{font-size:14px;color:var(--text);margin-bottom:14px;line-height:1.6;flex:1;}
+.review-photo-card .rvp-meta{
+  font-size:12.5px;color:var(--text-soft);display:flex;justify-content:space-between;
+  padding-top:12px;border-top:1px solid var(--border);
+}
+@media(max-width:960px){.review-photo-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.review-photo-grid{grid-template-columns:1fr;}}
 
 /* 재활운동 진행 과정 개념도 — 수치·결과 보장 없이 서비스 진행 단계만 안내 */
 .journey-section{background:var(--white);}
