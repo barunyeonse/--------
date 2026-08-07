@@ -59,70 +59,50 @@
       <span class="logo-tagline">방문 건강·재활 운동센터</span>
     </a>
     <nav class="nav-menu">
-      <a href="/about">센터소개</a>
-      <a href="/programs">운동 프로그램</a>
-      <a href="/story">바른연세 스토리</a>
-      <a href="/contact">고객센터</a>
-      <div class="mega-panel">
-        <div class="mega-panel-inner">
-          <div class="mega-col">
-            <span class="mega-title">센터소개</span>
-            <a href="/about">센터소개</a>
-            <a href="/about#ceo-message">대표 인사말</a>
-            <a href="/about#experts">전문가 소개</a>
-            <a href="/about#guide-info">이용안내</a>
-          </div>
-          <div class="mega-col">
-            <span class="mega-title">운동 프로그램</span>
-            <a href="/programs/care">바른연세 케어</a>
-            <a href="/programs/neurological">신경계 재활</a>
-            <a href="/programs/musculoskeletal">근골격계 재활</a>
-            <a href="/programs/pediatric">소아 재활</a>
-            <a href="/programs/other">기타 질환 재활</a>
-          </div>
-          <div class="mega-col">
-            <span class="mega-title">바른연세 스토리</span>
-            <a href="/story">바른연세 스토리</a>
-            <a href="/guide">홈케어 가이드</a>
-            <a href="/reviews">고객 후기</a>
-          </div>
-          <div class="mega-col">
-            <span class="mega-title">고객센터</span>
-            <a href="/contact">무료상담</a>
-            <a href="/contact#org">비즈니스 문의</a>
-          </div>
+      <div class="nav-item">
+        <a href="/about">센터소개</a>
+        <div class="submenu">
+          <a href="/about">센터소개</a>
+          <a href="/about#ceo-message">대표 인사말</a>
+          <a href="/about#experts">전문가 소개</a>
+          <a href="/about#guide-info">이용안내</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="/programs">운동 프로그램</a>
+        <div class="submenu">
+          <a href="/programs/care">바른연세 케어</a>
+          <a href="/programs/neurological">신경계 재활</a>
+          <a href="/programs/musculoskeletal">근골격계 재활</a>
+          <a href="/programs/pediatric">소아 재활</a>
+          <a href="/programs/other">기타 질환 재활</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="/story">바른연세 스토리</a>
+        <div class="submenu">
+          <a href="/story">바른연세 스토리</a>
+          <a href="/guide">홈케어 가이드</a>
+          <a href="/reviews">고객 후기</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="/contact">고객센터</a>
+        <div class="submenu">
+          <a href="/contact">무료상담</a>
+          <a href="/contact#org">비즈니스 문의</a>
         </div>
       </div>
     </nav>
     <div class="nav-cta">
-      <span class="nav-tel">📞 010-8185-3100</span>
+      <span class="nav-tel"><svg class="tel-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="#25D366" d="M6.6 10.8c1.3 2.6 3.5 4.7 6.1 6.1l2-2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.6 20.7 3.3 13.4 3.3 4.8c0-.6.4-1 1-1H7.7c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2 2z"/></svg> 010-8185-3100</span>
       <a href="/contact" class="btn btn-primary">무료 상담 신청</a>
     </div>
     <button class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('show')">☰</button>
   </div>
 </header>
-<div class="mega-backdrop"></div>
-<script>
-(function(){
-  var backdrop = document.querySelector('.mega-backdrop');
-  /* 2026-08-07: 드롭다운이 닫히는 문제 수정 — 메뉴 글자 위에서만 감지하던 것을
-     헤더 전체(로고~버튼 높이 전체)로 넓혀서, 마우스가 아래 드롭다운으로
-     이동하는 동안 중간에 호버가 끊기지 않도록 함 */
-  var hoverZone = document.querySelector('header');
-  if(!backdrop || !hoverZone) return;
-  hoverZone.addEventListener('mouseenter', function(){ backdrop.classList.add('mega-open'); });
-  hoverZone.addEventListener('mouseleave', function(){ backdrop.classList.remove('mega-open'); });
-
-  /* 2026-08-07: 로고 크기가 바뀌면 헤더 높이도 바뀌므로, 드롭다운 배경(mega-backdrop)이
-     항상 헤더 바로 아래에서 시작하도록 실제 헤더 높이를 CSS 변수로 동기화 */
-  function syncHeaderHeight(){
-    document.documentElement.style.setProperty('--header-h', hoverZone.offsetHeight + 'px');
-  }
-  syncHeaderHeight();
-  window.addEventListener('resize', syncHeaderHeight);
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(syncHeaderHeight); }
-})();
-</script>
+<!-- 2026-08-08: 메뉴가 개별 드롭다운(.nav-item .submenu, 순수 CSS :hover)으로
+     바뀌면서 이 페이지에서 별도 JS가 필요 없어져 제거함 -->
 
 <section class="hero" style="padding:56px 0 40px;">
   <div class="wrap">
@@ -258,7 +238,7 @@ function showTab(name, btn){
 </footer>
 
 <div class="floating">
-  <a href="tel:01081853100" title="전화 상담">📞<span class="fl-label">전화</span></a>
+  <a href="tel:01081853100" title="전화 상담"><svg class="tel-icon-lg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#25D366" d="M6.6 10.8c1.3 2.6 3.5 4.7 6.1 6.1l2-2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.6 20.7 3.3 13.4 3.3 4.8c0-.6.4-1 1-1H7.7c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2 2z"/></svg><span class="fl-label">전화</span></a>
   <a href="https://pf.kakao.com/_xlMpzX/chat" title="카카오톡 상담" target="_blank" rel="noopener noreferrer">💬<span class="fl-label">TALK</span></a>
   <a href="/reviews" title="고객 후기">⭐<span class="fl-label">후기</span></a>
   <a href="https://blog.naver.com/barun8185" title="블로그" target="_blank" rel="noopener">📝<span class="fl-label">blog</span></a>

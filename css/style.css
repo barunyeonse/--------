@@ -75,8 +75,9 @@ header{
 footer h4.f-logo{display:flex;align-items:center;gap:8px;}
 footer h4.f-logo img{height:28px;width:auto;display:block;}
 .nav-menu{display:flex;gap:22px;align-items:center;}
-.nav-menu>a{font-weight:600;font-size:15px;color:var(--text);padding:4px 0;border-bottom:2px solid transparent;}
-.nav-menu>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
+.nav-item{position:relative;}
+.nav-item>a{font-weight:600;font-size:17px;color:var(--text);padding:4px 0;border-bottom:2px solid transparent;display:inline-block;}
+.nav-item>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
 .nav-cat{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:2px solid transparent;}
 .nav-cat:hover{border-bottom-color:var(--primary);}
 .nav-cat .nc-icon{font-size:18px;line-height:1;flex:none;}
@@ -87,6 +88,8 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .nav-cta{display:flex;gap:10px;align-items:center;}
 .nav-tel{font-weight:600;color:var(--primary);font-size:13px;line-height:1.6;text-align:right;}
 .nav-tel b{display:block;font-size:16px;font-weight:800;}
+.tel-icon{vertical-align:-2px;}
+.tel-icon-lg{display:block;}
 .hamburger{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--navy);}
 
 /* ---------------- 히어로 ---------------- */
@@ -347,8 +350,9 @@ footer a:hover{color:#fff;}
     position:absolute;top:100%;left:0;right:0;background:#fff;
     padding:14px 24px 20px;border-bottom:1px solid var(--border);box-shadow:var(--shadow);
   }
-  .nav-menu.show a{padding:11px 0;width:100%;border-bottom:1px solid var(--border);}
-  .nav-menu.show a:last-of-type{border-bottom:none;}
+  .nav-menu.show .nav-item{width:100%;border-bottom:1px solid var(--border);}
+  .nav-menu.show .nav-item:last-child{border-bottom:none;}
+  .nav-menu.show .nav-item>a{display:block;padding:11px 0;width:100%;}
   .hamburger{display:block;}
   .section{padding:60px 0;}
   .grid-3,.grid-4,.grid-5{grid-template-columns:1fr;}
@@ -629,33 +633,36 @@ footer a:hover{color:#fff;}
    연세방문재활운동센터 참고 — 상단 메가메뉴 레이아웃 동일화(2026-07-28)
    전체 폭 바(header 기준 꽉 차게) + 아이콘형 메뉴버튼(운동 프로그램) 스타일
    ============================================================ */
-.mega-panel{
-  position:absolute;top:100%;left:0;right:0;
-  /* 2026-08-07: 배경을 헤더와 똑같은 색·투명도·블러로 맞춰서 헤더~드롭다운 사이
-     이음매가 자연스럽게 이어지도록 함 (기존엔 헤더는 반투명 크림색, 드롭다운은
-     불투명 순백색이라 색이 미묘하게 달라 보이고, 위아래 테두리선이 겹쳐 이중선처럼
-     보였음 — 위쪽 테두리는 헤더의 아래쪽 테두리와 중복되므로 제거) */
-  background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
-  box-shadow:0 24px 48px rgba(9,32,68,.12);
-  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .15s ease, transform .15s ease;
+/* 2026-08-07: 상단 메뉴 클릭(호버) 시 세부 메뉴가 각 메뉴 글자 바로 아래에 오도록
+   기존의 "가로로 꽉 찬 4단 메가메뉴 1개"를 "메뉴 항목별 개별 드롭다운"으로 변경.
+   각 드롭다운은 자신을 감싼 .nav-item에 호버가 걸려있는 동안 계속 열려 있고,
+   위치도 top:100%로 딱 붙여서(gap 없음) 마우스가 아래로 내려가는 중간에
+   호버가 끊기는 문제가 애초에 생기지 않음 */
+.submenu{
+  position:absolute;top:100%;left:50%;margin-top:0;
+  min-width:190px;
+  background:rgba(251,250,247,.92);backdrop-filter:blur(8px);
+  border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 20px 36px rgba(9,32,68,.14);
+  padding:14px 10px 10px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translate(-50%,10px);
+  transition:opacity .15s ease, transform .15s ease;
   z-index:200;
 }
-/* 2026-08-07: 드롭다운이 닫히는 문제 수정 — 메뉴 글자(.nav-menu)에만 호버가 걸려있으면 그 아래 드롭다운 패널로 마우스가 내려가는 중간 지점에서 호버가 끊겨 패널이 닫혀버림. 헤더 전체(header)에 호버를 걸어 이 끊김 구간을 없앰 */
-header:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}
-.mega-panel-inner{max-width:var(--maxw);margin:0 auto;padding:32px 24px;display:flex;gap:0;}
-.mega-col{flex:1;padding:0 26px;border-right:1px solid var(--border);}
-.mega-col:last-child{border-right:none;}
-.mega-col .mega-title{display:block;color:var(--navy);font-size:15.5px;font-weight:800;margin-bottom:14px;}
-.mega-col a{display:block;color:var(--text-soft);font-size:14px;font-weight:600;padding:7px 0;}
-.mega-col a:hover{color:var(--primary);}
-@media(max-width:960px){ .mega-panel{display:none !important;} }
+.nav-item:hover .submenu{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0);}
+.submenu a{display:block;padding:9px 14px;border-radius:8px;color:var(--text-soft);font-size:14px;font-weight:600;white-space:nowrap;}
+.submenu a:hover{background:var(--primary-light);color:var(--primary);}
+.nav-item:last-child .submenu{left:auto;right:0;transform:translate(0,10px);}
+.nav-item:last-child:hover .submenu{transform:translate(0,0);}
+@media(max-width:960px){ .submenu{display:none !important;} }
 
 /* 아이콘형 메뉴버튼 (방문형 서비스 강조 — 연세방문재활운동센터의 '방문재활운동' 버튼과 동일한 구조) */
-.nav-menu>a.ni-box{
+.nav-item>a.ni-box{
   display:flex;align-items:center;gap:9px;
   padding:7px 15px;border:1px solid var(--border);border-radius:12px;
 }
-.nav-menu>a.ni-box:hover{background:var(--primary-light);border-color:var(--primary);}
+.nav-item>a.ni-box:hover{background:var(--primary-light);border-color:var(--primary);}
 .ni-icon{font-size:21px;line-height:1;}
 .ni-text{display:flex;flex-direction:column;line-height:1.32;}
 .ni-kicker{font-size:11px;color:var(--text-soft);font-weight:700;}
@@ -665,13 +672,6 @@ header:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transf
   .nav-menu.show a.ni-box{display:flex;border-radius:10px;margin:4px 0;}
 }
 
-.mega-backdrop{
-  position:fixed;left:0;right:0;top:var(--header-h,85px);bottom:0;background:rgba(9,32,68,.08);
-  z-index:150;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease;
-}
-.mega-backdrop.mega-open{opacity:1;visibility:visible;}
-@media(max-width:960px){ .mega-backdrop{display:none !important;} }
-
 /* ---------------- 투명 히어로 헤더 (홈페이지 전용) ---------------- */
 body.transparent-hero header{
   position:fixed;top:0;left:0;right:0;width:100%;
@@ -680,10 +680,10 @@ body.transparent-hero header{
 body.transparent-hero header .logo-color{display:none;}
 body.transparent-hero header .logo-white{display:block;}
 body.transparent-hero header .logo-tagline{color:rgba(255,255,255,.85);}
-body.transparent-hero header .nav-menu>a{color:#fff;}
-body.transparent-hero header .nav-menu>a:hover{color:#fff;border-bottom-color:#fff;}
-body.transparent-hero header .nav-menu>a.ni-box{border-color:rgba(255,255,255,.4);}
-body.transparent-hero header .nav-menu>a.ni-box:hover{background:rgba(255,255,255,.14);border-color:#fff;}
+body.transparent-hero header .nav-item>a{color:#fff;}
+body.transparent-hero header .nav-item>a:hover{color:#fff;border-bottom-color:#fff;}
+body.transparent-hero header .nav-item>a.ni-box{border-color:rgba(255,255,255,.4);}
+body.transparent-hero header .nav-item>a.ni-box:hover{background:rgba(255,255,255,.14);border-color:#fff;}
 body.transparent-hero header .ni-kicker{color:rgba(255,255,255,.78);}
 body.transparent-hero header .ni-label{color:#fff;}
 body.transparent-hero header .ni-sub{color:#fff;}
@@ -696,10 +696,10 @@ body.transparent-hero header.scrolled{
 body.transparent-hero header.scrolled .logo-color{display:block;}
 body.transparent-hero header.scrolled .logo-white{display:none;}
 body.transparent-hero header.scrolled .logo-tagline{color:var(--text-soft);}
-body.transparent-hero header.scrolled .nav-menu>a{color:var(--text);}
-body.transparent-hero header.scrolled .nav-menu>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
-body.transparent-hero header.scrolled .nav-menu>a.ni-box{border-color:var(--border);}
-body.transparent-hero header.scrolled .nav-menu>a.ni-box:hover{background:var(--primary-light);border-color:var(--primary);}
+body.transparent-hero header.scrolled .nav-item>a{color:var(--text);}
+body.transparent-hero header.scrolled .nav-item>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
+body.transparent-hero header.scrolled .nav-item>a.ni-box{border-color:var(--border);}
+body.transparent-hero header.scrolled .nav-item>a.ni-box:hover{background:var(--primary-light);border-color:var(--primary);}
 body.transparent-hero header.scrolled .ni-kicker{color:var(--text-soft);}
 body.transparent-hero header.scrolled .ni-label{color:var(--navy);}
 body.transparent-hero header.scrolled .ni-sub{color:var(--primary);}
@@ -714,9 +714,9 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   body.transparent-hero header .hamburger{color:var(--navy);}
   body.transparent-hero header .logo-tagline{color:var(--text-soft);}
   /* 모바일에서는 헤더가 항상 밝은 배경이므로(위 규칙), 메뉴 글자도 항상 어두운 색으로 표시 */
-  body.transparent-hero header .nav-menu>a{color:var(--text);}
-  body.transparent-hero header .nav-menu>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
-  body.transparent-hero header .nav-menu>a.ni-box{border-color:var(--border);}
+  body.transparent-hero header .nav-item>a{color:var(--text);}
+  body.transparent-hero header .nav-item>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
+  body.transparent-hero header .nav-item>a.ni-box{border-color:var(--border);}
   body.transparent-hero header .ni-kicker{color:var(--text-soft);}
   body.transparent-hero header .ni-label{color:var(--navy);}
   body.transparent-hero header .ni-sub{color:var(--primary);}
