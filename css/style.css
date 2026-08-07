@@ -67,10 +67,11 @@ header{
 }
 .logo-white{display:none;}
 .nav{display:flex;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px;}
-.logo{font-size:20px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:8px;}
-.logo img{height:64px;width:auto;display:block;}
+.logo{font-size:20px;font-weight:900;color:var(--navy);display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
+.logo img{height:72px;width:auto;display:block;}
 .logo span{color:var(--primary);}
-@media (max-width:600px){.logo img{height:48px;}}
+.logo-tagline{font-size:12.5px;font-weight:700;color:var(--text-soft);letter-spacing:.01em;padding-left:2px;}
+@media (max-width:600px){.logo img{height:56px;} .logo-tagline{font-size:10.5px;}}
 footer h4.f-logo{display:flex;align-items:center;gap:8px;}
 footer h4.f-logo img{height:28px;width:auto;display:block;}
 .nav-menu{display:flex;gap:22px;align-items:center;}
@@ -176,19 +177,16 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .ceo-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .ceo blockquote{font-size:20px;color:var(--navy);font-weight:700;line-height:1.6;margin-bottom:18px;}
 .ceo p{color:var(--text-soft);margin-bottom:14px;}
-.ceo .sign{font-weight:800;color:var(--navy);margin-top:18px;}
-.ceo-letter{
-  display:block;margin-top:16px;border-radius:16px;overflow:hidden;
-  border:1px solid var(--border);background:#FBFAF7;
-  box-shadow:0 6px 18px rgba(20,30,45,.07);text-decoration:none;
-  transition:transform .2s ease, box-shadow .2s ease;
+.ceo .quote-pair{
+  font-style:italic;font-weight:700;color:var(--navy);
+  padding-left:16px;border-left:3px solid var(--primary-light);
+  line-height:1.7;margin-bottom:18px;
 }
-.ceo-letter:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(20,30,45,.12);}
-.ceo-letter img{width:100%;display:block;}
-.ceo-letter-cap{
-  display:block;text-align:center;font-size:13px;font-weight:600;
-  color:var(--text-soft);padding:10px 12px;border-top:1px solid var(--border);
+.ceo .sign{
+  font-weight:800;color:var(--navy);margin-top:18px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:12px;
 }
+.sign-img{height:44px;width:auto;display:block;}
 
 
 /* ---------------- 전문가 소개 ---------------- */
@@ -677,6 +675,7 @@ body.transparent-hero header{
 }
 body.transparent-hero header .logo-color{display:none;}
 body.transparent-hero header .logo-white{display:block;}
+body.transparent-hero header .logo-tagline{color:rgba(255,255,255,.85);}
 body.transparent-hero header .nav-menu>a{color:#fff;}
 body.transparent-hero header .nav-menu>a:hover{color:#fff;border-bottom-color:#fff;}
 body.transparent-hero header .nav-menu>a.ni-box{border-color:rgba(255,255,255,.4);}
@@ -692,6 +691,7 @@ body.transparent-hero header.scrolled{
 }
 body.transparent-hero header.scrolled .logo-color{display:block;}
 body.transparent-hero header.scrolled .logo-white{display:none;}
+body.transparent-hero header.scrolled .logo-tagline{color:var(--text-soft);}
 body.transparent-hero header.scrolled .nav-menu>a{color:var(--text);}
 body.transparent-hero header.scrolled .nav-menu>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
 body.transparent-hero header.scrolled .nav-menu>a.ni-box{border-color:var(--border);}
@@ -708,6 +708,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   body.transparent-hero header .logo-white{display:none;}
   body.transparent-hero header .nav-tel{color:var(--primary);}
   body.transparent-hero header .hamburger{color:var(--navy);}
+  body.transparent-hero header .logo-tagline{color:var(--text-soft);}
   /* 모바일에서는 헤더가 항상 밝은 배경이므로(위 규칙), 메뉴 글자도 항상 어두운 색으로 표시 */
   body.transparent-hero header .nav-menu>a{color:var(--text);}
   body.transparent-hero header .nav-menu>a:hover{color:var(--primary);border-bottom-color:var(--primary);}
