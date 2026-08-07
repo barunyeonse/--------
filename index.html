@@ -173,13 +173,12 @@
 <script>
 (function(){
   var backdrop = document.querySelector('.mega-backdrop');
+  var header = document.querySelector('header');
   /* 2026-08-07: 드롭다운이 닫히는 문제 수정 — 메뉴 글자 위에서만 감지하던 것을
      헤더 전체(로고~버튼 높이 전체)로 넓혀서, 마우스가 아래 드롭다운으로
      이동하는 동안 중간에 호버가 끊기지 않도록 함 */
-  var hoverZone = document.querySelector('header');
+  var hoverZone = header;
   if(!backdrop || !hoverZone) return;
-  hoverZone.addEventListener('mouseenter', function(){ backdrop.classList.add('mega-open'); });
-  hoverZone.addEventListener('mouseleave', function(){ backdrop.classList.remove('mega-open'); });
 
   /* 2026-08-07: 로고 크기가 바뀌면 헤더 높이도 바뀌므로, 드롭다운 배경(mega-backdrop)이
      항상 헤더 바로 아래에서 시작하도록 실제 헤더 높이를 CSS 변수로 동기화 */
@@ -189,18 +188,29 @@
   syncHeaderHeight();
   window.addEventListener('resize', syncHeaderHeight);
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(syncHeaderHeight); }
-})();
 
-/* 투명 히어로 헤더 — 스크롤하면 불투명 헤더로 전환 */
-(function(){
-  var header = document.querySelector('header');
-  if(!header) return;
-  function onScroll(){
-    if(window.scrollY > 60){ header.classList.add('scrolled'); }
+  /* 투명 히어로 헤더 — 스크롤하면 불투명 헤더로 전환.
+     2026-08-07: 스크롤하지 않은 상태에서 드롭다운을 열었을 때도 헤더가 계속
+     히어로 사진 위에 투명하게 떠 있어서, 드롭다운(불투명 흰 배경)과 헤더 사이가
+     사진이 비치는 상태로 어색하게 분리되어 보이는 문제 수정 — 드롭다운이 열려
+     있는 동안에는 스크롤 여부와 상관없이 헤더도 불투명 상태를 유지하도록 함 */
+  var isMegaOpen = false;
+  function updateHeaderState(){
+    if(window.scrollY > 60 || isMegaOpen){ header.classList.add('scrolled'); }
     else { header.classList.remove('scrolled'); }
   }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
+  window.addEventListener('scroll', updateHeaderState, {passive:true});
+  hoverZone.addEventListener('mouseenter', function(){
+    backdrop.classList.add('mega-open');
+    isMegaOpen = true;
+    updateHeaderState();
+  });
+  hoverZone.addEventListener('mouseleave', function(){
+    backdrop.classList.remove('mega-open');
+    isMegaOpen = false;
+    updateHeaderState();
+  });
+  updateHeaderState();
 })();
 </script>
 
