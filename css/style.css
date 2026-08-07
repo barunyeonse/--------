@@ -631,7 +631,11 @@ footer a:hover{color:#fff;}
    ============================================================ */
 .mega-panel{
   position:absolute;top:100%;left:0;right:0;
-  background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  /* 2026-08-07: 배경을 헤더와 똑같은 색·투명도·블러로 맞춰서 헤더~드롭다운 사이
+     이음매가 자연스럽게 이어지도록 함 (기존엔 헤더는 반투명 크림색, 드롭다운은
+     불투명 순백색이라 색이 미묘하게 달라 보이고, 위아래 테두리선이 겹쳐 이중선처럼
+     보였음 — 위쪽 테두리는 헤더의 아래쪽 테두리와 중복되므로 제거) */
+  background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
   box-shadow:0 24px 48px rgba(9,32,68,.12);
   opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .15s ease, transform .15s ease;
   z-index:200;
