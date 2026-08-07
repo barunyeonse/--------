@@ -177,6 +177,19 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .ceo blockquote{font-size:20px;color:var(--navy);font-weight:700;line-height:1.6;margin-bottom:18px;}
 .ceo p{color:var(--text-soft);margin-bottom:14px;}
 .ceo .sign{font-weight:800;color:var(--navy);margin-top:18px;}
+.ceo-letter{
+  display:block;margin-top:16px;border-radius:16px;overflow:hidden;
+  border:1px solid var(--border);background:#FBFAF7;
+  box-shadow:0 6px 18px rgba(20,30,45,.07);text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.ceo-letter:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(20,30,45,.12);}
+.ceo-letter img{width:100%;display:block;}
+.ceo-letter-cap{
+  display:block;text-align:center;font-size:13px;font-weight:600;
+  color:var(--text-soft);padding:10px 12px;border-top:1px solid var(--border);
+}
+
 
 /* ---------------- 전문가 소개 ---------------- */
 .expert-lead{
