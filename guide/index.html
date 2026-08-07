@@ -57,14 +57,7 @@
     <a href="/" class="logo"><img src="/assets/logo-header.png" alt="바른연세 방문 건강·재활 운동센터 로고"></a>
     <nav class="nav-menu">
       <a href="/about">센터소개</a>
-      <a href="/programs" class="ni-box">
-        <span class="ni-icon" aria-hidden="true">🏠</span>
-        <span class="ni-text">
-          <span class="ni-kicker">집에서 편안하게</span>
-          <span class="ni-label">운동 프로그램</span>
-          <span class="ni-sub">서울·인천·경기 전역 방문</span>
-        </span>
-      </a>
+      <a href="/programs">운동 프로그램</a>
       <a href="/story">바른연세 스토리</a>
       <a href="/contact">고객센터</a>
       <div class="mega-panel">
@@ -109,10 +102,13 @@
 <script>
 (function(){
   var backdrop = document.querySelector('.mega-backdrop');
-  var navMenu = document.querySelector('.nav-menu');
-  if(!backdrop || !navMenu) return;
-  navMenu.addEventListener('mouseenter', function(){ backdrop.classList.add('mega-open'); });
-  navMenu.addEventListener('mouseleave', function(){ backdrop.classList.remove('mega-open'); });
+  /* 2026-08-07: 드롭다운이 닫히는 문제 수정 — 메뉴 글자 위에서만 감지하던 것을
+     헤더 전체(로고~버튼 높이 전체)로 넓혀서, 마우스가 아래 드롭다운으로
+     이동하는 동안 중간에 호버가 끊기지 않도록 함 */
+  var hoverZone = document.querySelector('header');
+  if(!backdrop || !hoverZone) return;
+  hoverZone.addEventListener('mouseenter', function(){ backdrop.classList.add('mega-open'); });
+  hoverZone.addEventListener('mouseleave', function(){ backdrop.classList.remove('mega-open'); });
 })();
 </script>
 
