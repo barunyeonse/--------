@@ -263,17 +263,18 @@
 </section>
 
 <!-- ============================================================
-     4-2) 바른연세만의 차별점 — 왜 바른연세를 선택할까요?
+     4-2) 바른연세만의 차별점 + 숫자로 보는 바른연세 (통합)
+     ⚠️ 숫자 관련 통계를 추가할 때는 반드시 근거(경력증명서·기록 등)가
+     있는 것만 넣어주세요. 표시광고법상 근거 없는 통계는 위법입니다.
      ============================================================ -->
-<section class="diff-section">
-  <div class="diff-photo" style="background-image:url('/assets/kim-cheonghun.jpg');"></div>
+<section class="why-section">
   <div class="wrap">
-    <div class="content">
+    <div class="content reveal">
       <span class="eyebrow-blue">바른연세만의 차별점</span>
       <h2>왜 바른연세를 선택할까요?</h2>
       <p>동일한 의학적 명칭일지라도 몸이 반응하는 발현 양상은 모두 다르게 나타납니다.<br>바른연세는 정형화된 접근 방식이 아닌 몸이 보내는 신호들을 듣고 여러분의 건강한 삶의 회복을 돕겠습니다.</p>
     </div>
-    <div class="diff-cards">
+    <div class="diff-cards reveal">
       <div class="diff-card">
         <div class="diff-ico">📦</div>
         <h3>논문과 AI 기반 설계</h3>
@@ -290,32 +291,27 @@
         <p>다수의 전문 자격과 현장 경험을 갖춘 대표와 물리치료사·작업치료사·건강운동관리사 전문 인력이 가정으로 찾아가 맞춤형 운동서비스를 제공합니다.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     4-2b) 숫자로 보는 바른연세 — 실제로 확인된 숫자만 표기합니다.
-     ⚠️ 새로운 숫자를 추가할 때는 반드시 근거(경력증명서·기록 등)가
-     있는 것만 넣어주세요. 표시광고법상 근거 없는 통계는 위법입니다.
-     ============================================================ -->
-<section class="stats-section">
-  <div class="wrap">
-    <div class="stats-head">
+    <div class="stats-head reveal">
       <span class="eyebrow-blue">숫자로 보는 바른연세</span>
       <h2>과장이 아닌, 확인된 숫자로 말씀드립니다</h2>
     </div>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <b><span class="stat-num" data-target="1000">0</span><span>회+</span></b>
-        <p>대표 최현준의 누적 운동지도 경험<br><span class="stat-note">방문재활·기관 프로그램 운영·봉사활동 포함</span></p>
+    <div class="advisor-split reveal">
+      <div class="advisor-photo-card">
+        <img src="/assets/kim-cheonghun-2.jpg" alt="학술자문위원 김청훈 이학박사" loading="lazy">
+        <div class="advisor-badge">
+          <b><span class="stat-num" data-target="30">0</span>년+</b>
+          <span>학술자문위원 김청훈 이학박사<br>스포츠재활 연구·임상 경력</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <b><span class="stat-num" data-target="10">0</span><span>년+</span></b>
-        <p>물리치료사·작업치료사·건강운동관리사<br><span class="stat-note">협력 전문 인력 평균 경력</span></p>
-      </div>
-      <div class="stat-card">
-        <b><span class="stat-num" data-target="30">0</span><span>년+</span></b>
-        <p>학술자문위원 김청훈 이학박사<br><span class="stat-note">스포츠재활 연구·임상 경력</span></p>
+      <div class="advisor-stats">
+        <div class="stat-mini">
+          <b><span class="stat-num" data-target="1000">0</span>건+</b>
+          <p>대표 최현준의 누적 운동지도 경험<br><span class="stat-note">방문재활·기관 프로그램 운영·봉사활동 포함</span></p>
+        </div>
+        <div class="stat-mini">
+          <b><span class="stat-num" data-target="10">0</span>년+</b>
+          <p>물리치료사·작업치료사·건강운동관리사<br><span class="stat-note">협력 전문 인력 평균 경력</span></p>
+        </div>
       </div>
     </div>
   </div>
@@ -958,7 +954,7 @@
 /* 숫자로 보는 바른연세 — 스크롤 시 카운트업 애니메이션 */
 (function(){
   var nums = document.querySelectorAll('.stat-num');
-  var section = document.querySelector('.stats-section');
+  var section = document.querySelector('.why-section');
   if(!nums.length || !section) return;
   var animated = false;
   function animate(){
@@ -990,6 +986,25 @@
   } else {
     animate();
   }
+})();
+
+/* 스크롤 등장 애니메이션 (.reveal) */
+(function(){
+  var targets = document.querySelectorAll('.reveal');
+  if(!targets.length) return;
+  if(!('IntersectionObserver' in window)){
+    targets.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+  targets.forEach(function(el){ io.observe(el); });
 })();
 
 /* 체계적인 시스템 — 평가도구 탭 */
