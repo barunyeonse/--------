@@ -178,6 +178,15 @@
   if(!backdrop || !hoverZone) return;
   hoverZone.addEventListener('mouseenter', function(){ backdrop.classList.add('mega-open'); });
   hoverZone.addEventListener('mouseleave', function(){ backdrop.classList.remove('mega-open'); });
+
+  /* 2026-08-07: 로고 크기가 바뀌면 헤더 높이도 바뀌므로, 드롭다운 배경(mega-backdrop)이
+     항상 헤더 바로 아래에서 시작하도록 실제 헤더 높이를 CSS 변수로 동기화 */
+  function syncHeaderHeight(){
+    document.documentElement.style.setProperty('--header-h', hoverZone.offsetHeight + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(syncHeaderHeight); }
 })();
 </script>
 
