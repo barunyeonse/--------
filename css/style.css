@@ -609,19 +609,19 @@ footer a:hover{color:#fff;}
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
 }
-.blog-track{display:flex;gap:18px;width:max-content;animation:blog-scroll 75s linear infinite;}
+.blog-track{display:flex;gap:22px;width:max-content;animation:blog-scroll 100s linear infinite;}
 .blog-marquee:hover .blog-track{animation-play-state:paused;}
 .blog-card{
-  flex:0 0 auto;width:190px;height:190px;border-radius:16px;overflow:hidden;
+  flex:0 0 auto;width:260px;height:260px;border-radius:18px;overflow:hidden;
   box-shadow:0 10px 22px rgba(9,32,68,.14);transition:transform .3s ease, box-shadow .3s ease;
 }
-.blog-card:hover{transform:translateY(-6px) scale(1.035);box-shadow:0 18px 34px rgba(9,32,68,.22);z-index:2;}
+.blog-card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 18px 34px rgba(9,32,68,.22);z-index:2;}
 .blog-card img{width:100%;height:100%;object-fit:cover;display:block;}
 @keyframes blog-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media(max-width:680px){
   .bt-head{flex-direction:column;}
-  .blog-card{width:130px;height:130px;}
-  .blog-track{gap:12px;animation-duration:50s;}
+  .blog-card{width:170px;height:170px;}
+  .blog-track{gap:14px;animation-duration:65s;}
 }
 
 /* ---------------- 푸터 소셜 버튼 ---------------- */
