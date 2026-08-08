@@ -381,6 +381,21 @@ footer a:hover{color:#fff;}
 .review-card .rv-meta{font-size:12.5px;color:var(--text-soft);display:flex;justify-content:space-between;}
 .review-card .rv-sample-badge{position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;color:#B3462C;background:#FFF0EA;padding:3px 9px;border-radius:999px;}
 
+/* ---------------- 후기 상세 카드 (실제 게시용, 2026-08-08 추가) ---------------- */
+.review-list{display:flex;flex-direction:column;gap:24px;margin-top:24px;}
+.review-full-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:30px 32px;box-shadow:var(--shadow);}
+.rfc-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.rfc-cat{display:inline-block;font-size:12px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:4px 12px;border-radius:999px;}
+.rfc-region{font-size:12.5px;color:var(--text-soft);font-weight:600;}
+.rfc-summary{background:var(--bg);border-left:3px solid var(--primary);border-radius:8px;padding:14px 18px;font-size:14.5px;color:var(--navy);font-weight:600;line-height:1.6;margin-bottom:18px;}
+.rfc-body p{color:var(--text-soft);font-size:15px;line-height:1.8;margin-bottom:12px;}
+.rfc-body p:last-child{margin-bottom:0;}
+.rfc-body b{color:var(--navy);font-weight:700;}
+.rfc-meta{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-soft);display:flex;justify-content:space-between;}
+@media(max-width:680px){
+  .review-full-card{padding:22px 20px;}
+}
+
 /* ============================================================
    아임웹 참고 리디자인(2026-07-27) — 히어로 캐러셀 / 비전 / 차별점 /
    갤러리 / 체계적인 시스템 / 블로그 티저
