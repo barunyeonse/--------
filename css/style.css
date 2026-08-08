@@ -391,6 +391,9 @@ footer a:hover{color:#fff;}
 .rfc-body p{color:var(--text-soft);font-size:15px;line-height:1.8;margin-bottom:12px;}
 .rfc-body p:last-child{margin-bottom:0;}
 .rfc-body b{color:var(--navy);font-weight:700;}
+.rfc-photo{max-width:280px;margin:0 0 20px;}
+.rfc-photo img{width:100%;height:auto;border-radius:14px;display:block;box-shadow:var(--shadow);}
+.rfc-photo-caption{font-size:11.5px;color:var(--text-soft);margin-top:8px;line-height:1.5;}
 .rfc-meta{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-soft);display:flex;justify-content:space-between;}
 @media(max-width:680px){
   .review-full-card{padding:22px 20px;}
@@ -613,30 +616,36 @@ footer a:hover{color:#fff;}
 .eval-box.meaning b{color:var(--primary);}
 @media(max-width:680px){ .eval-grid{grid-template-columns:1fr;} }
 
-/* ---------------- 블로그 티저 ---------------- */
-.blog-teaser{background:var(--white);padding:80px 0;overflow:hidden;}
+/* ---------------- 블로그 티저 (2026-08-08 재구성: 수동 스와이프/화살표 방식) ---------------- */
+.blog-teaser{background:var(--white);padding:80px 0;}
 .bt-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:40px;}
 .bt-head img{height:32px;margin-top:4px;}
 .bt-head h2{font-size:26px;font-weight:800;margin-bottom:8px;}
 .bt-head p{color:var(--text-soft);font-size:15px;margin-bottom:10px;}
-.blog-marquee{
-  width:100%;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+.blog-scroller-wrap{position:relative;display:flex;align-items:center;gap:8px;}
+.blog-scroller{
+  display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding:4px 24px 16px;-webkit-overflow-scrolling:touch;
 }
-.blog-track{display:flex;gap:28px;width:max-content;animation:blog-scroll 150s linear infinite;}
-.blog-marquee:hover .blog-track{animation-play-state:paused;}
+.blog-scroller::-webkit-scrollbar{height:8px;}
+.blog-scroller::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px;}
 .blog-card{
-  flex:0 0 auto;width:400px;height:400px;border-radius:20px;overflow:hidden;
-  box-shadow:0 12px 28px rgba(9,32,68,.16);transition:transform .3s ease, box-shadow .3s ease;
+  flex:0 0 auto;width:340px;height:340px;border-radius:20px;overflow:hidden;scroll-snap-align:start;
+  box-shadow:0 12px 28px rgba(9,32,68,.16);transition:transform .25s ease, box-shadow .25s ease;
 }
-.blog-card:hover{transform:translateY(-8px) scale(1.025);box-shadow:0 20px 40px rgba(9,32,68,.24);z-index:2;}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(9,32,68,.24);}
 .blog-card img{width:100%;height:100%;object-fit:cover;display:block;}
-@keyframes blog-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.blog-nav{
+  flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;
+  color:var(--navy);font-size:22px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 16px rgba(9,32,68,.12);transition:background .2s ease, color .2s ease;
+}
+.blog-nav:hover{background:var(--primary);color:#fff;}
 @media(max-width:680px){
   .bt-head{flex-direction:column;}
-  .blog-card{width:230px;height:230px;}
-  .blog-track{gap:16px;animation-duration:90s;}
+  .blog-card{width:220px;height:220px;}
+  .blog-scroller{gap:14px;}
+  .blog-nav{display:none;}
 }
 
 /* ---------------- 푸터 소셜 버튼 ---------------- */
