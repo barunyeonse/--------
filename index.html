@@ -1103,41 +1103,69 @@ function evalShow(key, btn){
     btn.addEventListener('mouseleave', function(){ btn.style.transform = 'translate(0,0)'; });
   });
 
-  /* C. 3D 틸트 카드 (프로그램 카드 + 차별점 카드) */
+  /* C. 3D 틸트 카드 (프로그램 카드 + 차별점 카드) — 2026-08-13 기울기 폭 강화(±10deg → ±26deg) */
   document.querySelectorAll('[data-tilt]').forEach(function(card){
     card.addEventListener('mousemove', function(e){
       var r = card.getBoundingClientRect();
       var x = (e.clientX - r.left)/r.width - 0.5;
       var y = (e.clientY - r.top)/r.height - 0.5;
-      card.style.transform = 'rotateY(' + (x*10) + 'deg) rotateX(' + (-y*10) + 'deg)';
+      card.style.transform = 'rotateY(' + (x*26) + 'deg) rotateX(' + (-y*26) + 'deg)';
     });
     card.addEventListener('mouseleave', function(){ card.style.transform = 'rotateY(0) rotateX(0)'; });
   });
 
-  /* E. 클릭 파티클 */
+  /* E. 클릭 파티클 — 2026-08-13 개편: 전/후 중간값으로 조정 (16개→22개, 거리/크기 확대) */
   document.querySelectorAll('[data-particle]').forEach(function(btn){
     btn.addEventListener('click', function(e){
       var colors = ['#1D5FD1','#4C9AFF','#7FC4FF','#0B2A5C'];
-      for(var i=0;i<16;i++){
+      var count = 22;
+      for(var i=0;i<count;i++){
         var p = document.createElement('div');
         p.className = 'fx-particle';
+        var size = 7 + Math.random()*4;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
         p.style.background = colors[i % colors.length];
         p.style.left = e.clientX + 'px';
         p.style.top = e.clientY + 'px';
         document.body.appendChild(p);
-        var angle = (Math.PI*2*i)/16;
-        var dist = 50 + Math.random()*50;
+        var angle = (Math.PI*2*i)/count + Math.random()*0.3;
+        var dist = 70 + Math.random()*75;
         var tx = Math.cos(angle)*dist, ty = Math.sin(angle)*dist;
         (function(el, tx, ty){
           var anim = el.animate([
             { transform:'translate(0,0) scale(1)', opacity:1 },
             { transform:'translate(' + tx + 'px,' + ty + 'px) scale(0)', opacity:0 }
-          ], { duration: 550 + Math.random()*250, easing:'cubic-bezier(.2,.8,.2,1)' });
+          ], { duration: 600 + Math.random()*300, easing:'cubic-bezier(.2,.8,.2,1)' });
           anim.onfinish = function(){ el.remove(); };
         })(p, tx, ty);
       }
     });
   });
+
+  /* F. 재활운동 진행과정 4단계 + 비전 섹션 4개 원 — 스크롤 등장 시 순서대로 통통 튀며 등장
+     (2026-08-13 추가, 디자인 변경 없음 / IntersectionObserver로 최초 1회만 트리거) */
+  if('IntersectionObserver' in window){
+    var staggerGroups = document.querySelectorAll('.journey-track, .vision-circles');
+    staggerGroups.forEach(function(group){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            Array.prototype.forEach.call(entry.target.children, function(child){
+              child.classList.add('stagger-in');
+            });
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.3});
+      io.observe(group);
+    });
+  } else {
+    /* IntersectionObserver 미지원 브라우저는 즉시 표시 */
+    document.querySelectorAll('.journey-step, .vision-circles>*').forEach(function(el){
+      el.classList.add('stagger-in');
+    });
+  }
 
   /* 배경 패럴랙스 도형 — 스크롤 속도보다 느리게 이동 */
   var pshapes = document.querySelectorAll('[data-parallax-speed]');
