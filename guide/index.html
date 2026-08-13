@@ -55,7 +55,7 @@
 <header>
   <div class="wrap nav">
     <a href="/" class="logo">
-      <img src="/assets/logo-header.png" alt="바른연세 방문 건강·재활 운동센터 로고">
+      <img src="/assets/logo-header-white.png" alt="바른연세 방문 건강·재활 운동센터 로고">
       <span class="logo-tagline">방문 건강·재활 운동센터</span>
     </a>
     <nav class="nav-menu">
@@ -105,14 +105,14 @@
      바뀌면서 이 페이지에서 별도 JS가 필요 없어져 제거함 -->
 
 <section class="hero" style="padding:56px 0 40px;">
-  <div class="wrap">
+  <div class="wrap reveal">
     <span class="eyebrow">GUIDE</span>
     <h1 style="font-size:clamp(26px,3.6vw,38px);">홈케어 가이드</h1>
     <div class="qab"><b>홈케어 가이드란,</b> 방문이 없는 날에도 환자와 보호자가 안전하게 따라할 수 있도록 바른연세 전문가가 정리한 재택 재활·안전 정보다. AI 맞춤 홈케어 시스템이 도입되면 개인별 콘텐츠로 확장될 예정이다.</div>
   </div>
 </section>
 <section class="section">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="grid-3">
       <div class="guide-card">
         <span class="tag">낙상예방</span>
@@ -136,7 +136,7 @@
 </section>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="footer-grid">
       <div>
         <h4>바른연세 방문 건강·재활 운동센터</h4>
@@ -200,5 +200,6 @@ document.querySelectorAll('.faq-item .faq-q').forEach(function(el){
   el.addEventListener('click', function(){ el.parentElement.classList.toggle('open'); });
 });
 </script>
+<script src="/js/cursor.js"></script>
 </body>
 </html>
