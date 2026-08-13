@@ -230,6 +230,7 @@
       <div class="progress-track"><div id="active-bar"></div></div>
     </div>
   </div>
+  <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
 </div>
 
 <!-- ============================================================
@@ -274,7 +275,7 @@
       <p>개인의 회복을 돕는 것을 넘어, 더 많은 분들이 건강한 일상을 이어갈 수 있도록 기여하고자 합니다.</p>
     </div>
     <div class="program-photo-grid">
-      <a href="/programs/care" class="program-photo-card">
+      <a href="/programs/care" class="program-photo-card" data-tilt>
         <img src="/assets/programs/care.jpg" alt="바른연세 케어">
         <span class="txt">
           <span class="en">Barun Yonsei Care</span><span class="kr">바른연세 케어</span>
@@ -286,7 +287,7 @@
           </ul>
         </span>
       </a>
-      <a href="/programs/neurological" class="program-photo-card">
+      <a href="/programs/neurological" class="program-photo-card" data-tilt>
         <img src="/assets/programs/neuro.jpg" alt="신경계 재활">
         <span class="txt">
           <span class="en">Neurological</span><span class="kr">신경계 재활</span>
@@ -299,7 +300,7 @@
           </ul>
         </span>
       </a>
-      <a href="/programs/musculoskeletal" class="program-photo-card">
+      <a href="/programs/musculoskeletal" class="program-photo-card" data-tilt>
         <img src="/assets/programs/musculo.jpg" alt="근골격계 재활">
         <span class="txt">
           <span class="en">Musculoskeletal</span><span class="kr">근골격계 재활</span>
@@ -310,7 +311,7 @@
           </ul>
         </span>
       </a>
-      <a href="/programs/pediatric" class="program-photo-card">
+      <a href="/programs/pediatric" class="program-photo-card" data-tilt>
         <img src="/assets/programs/pediatric.jpg" alt="소아 재활">
         <span class="txt">
           <span class="en">Pediatric</span><span class="kr">소아 재활</span>
@@ -323,7 +324,7 @@
           </ul>
         </span>
       </a>
-      <a href="/programs/other" class="program-photo-card">
+      <a href="/programs/other" class="program-photo-card" data-tilt>
         <img src="/assets/programs/other.jpg" alt="기타 질환 재활">
         <span class="txt">
           <span class="en">Other Diseases</span><span class="kr">기타 질환 재활</span>
@@ -345,6 +346,10 @@
      있는 것만 넣어주세요. 표시광고법상 근거 없는 통계는 위법입니다.
      ============================================================ -->
 <section class="why-section">
+  <div class="parallax-shapes" aria-hidden="true">
+    <div class="pshape pshape-1" data-parallax-speed="0.15"></div>
+    <div class="pshape pshape-2" data-parallax-speed="0.3"></div>
+  </div>
   <div class="wrap">
     <div class="content reveal">
       <span class="eyebrow-blue">바른연세만의 차별점</span>
@@ -376,17 +381,17 @@
       </div>
     </div>
     <div class="diff-cards reveal">
-      <div class="diff-card">
+      <div class="diff-card" data-tilt>
         <div class="diff-ico">📦</div>
         <h3>논문과 AI 기반 설계</h3>
         <p>최신 연구논문과 AI를 바탕으로 더 체계적인 건강·재활운동을 설계합니다.</p>
       </div>
-      <div class="diff-card">
+      <div class="diff-card" data-tilt>
         <div class="diff-ico">🎓</div>
         <h3>자체 개발한 리포멕스 시스템</h3>
         <p>리포멕스는 연세대 출신 이학박사가 직접 개발한 30년 이상 노하우가 집약된 운동 시스템입니다.</p>
       </div>
-      <div class="diff-card">
+      <div class="diff-card" data-tilt>
         <div class="diff-ico">🧑‍⚕️</div>
         <h3>수준 높은 맞춤 케어 서비스</h3>
         <p>다수의 전문 자격과 현장 경험을 갖춘 대표와 물리치료사·작업치료사·건강운동관리사 전문 인력이 가정으로 찾아가 맞춤형 운동서비스를 제공합니다.</p>
@@ -451,6 +456,10 @@
      4-3) 바른연세 비전 — Care / Trust / Recovery / Balance
      ============================================================ -->
 <section class="vision-section">
+  <div class="parallax-shapes" aria-hidden="true">
+    <div class="pshape pshape-1" data-parallax-speed="0.2"></div>
+    <div class="pshape pshape-2" data-parallax-speed="0.35"></div>
+  </div>
   <div class="wrap">
     <span class="eyebrow-blue">바른연세 비전</span>
     <h2>회복이 필요한 순간,<br>가장 가까운 곳에서 함께하겠습니다</h2>
@@ -837,7 +846,7 @@
       </div>
       <div class="trial-price">
         <span class="now">무료체험 30분</span>
-        <a href="/contact" class="btn btn-primary btn-block">무료체험 신청하기</a>
+        <a href="/contact" class="btn btn-primary btn-block magnet" data-magnet data-particle>무료체험 신청하기</a>
       </div>
     </div>
   </div>
@@ -1020,7 +1029,15 @@
 function evalShow(key, btn){
   document.querySelectorAll('.eval-grid').forEach(function(g){ g.style.display = 'none'; });
   var target = document.getElementById('eval-' + key);
-  if(target){ target.style.display = 'grid'; }
+  if(target){
+    target.style.display = 'grid';
+    /* 탭 전환마다 카드 스태거 등장 애니메이션을 다시 재생 (reflow 트릭) */
+    target.querySelectorAll('.eval-card').forEach(function(card){
+      card.style.animation = 'none';
+      void card.offsetWidth;
+      card.style.animation = '';
+    });
+  }
   document.querySelectorAll('.eval-tab-btn').forEach(function(b){ b.classList.remove('active'); });
   if(btn){ btn.classList.add('active'); }
 }
@@ -1045,7 +1062,108 @@ function evalShow(key, btn){
     scroller.scrollBy({left: cardStep()*2, behavior:'smooth'});
   });
 })();
+
+/* ============================================================
+   홈페이지 전용 인터랙션 (2026-08-13 추가, 사용자 승인 완료)
+   A 스포트라이트 / B 자석버튼 / C 3D틸트 / D 비전 가로흐름 /
+   E 클릭 파티클 / 배경 패럴랙스 / 후기카드 확대(CSS전용, JS 불필요)
+   ============================================================ */
+(function(){
+  var isFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(!isFinePointer) return; /* 터치 기기는 마우스 기반 효과 생략 */
+
+  /* A. 히어로 스포트라이트 */
+  var heroSlider = document.getElementById('heroCarousel');
+  var spot = document.getElementById('heroSpotlight');
+  if(heroSlider && spot){
+    heroSlider.addEventListener('mousemove', function(e){
+      var r = heroSlider.getBoundingClientRect();
+      spot.style.left = (e.clientX - r.left) + 'px';
+      spot.style.top = (e.clientY - r.top) + 'px';
+    });
+  }
+
+  /* B. 자석 버튼 */
+  document.querySelectorAll('[data-magnet]').forEach(function(btn){
+    btn.addEventListener('mousemove', function(e){
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width/2;
+      var y = e.clientY - r.top - r.height/2;
+      btn.style.transform = 'translate(' + (x*0.25) + 'px,' + (y*0.25) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function(){ btn.style.transform = 'translate(0,0)'; });
+  });
+
+  /* C. 3D 틸트 카드 (프로그램 카드 + 차별점 카드) */
+  document.querySelectorAll('[data-tilt]').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left)/r.width - 0.5;
+      var y = (e.clientY - r.top)/r.height - 0.5;
+      card.style.transform = 'rotateY(' + (x*10) + 'deg) rotateX(' + (-y*10) + 'deg)';
+    });
+    card.addEventListener('mouseleave', function(){ card.style.transform = 'rotateY(0) rotateX(0)'; });
+  });
+
+  /* E. 클릭 파티클 */
+  document.querySelectorAll('[data-particle]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var colors = ['#1D5FD1','#4C9AFF','#7FC4FF','#0B2A5C'];
+      for(var i=0;i<16;i++){
+        var p = document.createElement('div');
+        p.className = 'fx-particle';
+        p.style.background = colors[i % colors.length];
+        p.style.left = e.clientX + 'px';
+        p.style.top = e.clientY + 'px';
+        document.body.appendChild(p);
+        var angle = (Math.PI*2*i)/16;
+        var dist = 50 + Math.random()*50;
+        var tx = Math.cos(angle)*dist, ty = Math.sin(angle)*dist;
+        (function(el, tx, ty){
+          var anim = el.animate([
+            { transform:'translate(0,0) scale(1)', opacity:1 },
+            { transform:'translate(' + tx + 'px,' + ty + 'px) scale(0)', opacity:0 }
+          ], { duration: 550 + Math.random()*250, easing:'cubic-bezier(.2,.8,.2,1)' });
+          anim.onfinish = function(){ el.remove(); };
+        })(p, tx, ty);
+      }
+    });
+  });
+
+  /* 배경 패럴랙스 도형 — 스크롤 속도보다 느리게 이동 */
+  var pshapes = document.querySelectorAll('[data-parallax-speed]');
+  if(pshapes.length){
+    var ticking = false;
+    function updateParallax(){
+      var sy = window.scrollY;
+      pshapes.forEach(function(el){
+        var speed = parseFloat(el.getAttribute('data-parallax-speed')) || 0.2;
+        el.style.transform = 'translateY(' + (sy*speed*-1) + 'px)';
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(updateParallax); ticking = true; }
+    }, {passive:true});
+    updateParallax();
+  }
+
+  /* D. 비전 섹션 — 스크롤에 따라 원형 카드가 좌우로 흐름 */
+  var visionSection = document.querySelector('.vision-section');
+  var visionCircles = document.querySelector('.vision-circles');
+  if(visionSection && visionCircles){
+    window.addEventListener('scroll', function(){
+      var r = visionSection.getBoundingClientRect();
+      var vh = window.innerHeight;
+      if(r.top > vh || r.bottom < 0) return;
+      var progress = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      var shift = (progress - 0.5) * 40; /* 최대 ±20px 부드러운 흐름 */
+      visionCircles.style.transform = 'translateX(' + shift + 'px)';
+    }, {passive:true});
+  }
+})();
 </script>
 
+<script src="/js/cursor.js"></script>
 </body>
 </html>
