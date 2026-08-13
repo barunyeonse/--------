@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  바른연세 방문 건강·재활 운동센터 — 바른연세 스토리 허브 페이지 (/story)
+  이 파일도 index.html과 같은 방식(HTML+공용 CSS)으로 되어 있습니다.
+  글자 수정은 아래 본문의 한글만 바꾸면 됩니다.
+
+  ※ 이 페이지는 새로운 상단메뉴 구조(센터소개 / 운동 프로그램 /
+    바른연세 스토리 / 고객센터)에 맞춰 새로 만들어진 페이지입니다.
+    센터 소식·인터뷰 등 실제 콘텐츠는 아직 없어 자리표시(준비중)로
+    두었고, 대표 인사말·홈케어가이드·고객후기·블로그 등 이미 있는
+    콘텐츠로 연결하는 허브 역할을 합니다. 실제 소식이 준비되면 이
+    페이지의 카드를 채워 넣으면 됩니다.
+  ============================================================
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바른연세 스토리 | 바른연세 방문 건강·재활 운동센터</title>
+<meta name="description" content="바른연세 방문 건강·재활 운동센터의 설립 이야기, 지역사회와 함께한 활동, 홈케어가이드, 고객후기를 한곳에서 만나보세요.">
+<link rel="canonical" href="https://barunrehab.com/story">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="바른연세 방문 건강·재활 운동센터">
+<meta property="og:title" content="바른연세 스토리 | 바른연세 방문 건강·재활 운동센터">
+<meta property="og:description" content="바른연세 방문 건강·재활 운동센터의 설립 이야기, 지역사회와 함께한 활동, 홈케어가이드, 고객후기를 한곳에서 만나보세요.">
+<meta property="og:url" content="https://barunrehab.com/story">
+<meta property="og:image" content="https://barunrehab.com/assets/logo-color.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.qab{background:var(--primary-light);border-left:4px solid var(--primary);border-radius:10px;padding:20px 24px;margin:0 0 32px;font-size:15.5px;color:var(--primary-dark);}
+.qab b{color:var(--navy);}
+.guide-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.guide-card .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:3px 10px;border-radius:999px;margin-bottom:10px;}
+.guide-card h3{font-size:17px;margin-bottom:8px;}
+.guide-card p{color:var(--text-soft);font-size:14px;flex:1;}
+.story-blog{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <img src="/assets/logo-header.png" alt="바른연세 방문 건강·재활 운동센터 로고">
+      <span class="logo-tagline">방문 건강·재활 운동센터</span>
+    </a>
+    <nav class="nav-menu">
+      <a href="/about">센터소개</a>
+      <a href="/programs">운동 프로그램</a>
+      <a href="/story">바른연세 스토리</a>
+      <a href="/contact">고객센터</a>
+      <div class="mega-panel">
+        <div class="mega-panel-inner">
+          <div class="mega-col">
+            <span class="mega-title">센터소개</span>
+            <a href="/about">센터소개</a>
+            <a href="/about#ceo-message">대표 인사말</a>
+            <a href="/about#experts">전문가 소개</a>
+            <a href="/about#guide-info">이용안내</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-title">운동 프로그램</span>
+            <a href="/programs/care">바른연세 케어</a>
+            <a href="/programs/neurological">신경계 재활</a>
+            <a href="/programs/musculoskeletal">근골격계 재활</a>
+            <a href="/programs/pediatric">소아 재활</a>
+            <a href="/programs/other">기타 질환 재활</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-title">바른연세 스토리</span>
+            <a href="/story">바른연세 스토리</a>
+            <a href="/guide">홈케어 가이드</a>
+            <a href="/reviews">고객 후기</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-title">고객센터</span>
+            <a href="/contact">무료상담</a>
+            <a href="/contact#org">비즈니스 문의</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-tel"><svg class="tel-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="#25D366" d="M6.6 10.8c1.3 2.6 3.5 4.7 6.1 6.1l2-2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.6 20.7 3.3 13.4 3.3 4.8c0-.6.4-1 1-1H7.7c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2 2z"/></svg> 010-8185-3100</span>
+      <a href="/contact" class="btn btn-primary">무료 상담 신청</a>
+    </div>
+    <button class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('show')">☰</button>
+  </div>
+</header>
+<!-- 2026-08-08: 메뉴가 개별 드롭다운(.nav-item .submenu, 순수 CSS :hover)으로
+     바뀌면서 이 페이지에서 별도 JS가 필요 없어져 제거함 -->
+
+<section class="hero" style="padding:56px 0 40px;">
+  <div class="wrap">
+    <span class="eyebrow">STORY</span>
+    <h1 style="font-size:clamp(26px,3.6vw,38px);">바른연세 스토리</h1>
+    <div class="qab"><b>바른연세 스토리란,</b> 대표 최현준의 설립 이야기부터 지역사회와 함께한 활동, 홈케어가이드, 고객님들의 이야기까지 바른연세를 둘러싼 소식을 한곳에 모아 전해드리는 공간이다.</div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="grid-3">
+      <div class="guide-card">
+        <span class="tag">대표 인사말</span>
+        <h3>2026년 3월 1일, 삼일절에 시작된 바른연세</h3>
+        <p>봉사활동에서 얻은 마음가짐이 방문 건강·재활 운동센터로 이어지기까지, 대표 최현준의 이야기를 만나보세요.</p>
+        <a href="/about#ceo-message" class="btn btn-outline" style="margin-top:14px;">자세히 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">지역사회</span>
+        <h3>실버타운·대학·경로당과 함께 걸어온 길</h3>
+        <p>실버타운형 아파트, 대학 스포츠재활학과, 경로당, 청년센터 등과 함께해온 바른연세의 협업 활동을 소개합니다.</p>
+        <a href="/about" class="btn btn-outline" style="margin-top:14px;">자세히 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">홈케어가이드</span>
+        <h3>방문이 없는 날에도 함께하는 홈케어가이드</h3>
+        <p>낙상예방 체크리스트, 첫 상담 준비가이드 등 가정에서 바로 활용할 수 있는 실용 정보입니다.</p>
+        <a href="/guide" class="btn btn-outline" style="margin-top:14px;">전체 가이드 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">고객 후기</span>
+        <h3>바른연세와 함께한 회복의 순간들</h3>
+        <p>실제 이용 고객·보호자분들이 남겨주신 솔직한 후기를 확인해보세요.</p>
+        <a href="/reviews" class="btn btn-outline" style="margin-top:14px;">후기 보기 →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">블로그</span>
+        <h3>네이버 블로그에서 더 자세한 소식을 만나보세요</h3>
+        <p>센터 소식과 운동 정보를 네이버 블로그에서도 연재하고 있습니다.</p>
+        <div class="story-blog">
+          <a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener" class="btn btn-outline">블로그 1 →</a>
+          <a href="https://blog.naver.com/barun260301" target="_blank" rel="noopener" class="btn btn-outline">블로그 2 →</a>
+        </div>
+      </div>
+      <div class="guide-card">
+        <span class="tag">준비중</span>
+        <h3>새로운 센터 소식을 준비하고 있습니다</h3>
+        <p>인터뷰, 현장 스토리 등 다양한 콘텐츠가 순차적으로 공개될 예정입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>바른연세 방문 건강·재활 운동센터</h4>
+        <p>대표 최현준 | 사업자등록번호 405-10-64886<br>
+        주소 서울특별시 강남구 선릉로 704 (청담동) 청담빌딩 12층 1270-3호<br>
+        대표전화 010-8185-3100<br>
+        이메일 barun260301@naver.com</p>
+      </div>
+      <div>
+        <h4>바로가기</h4>
+        <ul>
+          <li><a href="/about">센터소개</a></li>
+          <li><a href="/programs">재활프로그램</a></li>
+          <li><a href="/guide">홈케어가이드</a></li>
+          <li><a href="/reviews">고객후기</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>고객지원</h4>
+        <ul>
+          <li><a href="/faq">자주 묻는 질문</a></li>
+          <li><a href="/contact">상담·문의</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>블로그</h4>
+        <ul>
+          <li><a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener">네이버 블로그 1</a></li>
+          <li><a href="https://blog.naver.com/barun260301" target="_blank" rel="noopener">네이버 블로그 2</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 바른연세 방문 건강·재활 운동센터. All rights reserved.</span>
+      <span class="footer-legal">
+        <a href="/terms">이용약관</a>
+        <span aria-hidden="true">·</span>
+        <a href="/privacy">개인정보처리방침</a>
+      </span>
+      <span>고객문의 평일·토요일 24시간 상담 (일요일·공휴일 휴무)</span>
+      <span style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        비의료 건강관리 서비스이며 의료행위를 대체하지 않습니다.
+        <span class="footer-social">
+          <a href="https://pf.kakao.com/_xlMpzX" target="_blank" rel="noopener noreferrer">💬 카카오톡</a>
+          <a href="https://blog.naver.com/barun8185" target="_blank" rel="noopener">📝 블로그</a>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="floating">
+  <a href="tel:01081853100" title="전화 상담"><svg class="tel-icon-lg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#25D366" d="M6.6 10.8c1.3 2.6 3.5 4.7 6.1 6.1l2-2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.6 20.7 3.3 13.4 3.3 4.8c0-.6.4-1 1-1H7.7c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2 2z"/></svg><span class="fl-label">전화</span></a>
+  <a href="https://pf.kakao.com/_xlMpzX/chat" title="카카오톡 상담" target="_blank" rel="noopener noreferrer">💬<span class="fl-label">TALK</span></a>
+  <a href="/reviews" title="고객 후기">⭐<span class="fl-label">후기</span></a>
+  <a href="https://blog.naver.com/barun8185" title="블로그" target="_blank" rel="noopener">📝<span class="fl-label">blog</span></a>
+  <a href="#" title="유튜브" target="_blank" rel="noopener">▶<span class="fl-label">유튜브</span></a>
+</div>
+</body>
+</html>
