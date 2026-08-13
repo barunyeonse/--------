@@ -1234,3 +1234,111 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   .journey-step.stagger-in,.vision-circles>*.stagger-in{animation:none;}
   .trial-section .btn-primary::before{animation:none;display:none;}
 }
+
+
+/* ============================================================
+   2026-08-13 프로그램 페이지 디자인 강화 (전 프로그램 페이지 공통)
+   ============================================================ */
+
+/* 상단 통계 스트립 — 카운트업 숫자 */
+.prog-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);max-width:960px;margin:28px auto 0;
+  background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;
+}
+.prog-stats .ps-item{padding:22px 12px;text-align:center;position:relative;}
+.prog-stats .ps-item:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(--border);
+}
+.prog-stats .ps-num{
+  font-size:clamp(22px,2.6vw,30px);font-weight:800;color:var(--primary);line-height:1.2;
+  font-variant-numeric:tabular-nums;
+}
+.prog-stats .ps-num .ps-unit{font-size:15px;font-weight:700;margin-left:1px;}
+.prog-stats .ps-label{font-size:12.5px;color:var(--text-soft);margin-top:4px;}
+@media(max-width:680px){
+  .prog-stats{grid-template-columns:repeat(2,1fr);}
+  .prog-stats .ps-item:nth-child(2)::after{display:none;}
+}
+
+/* 세부 운동 프로그램 — 아이콘 카드 그리드 (기존 텍스트 나열형 대체) */
+.prog-detail-box{max-width:1080px;}
+.pd-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:6px;
+}
+.pd-chip{
+  display:flex;align-items:center;gap:10px;background:var(--primary-light);border-radius:12px;
+  padding:14px 16px;transition:.25s;cursor:default;
+}
+.pd-chip:hover{background:var(--primary);transform:translateY(-3px);box-shadow:0 10px 22px rgba(18,52,86,.16);}
+.pd-chip:hover .pd-chip-label{color:#fff;}
+.pd-chip-ico{font-size:19px;flex-shrink:0;}
+.pd-chip-label{font-size:13.5px;font-weight:700;color:var(--navy);transition:.25s;line-height:1.35;}
+
+/* 평가도구 — 카드형 (표 대체) */
+.eval-tool-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0 8px;
+}
+.eval-tool-card{
+  background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;
+  transition:.25s;position:relative;overflow:hidden;
+}
+.eval-tool-card:hover{border-color:var(--primary);box-shadow:0 12px 26px rgba(18,52,86,.10);transform:translateY(-4px);}
+.eval-tool-card .et-name{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.eval-tool-card .et-desc{font-size:13px;color:var(--text-soft);margin-bottom:10px;line-height:1.5;}
+.eval-tool-card .et-tag{
+  display:inline-block;font-size:11.5px;font-weight:700;color:var(--primary);
+  background:var(--primary-light);padding:3px 10px;border-radius:999px;
+}
+
+/* 프로세스 타임라인 — 스크롤 진입 시 순차 등장 (기존 journey-step 어휘 재사용) */
+.pt-timeline .pt-step{opacity:0;transform:translateY(18px);}
+.pt-timeline .pt-step.stagger-in{animation:staggerFadeUp .65s cubic-bezier(.2,.8,.2,1) forwards;}
+.pt-timeline .pt-step:nth-child(1){animation-delay:0s;}
+.pt-timeline .pt-step:nth-child(2){animation-delay:.12s;}
+.pt-timeline .pt-step:nth-child(3){animation-delay:.24s;}
+.pt-timeline .pt-step:nth-child(4){animation-delay:.36s;}
+.pt-timeline .pt-step:nth-child(5){animation-delay:.48s;}
+.pt-timeline .pt-ico{transition:transform .3s ease, background .3s ease;}
+.pt-timeline .pt-step:hover .pt-ico{transform:scale(1.1) rotate(-4deg);background:var(--primary);}
+.pt-timeline .pt-step:hover .pt-ico{filter:brightness(0) invert(1);}
+
+/* 증상 자가 점검 — 체크 시 카드 살짝 튀어오르는 피드백 */
+.symptom-item{transition:transform .2s ease, border-color .2s ease, background .2s ease;}
+.symptom-item.checked{animation:symptomPop .35s ease;}
+@keyframes symptomPop{
+  0%{transform:scale(1);}
+  40%{transform:scale(1.035);}
+  100%{transform:scale(1);}
+}
+
+/* 대상자 카드 — 호버 시 아이콘 살짝 튀어오름 */
+.pt-card .pt-ico{transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
+.pt-card:hover .pt-ico{transform:translateY(-4px) scale(1.08);}
+
+/* 허브 페이지(/programs) 프로그램 카드 — 사진 배경 + 호버 모션 강화 */
+.program-card{position:relative;overflow:hidden;background:#fff;}
+.program-card .top{
+  height:190px;background-size:cover;background-position:top center;background-color:#fff;
+  transition:transform .5s ease;position:relative;border-bottom:1px solid var(--border);
+}
+.program-card .top::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,42,92,0) 72%,rgba(11,42,92,.14) 100%);
+}
+.program-card:hover .top{transform:scale(1.06);}
+.program-card .pc-ico{
+  position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;font-size:18px;
+  box-shadow:0 6px 14px rgba(11,42,92,.18);z-index:1;
+}
+.program-card .body{position:relative;}
+.program-card .body a{
+  display:inline-flex;align-items:center;gap:4px;font-weight:700;transition:gap .2s ease;
+}
+.program-card:hover .body a{gap:8px;}
+
+@media(prefers-reduced-motion:reduce){
+  .pt-timeline .pt-step{opacity:1;transform:none;}
+  .pt-timeline .pt-step.stagger-in{animation:none;}
+  .symptom-item.checked{animation:none;}
+  .pd-chip:hover,.eval-tool-card:hover,.pt-card:hover .pt-ico,.program-card:hover .top{transform:none;}
+}
