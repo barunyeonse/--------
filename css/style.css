@@ -1145,8 +1145,8 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 }
 .custom-hero-slider:hover .hero-spotlight{opacity:1;}
 
-/* B. 자석 버튼 */
-.magnet{display:inline-block;will-change:transform;transition:transform .15s ease-out;}
+/* B. 자석 버튼 (2026-08-13 인터랙션 개편: 0.15s → 0.5s, 더 느긋하게 반응) */
+.magnet{display:inline-block;will-change:transform;transition:transform .5s ease-out;}
 
 /* C. 3D 틸트 카드 (프로그램 카드 / 차별점 카드) */
 .program-photo-grid{perspective:1200px;}
@@ -1199,6 +1199,30 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   100%{opacity:0;transform:scale(1.045);}
 }
 
+/* 추가④ 2026-08-13 인터랙션 개편: 재활운동 진행과정 4단계 + 비전 섹션 4개 원 —
+   스크롤로 화면에 들어올 때 순서대로 통통 튀며 등장 (디자인은 그대로, 등장 움직임만 추가) */
+.journey-step,.vision-circles>*{opacity:0;transform:translateY(16px);}
+.journey-step.stagger-in,.vision-circles>*.stagger-in{
+  animation:staggerFadeUp .7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.journey-step:nth-child(1),.vision-circles>*:nth-child(1){animation-delay:0s;}
+.journey-step:nth-child(2),.vision-circles>*:nth-child(2){animation-delay:.13s;}
+.journey-step:nth-child(3),.vision-circles>*:nth-child(3){animation-delay:.26s;}
+.journey-step:nth-child(4),.vision-circles>*:nth-child(4){animation-delay:.39s;}
+@keyframes staggerFadeUp{to{opacity:1;transform:translateY(0);}}
+
+/* 추가⑤ 2026-08-13 인터랙션 개편: 하단 CTA 신청 버튼 — 은은하게 숨쉬는 테두리 효과 */
+.trial-section .btn-primary{position:relative;}
+.trial-section .btn-primary::before{
+  content:'';position:absolute;inset:-6px;border-radius:inherit;
+  border:2px solid #fff;opacity:0;pointer-events:none;
+  animation:ctaBreathe 2.6s ease-out infinite;
+}
+@keyframes ctaBreathe{
+  0%{opacity:.5;transform:scale(1);}
+  100%{opacity:0;transform:scale(1.08);}
+}
+
 @media(max-width:768px){
   .parallax-shapes{display:none;}
   .hero-spotlight{display:none;}
@@ -1206,4 +1230,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 @media(prefers-reduced-motion:reduce){
   .eval-grid .eval-card{animation:none;opacity:1;transform:none;}
   .grid-2 .card[style*="--primary"]::before{animation:none;display:none;}
+  .journey-step,.vision-circles>*{opacity:1;transform:none;}
+  .journey-step.stagger-in,.vision-circles>*.stagger-in{animation:none;}
+  .trial-section .btn-primary::before{animation:none;display:none;}
 }
