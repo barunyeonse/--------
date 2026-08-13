@@ -4,8 +4,8 @@
 /* 실제 barunrehab.com(아임웹)에서 사용 중인 폰트와 동일한 Pretendard 웹폰트 */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css');
 :root{
-  /* 2026-08-13 색상 개편(C안): 로고의 블루 그라디언트(스카이블루→진네이비)를
-     기준으로 헤더는 항상 짙은 네이비, 본문은 따뜻한 아이보리로 분리 */
+  /* 2026-08-13 색상 개편(D안): 웜 아이보리가 메인 블루와 온도가 맞지 않는다는
+     피드백에 따라, 블루와 동일 계열(쿨톤)인 아이스 블루그레이로 배경 교체 */
   --primary:#1D5FD1;        /* 메인 컬러(로고 중간톤과 동일한 브랜드 블루) */
   --primary-dark:#123F94;
   --primary-light:#EAF2FF;
@@ -17,10 +17,10 @@
   --accent-dark:#123F94;
   --text:#1C2733;
   --text-soft:#54606B;
-  --bg:#F6F2E9;               /* 웜 아이보리 — 밋밋했던 기존 배경보다 따뜻하고 또렷하게 */
-  --bg-alt:#FAF9F5;
+  --bg:#EEF3FA;               /* 아이스 블루그레이 — 메인 블루와 동일 계열(쿨톤)로 통일감 강화 */
+  --bg-alt:#F6F9FD;
   --white:#FFFFFF;
-  --border:#E7E1D2;
+  --border:#DCE6F2;
   --radius:16px;
   --shadow:0 8px 24px rgba(11,42,92,0.10);
   --maxw:1160px;
@@ -275,7 +275,7 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .compare{margin-top:44px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#fff;}
 .compare-row{display:grid;grid-template-columns:1.3fr 1fr;border-bottom:1px solid var(--border);}
 .compare-row:last-child{border-bottom:none;}
-.compare-row .label{padding:20px 24px;font-weight:700;color:var(--navy);background:#F5F3EC;}
+.compare-row .label{padding:20px 24px;font-weight:700;color:var(--navy);background:var(--bg);}
 .compare-row .value{padding:20px 24px;color:var(--text-soft);font-size:15px;}
 .compare-row .value b{color:var(--primary);}
 
@@ -1015,7 +1015,26 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .notice-banner p{max-width:820px;margin:0 auto;text-align:center;color:var(--navy);font-size:14px;line-height:1.7;font-weight:600;}
 
 /* 질환·프로그램 태그 칩 리스트 */
-.chip-section{padding:48px 0 8px;text-align:center;}
+.chip-section{
+  padding:48px 0 8px;text-align:center;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 100% at 8% 0%, rgba(29,95,209,.07), transparent 60%),
+    radial-gradient(ellipse 50% 90% at 95% 100%, rgba(76,154,255,.08), transparent 55%);
+}
+.chip-section .parallax-shapes .pshape-1{width:220px;height:220px;background:radial-gradient(circle,rgba(29,95,209,.10),transparent 70%);top:-40px;left:2%;}
+.chip-section .parallax-shapes .pshape-2{width:160px;height:160px;background:radial-gradient(circle,rgba(76,154,255,.13),transparent 70%);bottom:-30px;right:4%;}
+.chip-section>.wrap{position:relative;z-index:1;}
+/* 운동 프로그램 안내 섹션 — 은은한 블루 그라디언트 + 3개 장식 원으로 입체감 강화 */
+.programs-intro-section{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 55% 70% at 90% 5%, rgba(29,95,209,.06), transparent 55%),
+    radial-gradient(ellipse 45% 60% at 5% 95%, rgba(11,42,92,.05), transparent 55%);
+}
+.programs-intro-section .parallax-shapes .pshape-1{width:300px;height:300px;background:radial-gradient(circle,rgba(29,95,209,.09),transparent 70%);top:-80px;right:-60px;}
+.programs-intro-section .parallax-shapes .pshape-2{width:180px;height:180px;background:radial-gradient(circle,rgba(76,154,255,.12),transparent 70%);bottom:10%;left:2%;}
+.programs-intro-section .parallax-shapes .pshape-3{width:140px;height:140px;background:radial-gradient(circle,rgba(11,42,92,.08),transparent 70%);top:40%;left:45%;}
+.programs-intro-section>.wrap{position:relative;z-index:1;}
 .chip-label{font-size:14px;font-weight:700;color:var(--text-soft);margin-bottom:16px;letter-spacing:.01em;}
 .chip-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:820px;margin:0 auto;}
 .chip{
