@@ -40,3 +40,26 @@
     if (e.target.closest(hoverSelector)) document.body.classList.remove('cursor-hover');
   });
 })();
+
+/* ============================================================
+   내부 페이지 공용 스크롤 페이드인 (2026-08-13 추가)
+   홈페이지 외 페이지(소개/문의/프로그램 등)에 가벼운 등장 효과만 적용.
+   .reveal 클래스가 붙은 요소가 화면에 들어오면 부드럽게 나타납니다.
+   ============================================================ */
+(function () {
+  var targets = document.querySelectorAll('.reveal');
+  if (!targets.length) return;
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
