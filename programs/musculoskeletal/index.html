@@ -174,6 +174,12 @@
   <div class="wrap reveal">
     <span class="prog-pill">Program</span>
     <h1>근골격계 재활</h1>
+    <div class="prog-stats reveal">
+      <div class="ps-item"><div class="ps-num" data-count="8" data-suffix="종">0</div><div class="ps-label">국제표준 평가도구</div></div>
+      <div class="ps-item"><div class="ps-num" data-count="6" data-suffix="개">0</div><div class="ps-label">근골격계 질환 대상군</div></div>
+      <div class="ps-item"><div class="ps-num" data-count="10" data-suffix="년+">0</div><div class="ps-label">전문 인력 평균 경력</div></div>
+      <div class="ps-item"><div class="ps-num" data-count="1" data-suffix="회 무료">0</div><div class="ps-label">신체 운동 수행능력 확인</div></div>
+    </div>
   </div>
   <nav class="prog-tabs">
     <a href="/programs/care">바른연세 케어</a>
@@ -438,6 +444,57 @@ document.querySelectorAll('.symptom-section').forEach(function(sec){
     });
   });
 });
+</script>
+<script>
+/* 상단 통계 카운트업 — 화면에 들어오면 0에서 목표 숫자까지 애니메이션 */
+(function(){
+  var nums = document.querySelectorAll('.prog-stats .ps-num');
+  if(!nums.length) return;
+  function animateNum(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 900, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(target * eased);
+      el.textContent = val + (suffix ? '' : '');
+      if(suffix){ el.innerHTML = val + '<span class="ps-unit">' + suffix + '</span>'; }
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ animateNum(e.target); io.unobserve(e.target); }
+      });
+    }, {threshold:.4});
+    nums.forEach(function(n){ io.observe(n); });
+  } else {
+    nums.forEach(animateNum);
+  }
+})();
+/* 프로세스 타임라인 — 화면에 들어오면 순서대로 튀어오르며 등장 */
+(function(){
+  var timeline = document.querySelector('.pt-timeline');
+  if(!timeline) return;
+  var steps = timeline.querySelectorAll('.pt-step');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          steps.forEach(function(s){ s.classList.add('stagger-in'); });
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.3});
+    io.observe(timeline);
+  } else {
+    steps.forEach(function(s){ s.classList.add('stagger-in'); });
+  }
+})();
 </script>
 <script src="/js/cursor.js"></script>
 </body>
