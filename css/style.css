@@ -35,6 +35,9 @@ body{
   line-height:1.7;
   font-size:17px; /* 어르신 방문객도 고려한 기본 글자 크기 */
   -webkit-font-smoothing:antialiased;
+  /* 2026-08-19: 한글 줄바꿈 시 단어 중간이 잘리지 않도록(가독성 정돈) */
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
@@ -1165,7 +1168,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .fx-particle{position:fixed;width:7px;height:7px;border-radius:50%;pointer-events:none;z-index:9998;}
 
 /* 배경 패럴랙스 도형 — 스크롤 속도보다 느리게 움직임 */
-.parallax-shapes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.parallax-shapes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;max-width:var(--maxw);left:0;right:0;margin:0 auto;}
 .parallax-shapes .pshape{position:absolute;border-radius:50%;will-change:transform;}
 .why-section{position:relative;}
 .why-section .parallax-shapes .pshape-1{width:260px;height:260px;background:radial-gradient(circle,rgba(29,95,209,.10),transparent 70%);top:-60px;left:-60px;}
