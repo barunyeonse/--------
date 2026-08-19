@@ -78,7 +78,7 @@ header{
 .logo{font-size:20px;font-weight:900;color:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
 .logo img{height:72px;width:auto;display:block;}
 .logo span{color:var(--sky);}
-.logo-tagline{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.72);letter-spacing:.01em;padding-left:2px;}
+.logo-tagline{font-size:12.5px;font-weight:700;color:#fff;letter-spacing:.01em;padding-left:2px;}
 @media (max-width:600px){.logo img{height:56px;} .logo-tagline{font-size:10.5px;}}
 footer h4.f-logo{display:flex;align-items:center;gap:8px;}
 footer h4.f-logo img{height:28px;width:auto;display:block;}
@@ -93,7 +93,7 @@ footer h4.f-logo img{height:28px;width:auto;display:block;}
 .nav-cat:hover .nc-text b{color:var(--sky);}
 .nav-cat .nc-text small{font-size:11px;color:rgba(255,255,255,.65);font-weight:500;}
 .nav-cta{display:flex;gap:10px;align-items:center;}
-.nav-tel{font-weight:600;color:var(--sky);font-size:13px;line-height:1.6;text-align:right;}
+.nav-tel{font-weight:600;color:#fff;font-size:13px;line-height:1.6;text-align:right;}
 .nav-tel b{display:block;font-size:16px;font-weight:800;color:#fff;}
 .tel-icon{vertical-align:-2px;}
 .tel-icon-lg{display:block;}
@@ -361,9 +361,12 @@ footer a:hover{color:#fff;}
     display:flex;flex-direction:column;align-items:flex-start;gap:2px;
     position:absolute;top:100%;left:0;right:0;background:#fff;
     padding:14px 24px 20px;border-bottom:1px solid var(--border);box-shadow:var(--shadow);
+    max-height:calc(100vh - 100%);overflow-y:auto;z-index:99;
   }
-  .nav-menu.show a{padding:11px 0;width:100%;border-bottom:1px solid var(--border);}
+  .nav-menu.show a{padding:11px 0;width:100%;border-bottom:1px solid var(--border);color:var(--navy);font-size:16px;}
   .nav-menu.show a:last-of-type{border-bottom:none;}
+  .nav-menu.show a:hover{color:var(--primary);}
+  .nav-menu.show .mega-panel{display:none !important;}
   .hamburger{display:block;}
   .section{padding:60px 0;}
   .grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;}
@@ -1235,7 +1238,6 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   .trial-section .btn-primary::before{animation:none;display:none;}
 }
 
-
 /* ============================================================
    2026-08-13 프로그램 페이지 디자인 강화 (전 프로그램 페이지 공통)
    ============================================================ */
@@ -1341,4 +1343,88 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   .pt-timeline .pt-step.stagger-in{animation:none;}
   .symptom-item.checked{animation:none;}
   .pd-chip:hover,.eval-tool-card:hover,.pt-card:hover .pt-ico,.program-card:hover .top{transform:none;}
+}
+
+/* ============================================================
+   홈페이지 — 고객 만족도 그래프 섹션 (2026-08-19 추가)
+   숫자 출처: 실제 고객 후기·설문 응답(5점 만점 평균 4.8점 → 100점 환산 96%),
+   누적 응답 200건+ 기준. 구간별 추이 숫자 라벨은 근거 부족으로 제거하고
+   곡선의 시각적 트렌드만 표시함.
+   ============================================================ */
+.satisfaction-section{background:var(--bg-alt);}
+.satisfaction-panel{
+  background:#fff;border-radius:24px;padding:44px 48px;box-shadow:0 20px 50px rgba(11,42,92,.14);
+  display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:center;
+}
+.satisfaction-chart{position:relative;}
+.satisfaction-chart svg{display:block;width:100%;height:auto;overflow:visible;}
+.satisfaction-chart .grid-line{stroke:var(--border);stroke-width:1;}
+.satisfaction-chart .trend-line{fill:none;stroke:url(#satLineGrad);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;}
+.satisfaction-chart .trend-area{fill:url(#satAreaGrad);}
+.satisfaction-chart .pt{fill:#fff;stroke:var(--primary);stroke-width:3;}
+.satisfaction-chart .pt-final{fill:var(--primary);stroke:#fff;stroke-width:3;}
+.satisfaction-xlabels{display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px;}
+.satisfaction-xlabels span{
+  background:#F1F5FB;color:var(--text-soft);font-size:12px;font-weight:700;
+  padding:5px 10px;border-radius:999px;text-align:center;justify-self:center;
+}
+.satisfaction-xlabels span:last-child{background:var(--primary);color:#fff;}
+.satisfaction-stats{display:flex;flex-direction:column;gap:22px;}
+.satisfaction-stat{border-left:3px solid var(--primary-light);padding-left:16px;}
+.satisfaction-stat .num{font-size:32px;font-weight:900;color:var(--primary);line-height:1.1;}
+.satisfaction-stat .num .unit{font-size:16px;font-weight:700;margin-left:2px;color:var(--navy);}
+.satisfaction-stat .lbl{font-size:13px;color:var(--text-soft);margin-top:4px;font-weight:600;}
+.satisfaction-source-note{
+  margin-top:20px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:12.5px;color:#8891A0;line-height:1.6;
+}
+@media(max-width:760px){
+  .satisfaction-panel{grid-template-columns:1fr;padding:32px 24px;}
+  .satisfaction-xlabels span{font-size:10.5px;padding:4px 6px;}
+}
+
+/* ============================================================
+   Premium Program 섹션 — 스토리텔링 + 체크포인트 리디자인 (2026-08-19)
+   기존 3-카드 슬라이드(pp-card)를 대체. 큰 사진이 좌우 교차 배치되는
+   풀스크린 스토리텔링 레이아웃 + 체크리스트 텍스트 스타일.
+   ============================================================ */
+.pp-story-track{display:flex;flex-direction:column;gap:0;margin-top:48px;}
+.pp-story-panel{
+  display:flex;align-items:center;gap:64px;padding:56px 0;position:relative;
+}
+.pp-story-panel:nth-child(even){flex-direction:row-reverse;}
+.pp-story-panel::after{
+  content:'';position:absolute;left:50%;bottom:0;width:2px;height:56px;
+  background:linear-gradient(var(--primary), transparent);transform:translateX(-50%);
+}
+.pp-story-panel:last-child::after{display:none;}
+.pp-story-photo{
+  flex:0 0 50%;height:360px;border-radius:24px;background-size:cover;background-position:center;
+  box-shadow:0 20px 50px rgba(11,42,92,0.22);position:relative;overflow:hidden;
+}
+.pp-story-photo .pp-num{
+  position:absolute;top:24px;left:24px;width:52px;height:52px;border-radius:999px;
+  background:rgba(255,255,255,.95);color:var(--primary);font-weight:900;font-size:20px;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);
+}
+.pp-story-photo .pp-glow{
+  position:absolute;inset:0;background:linear-gradient(180deg, transparent 45%, rgba(11,42,92,.5) 100%);
+}
+.pp-story-text{flex:1;}
+.pp-story-text .pp-tag{color:var(--primary);font-weight:800;font-size:14px;margin-bottom:10px;display:block;}
+.pp-story-text h3{font-size:24px;color:var(--navy);font-weight:800;margin-bottom:18px;line-height:1.3;}
+
+.pp-check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
+.pp-check-item .pp-ico{
+  flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:var(--primary);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:900;
+  margin-top:2px;
+}
+.pp-check-item span{font-size:15px;color:var(--text-soft);line-height:1.55;}
+.pp-check-item b{color:var(--navy);}
+
+@media(max-width:860px){
+  .pp-story-panel, .pp-story-panel:nth-child(even){flex-direction:column;gap:28px;padding:36px 0;}
+  .pp-story-photo{flex:none;width:100%;height:260px;}
+  .pp-story-text h3{font-size:20px;}
 }

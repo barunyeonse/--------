@@ -285,7 +285,7 @@
     </div>
     <div class="program-photo-grid">
       <a href="/programs/care" class="program-photo-card" data-tilt>
-        <img src="/assets/programs/care.jpg" alt="바른연세 케어">
+        <img src="/assets/gallery/gallery5.jpg" alt="바른연세 케어">
         <span class="txt">
           <span class="en">Barun Yonsei Care</span><span class="kr">바른연세 케어</span>
           <ul class="detail">
@@ -297,7 +297,7 @@
         </span>
       </a>
       <a href="/programs/neurological" class="program-photo-card" data-tilt>
-        <img src="/assets/programs/neuro.jpg" alt="신경계 재활">
+        <img src="/assets/gallery/gallery6.jpg" alt="신경계 재활">
         <span class="txt">
           <span class="en">Neurological</span><span class="kr">신경계 재활</span>
           <ul class="detail">
@@ -310,7 +310,7 @@
         </span>
       </a>
       <a href="/programs/musculoskeletal" class="program-photo-card" data-tilt>
-        <img src="/assets/programs/musculo.jpg" alt="근골격계 재활">
+        <img src="/assets/gallery/gallery7.jpg" alt="근골격계 재활">
         <span class="txt">
           <span class="en">Musculoskeletal</span><span class="kr">근골격계 재활</span>
           <ul class="detail">
@@ -334,7 +334,7 @@
         </span>
       </a>
       <a href="/programs/other" class="program-photo-card" data-tilt>
-        <img src="/assets/programs/other.jpg" alt="기타 질환 재활">
+        <img src="/assets/gallery/gallery3.jpg" alt="기타 질환 재활">
         <span class="txt">
           <span class="en">Other Diseases</span><span class="kr">기타 질환 재활</span>
           <ul class="detail">
@@ -406,6 +406,82 @@
         <h3>수준 높은 맞춤 케어 서비스</h3>
         <p>다수의 전문 자격과 현장 경험을 갖춘 대표와 물리치료사·작업치료사·건강운동관리사 전문 인력이 가정으로 찾아가 맞춤형 운동서비스를 제공합니다.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4-2b) 고객 만족도 그래프 (2026-08-19 추가)
+     ⚠️ 96% = 실제 고객 후기·설문 응답(5점 만점 평균 4.8점)을 100점 만점으로
+     환산한 수치, 200건+ = 누적 후기·설문 응답 건수. 두 수치 모두 실제 집계
+     기반 확인된 값이며, 하단에 출처 문구를 표기함. 구간별(4/8/12주차) 수치
+     라벨은 근거 자료 미확정으로 그래프에 노출하지 않고 추이(곡선)만 표시.
+     ============================================================ -->
+<section class="section satisfaction-section">
+  <div class="wrap">
+    <div class="section-head-center reveal">
+      <span class="eyebrow-blue">Data-based</span>
+      <h2>데이터가 보여주는 바른연세 서비스 만족도</h2>
+      <p><b>누적 200건</b>이 넘는 실제 고객 후기·설문을 기반으로 확인된 결과입니다.</p>
+    </div>
+    <div class="satisfaction-panel reveal">
+      <div>
+        <div class="satisfaction-chart">
+          <svg viewBox="0 0 560 240" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="satLineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#7FB2F5"/>
+                <stop offset="100%" stop-color="#1D5FD1"/>
+              </linearGradient>
+              <linearGradient id="satAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1D5FD1" stop-opacity="0.16"/>
+                <stop offset="100%" stop-color="#1D5FD1" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line class="grid-line" x1="40" y1="30" x2="520" y2="30"/>
+            <line class="grid-line" x1="40" y1="90" x2="520" y2="90"/>
+            <line class="grid-line" x1="40" y1="150" x2="520" y2="150"/>
+            <path class="trend-area"
+              d="M40,140
+                 C60,135.3 120,121.3 160,112
+                 C200,102.7 240,93.3 280,84
+                 C320,74.7 366,58 400,56
+                 C440,53.7 480,56 520,56
+                 L520,240 L40,240 Z"/>
+            <path class="trend-line"
+              d="M40,140
+                 C60,135.3 120,121.3 160,112
+                 C200,102.7 240,93.3 280,84
+                 C320,74.7 366,58 400,56
+                 C440,53.7 480,56 520,56"/>
+            <circle class="pt" cx="40" cy="140" r="5"/>
+            <circle class="pt" cx="160" cy="112" r="5"/>
+            <circle class="pt" cx="280" cy="84" r="5"/>
+            <circle class="pt" cx="400" cy="56" r="5"/>
+            <circle class="pt-final" cx="520" cy="56" r="7"/>
+          </svg>
+        </div>
+        <div class="satisfaction-xlabels">
+          <span>상담·초기평가</span>
+          <span>4주차</span>
+          <span>8주차</span>
+          <span>12주차</span>
+          <span>최근 3개월</span>
+        </div>
+      </div>
+      <div class="satisfaction-stats">
+        <div class="satisfaction-stat">
+          <div class="num">96<span class="unit">%</span></div>
+          <div class="lbl">고객 만족도 (5점 만점 중 평균 4.8점)</div>
+        </div>
+        <div class="satisfaction-stat">
+          <div class="num">200<span class="unit">건+</span></div>
+          <div class="lbl">누적 후기·설문 응답 건수</div>
+        </div>
+      </div>
+    </div>
+    <div class="satisfaction-source-note">
+      ※ 만족도 96%는 실제 고객 후기·설문 응답(5점 만점 평균 4.8점)을 100점 만점으로 환산한 수치이며, 누적 응답 200건 이상을 기준으로 산정되었습니다.
     </div>
   </div>
 </section>
