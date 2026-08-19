@@ -77,7 +77,6 @@ header{
 .nav{display:flex;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px;}
 .logo{font-size:20px;font-weight:900;color:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
 .logo img{height:72px;width:auto;display:block;}
-.logo span{color:var(--sky);}
 .logo-tagline{font-size:12.5px;font-weight:700;color:#fff;letter-spacing:.01em;padding-left:2px;}
 @media (max-width:600px){.logo img{height:56px;} .logo-tagline{font-size:10.5px;}}
 footer h4.f-logo{display:flex;align-items:center;gap:8px;}
