@@ -19,7 +19,7 @@
   --text:#1C2733;
   --text-soft:#5A6B85;
   --bg:#FBF8F2;               /* 웜 아이보리 그레이 — 따뜻한 톤으로 전면 교체 */
-  --bg-alt:#FFF8EC;           /* 아이보리 — 히어로·카드 섹션용 */
+  --bg-alt:#EDF1F7;           /* 연한 블루 그레이 — 히어로·카드 섹션용 */
   --white:#FFFFFF;
   --border:#EADFC9;           /* 웜톤 보더 */
   --border-blue:#E4EEFB;      /* 데이터/AI 카드용 블루 보더 */
@@ -862,6 +862,14 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .cta-banner-inner b{display:block;color:#fff;font-size:17px;margin-bottom:4px;}
 .cta-banner-inner span{color:rgba(255,255,255,.72);font-size:13.5px;}
 .cta-banner .btn{white-space:nowrap;}
+.cta-banner-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.cta-banner .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55);box-shadow:none;}
+.cta-banner .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff;color:#fff;}
+@media(max-width:640px){
+  .cta-banner-inner{padding:24px 20px;}
+  .cta-banner-actions{width:100%;flex-direction:column;align-items:stretch;}
+  .cta-banner-actions .btn{width:100%;text-align:center;}
+}
 
 /* ============================================================
    2026-08-08: 비즈니스 문의(단체·기업 제휴) 페이지 — 히어로 사진,
