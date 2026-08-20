@@ -783,7 +783,10 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .prog-top .prog-target-inner h2:last-of-type{margin-bottom:26px;}
 .prog-top .prog-target-inner h2 strong{color:var(--primary);font-weight:800;}
 .prog-top .prog-target-note{
-  text-align:center;max-width:640px;margin:0 auto 26px;color:var(--text-soft);font-size:14px;line-height:1.7;
+  text-align:center;max-width:900px;margin:0 auto 26px;color:var(--text-soft);font-size:14px;line-height:1.7;white-space:nowrap;
+}
+@media(max-width:900px){
+  .prog-top .prog-target-note{white-space:normal;max-width:640px;}
 }
 .prog-top .prog-target-note strong{color:var(--primary-dark);font-weight:800;}
 .prog-top .prog-target-btn{margin-top:32px;}
