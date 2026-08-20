@@ -739,7 +739,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 
 /* 상단 타이틀 + "Program" 알약 뱃지 */
 .prog-top{
-  padding:52px 0 0;text-align:center;
+  padding:0 0 48px;text-align:center;
   background:linear-gradient(135deg,var(--primary-light) 0%,var(--bg-alt) 100%);
 }
 .prog-pill{
@@ -755,15 +755,14 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
   display:inline-flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:26px;
 }
 .prog-top .prog-cta .btn{padding:15px 30px;font-size:15px;}
-.prog-top .wrap{padding-bottom:40px;}
+.prog-top .prog-hero-inner{padding:52px 0 44px;}
 @media(max-width:680px){
-  .prog-top{padding:40px 0 0;}
-  .prog-top .wrap{padding-bottom:32px;}
+  .prog-top .prog-hero-inner{padding:40px 0 32px;}
 }
 
-/* 5개 카테고리 탭 스위처 */
+/* 5개 카테고리 탭 스위처 — 히어로 맨 위, 그라데이션 배경 안에 위치 */
 .prog-tabs{
-  display:flex;justify-content:center;gap:8px;row-gap:6px;margin:30px 0 0;
+  display:flex;justify-content:center;gap:8px;row-gap:6px;
   border-bottom:1px solid var(--border);flex-wrap:wrap;
 }
 .prog-tabs a{
@@ -772,6 +771,14 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 }
 .prog-tabs a:hover{color:var(--primary);}
 .prog-tabs a.active{color:var(--navy);border-bottom-color:var(--primary);}
+
+/* 대상자 카드 섹션 — 이제 .prog-top 안으로 통합되어 같은 그라데이션 배경 공유 */
+.prog-top .prog-target-inner{padding:8px 0 4px;}
+.prog-top .prog-target-inner .eyebrow-blue{
+  display:block;font-size:13px;color:var(--text-soft);font-weight:700;margin-bottom:6px;
+}
+.prog-top .prog-target-inner h2{font-size:clamp(19px,2.4vw,24px);color:var(--navy);margin-bottom:26px;}
+.prog-top .prog-target-btn{margin-top:32px;}
 
 /* 전체 폭 사진 밴드 */
 .prog-photoband{height:420px;background-size:cover;background-position:center;}
