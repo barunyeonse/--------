@@ -1426,7 +1426,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .pp-check-item b{color:var(--navy);}
 
 @media(max-width:860px){
-  .pp-story-panel, .pp-story-panel:nth-child(even){flex-direction:column;gap:28px;padding:36px 0;}
+  .pp-story-panel, .pp-story-panel:nth-child(even){flex-direction:column;align-items:stretch;gap:28px;padding:36px 0;}
   .pp-story-photo{flex:none;width:100%;height:260px;}
   .pp-story-text h3{font-size:20px;}
 }
