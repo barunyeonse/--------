@@ -743,7 +743,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 }
 .prog-top .prog-hero-band{
   background:linear-gradient(135deg,var(--primary-light) 0%,var(--bg-alt) 100%);
-  padding:52px 0 44px;
+  padding:52px 0 8px;
 }
 .prog-pill{
   display:inline-flex;align-items:center;gap:8px;background:var(--amber-bg);color:var(--amber-text);
@@ -775,7 +775,7 @@ body.transparent-hero .custom-hero-slider{margin-top:0;}
 .prog-tabs a.active{color:var(--navy);border-bottom-color:var(--primary);}
 
 /* 대상자 카드 섹션 — 히어로와 같은 그라데이션 밴드 안에서 이어짐 */
-.prog-top .prog-target-inner{padding:8px 0 44px;}
+.prog-top .prog-target-inner{padding:22px 0 44px;}
 .prog-top .prog-target-inner .eyebrow-blue{
   display:block;font-size:13px;color:var(--text-soft);font-weight:700;margin-bottom:6px;
 }
